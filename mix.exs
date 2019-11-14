@@ -31,7 +31,7 @@ defmodule HelloNerves.MixProject do
   def application do
     [
       mod: {HelloNerves.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :extwitter]
     ]
   end
 
@@ -56,7 +56,11 @@ defmodule HelloNerves.MixProject do
       {:nerves_system_rpi3a, "~> 1.8", runtime: false, targets: :rpi3a},
       {:nerves_system_rpi4, "~> 1.8", runtime: false, targets: :rpi4},
       {:nerves_system_bbb, "~> 2.3", runtime: false, targets: :bbb},
-      {:nerves_system_x86_64, "~> 1.8", runtime: false, targets: :x86_64}
+      {:nerves_system_x86_64, "~> 1.8", runtime: false, targets: :x86_64},
+      {:httpoison, "~> 1.6"},
+      {:poison, "~> 3.1"},
+      {:oauther, "~> 1.1"},
+      {:extwitter, "~> 0.8"}
     ]
   end
 

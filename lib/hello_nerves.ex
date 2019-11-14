@@ -15,4 +15,10 @@ defmodule HelloNerves do
   def hello do
     :world
   end
+
+  def update(status) do
+    ExTwitter.update(status)
+  end
+
+  def update, do: Weather.Forecast.run() |> update()
 end
