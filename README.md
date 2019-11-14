@@ -1,6 +1,7 @@
 # HelloNerves
 
-**TODO: Add description**
+- Weather.Forecast.run means getting "http://weather.livedoor.com/forecast/webservice/json/v1?city=#{city}".
+- HelloNerves.update means ExTwitter.update.
 
 ## Targets
 
@@ -18,7 +19,14 @@ https://hexdocs.pm/nerves/targets.html#content
 
 To start your Nerves app:
   * `export MIX_TARGET=my_target` or prefix every command with
-    `MIX_TARGET=my_target`. For example, `MIX_TARGET=rpi3`
+    `MIX_TARGET=my_target`. For example, `MIX_TARGET=rpi3`.
+    I use `MIX_TARGET=rpi2`
+  * `export NERVES_NETWORK_SSID=ssid`
+  * `export NERVES_NETWORK_PSK=secret`
+  * `export TWITTER_CONSUMER_KEY=xxx`
+  * `export TWITTER_CONSUMER_SECRET=yyy`
+  * `export TWITTER_ACCESS_TOKEN=zzz`
+  * `export TWITTER_ACCESS_TOKEN_SECRET=aaa`
   * Install dependencies with `mix deps.get`
   * Create firmware with `mix firmware`
   * Burn to an SD card with `mix firmware.burn`
