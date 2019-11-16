@@ -1,5 +1,6 @@
 %{
   "certifi": {:hex, :certifi, "2.5.1", "867ce347f7c7d78563450a18a6a28a8090331e77fa02380b4a21962a65d36ee5", [:rebar3], [{:parse_trans, "~>3.3", [hex: :parse_trans, repo: "hexpm", optional: false]}], "hexpm"},
+  "cronex": {:git, "https://github.com/jbernardo95/cronex.git", "345b57e14667a08280d790afdfbb359f467649df", [ref: "345b57e14667a08280d790afdfbb359f467649df"]},
   "dns": {:hex, :dns, "2.1.2", "81c46d39f7934f0e73368355126e4266762cf227ba61d5889635d83b2d64a493", [:mix], [{:socket, "~> 0.3.13", [hex: :socket, repo: "hexpm", optional: false]}], "hexpm"},
   "elixir_make": {:hex, :elixir_make, "0.6.0", "38349f3e29aff4864352084fc736fa7fa0f2995a819a737554f7ebd28b85aaab", [:mix], [], "hexpm"},
   "extwitter": {:hex, :extwitter, "0.9.6", "27329093edced8a30d52599de3207c4e08e75c20cd1530c23ccd83ac2e88a33a", [:mix], [{:oauther, "~> 1.1", [hex: :oauther, repo: "hexpm", optional: false]}, {:poison, "~> 3.0", [hex: :poison, repo: "hexpm", optional: false]}], "hexpm"},
