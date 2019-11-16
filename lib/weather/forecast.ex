@@ -1,7 +1,5 @@
 defmodule Weather.Forecast do
-  def run do
-    city = cities() |> Enum.random()
-
+  def run(city) do
     description =
       "http://weather.livedoor.com/forecast/webservice/json/v1?city=#{city}"
       |> HTTPoison.get!()
@@ -19,6 +17,10 @@ defmodule Weather.Forecast do
     if String.length(description) == 0, do: exit("oh no")
 
     description |> Kernel.<>(i_use_nerves())
+  end
+
+  def run do
+    cities() |> Enum.random() |> run
   end
 
   defp i_use_nerves do
