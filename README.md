@@ -2,6 +2,7 @@
 
 - Weather.Forecast.run means getting "http://weather.livedoor.com/forecast/webservice/json/v1?city=#{city}".
 - HelloNerves.update means ExTwitter.update.
+- HelloNerves.Scheduler.start_link/0 causes repeatedly to post Japanese Weather Forecast to Twitter at 22:00 UTC.
 
 ## Targets
 
