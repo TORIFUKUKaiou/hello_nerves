@@ -14,7 +14,7 @@ defmodule Weather.Forecast do
           else: {:halt, acc}
       end)
 
-    if String.length(description) == 0, do: exit("oh no")
+    if String.length(description) <= String.length("#{name}\n"), do: exit("oh no")
 
     description |> Kernel.<>(i_use_nerves())
   end
