@@ -37,4 +37,4 @@ config :extwitter, :oauth,
   access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")
 
 config :cronex,
-  ping_interval: 60010
+  ping_interval: 60000
