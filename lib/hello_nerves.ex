@@ -20,5 +20,11 @@ defmodule HelloNerves do
     ExTwitter.update(status)
   end
 
-  def update, do: Weather.Forecast.run() |> update()
+  def update do
+    try do
+      Weather.Forecast.run() |> update()
+    rescue
+      _e in Weather.Error -> update()
+    end
+  end
 end
