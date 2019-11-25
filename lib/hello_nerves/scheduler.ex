@@ -4,4 +4,8 @@ defmodule HelloNerves.Scheduler do
   every :day, at: "22:00" do
     HelloNerves.update()
   end
+
+  every :day, at: "14:00" do
+    HelloNerves.update()
+  end
 end
