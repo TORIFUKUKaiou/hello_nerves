@@ -61,7 +61,8 @@ defmodule HelloNerves.MixProject do
       {:poison, "~> 3.1"},
       {:oauther, "~> 1.1"},
       {:extwitter, "~> 0.8"},
-      {:cronex, github: "jbernardo95/cronex", ref: "345b57e14667a08280d790afdfbb359f467649df"}
+      {:cronex, github: "jbernardo95/cronex", ref: "345b57e14667a08280d790afdfbb359f467649df"},
+      {:circuits_gpio, "~> 0.4"}
     ]
   end
 
