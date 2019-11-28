@@ -8,4 +8,8 @@ defmodule HelloNerves.Scheduler do
   every :day, at: "14:00" do
     HelloNerves.update()
   end
+
+  every :day, at: "22:05" do
+    HelloNerves.tweet_autorace()
+  end
 end
