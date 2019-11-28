@@ -29,4 +29,17 @@ defmodule HelloNerves do
         update()
     end
   end
+
+  def tweet_autorace do
+    HelloNerves.Autorace.today()
+    |> Enum.map(fn {place, %{title: title}} ->
+      "#{greet()}\n本日は#{place}オートで、#{title}が開催されます。\n\n#autorace #オートレース ##{place}オート"
+    end)
+    |> Enum.each(&update/1)
+  end
+
+  defp greet do
+    ["Seize the day", "Good morning!", "Morning!", "I bid you good morning.", "Morning buddy!"]
+    |> Enum.random()
+  end
 end
