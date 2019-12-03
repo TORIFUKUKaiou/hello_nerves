@@ -38,6 +38,24 @@ defmodule HelloNerves do
     |> Enum.each(&update/1)
   end
 
+  def sound_forecast(city) do
+    content =
+      Weather.Forecast.text(city)
+      |> String.split()
+      |> Enum.take(2)
+      |> Enum.join()
+      |> Torifuku.TextToSpeech.text_to_speech()
+
+    if Application.get_env(:hello_nerves, :target) != :host do
+      File.write("/tmp/output.wav", content)
+      :os.cmd('aplay -q /tmp/output.wav')
+    else
+      # macOS
+      File.write("output.wav", content)
+      :os.cmd('afplay output.wav')
+    end
+  end
+
   defp greet do
     ["Seize the day", "Good morning!", "Morning!", "I bid you good morning.", "Morning buddy!"]
     |> Enum.random()

@@ -28,6 +28,7 @@ To start your Nerves app:
   * `export TWITTER_CONSUMER_SECRET=yyy`
   * `export TWITTER_ACCESS_TOKEN=zzz`
   * `export TWITTER_ACCESS_TOKEN_SECRET=aaa`
+  * `export TEXT_TO_SPEECH_API_KEY=ttt`
   * Install dependencies with `mix deps.get`
   * Create firmware with `mix firmware`
   * Burn to an SD card with `mix firmware.burn`
