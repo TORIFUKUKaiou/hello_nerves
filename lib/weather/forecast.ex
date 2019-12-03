@@ -1,12 +1,16 @@
 defmodule Weather.Forecast do
+  def text(city) do
+    "http://weather.livedoor.com/forecast/webservice/json/v1?city=#{city}"
+    |> HTTPoison.get!()
+    |> Map.get(:body)
+    |> Poison.decode!()
+    |> Map.get("description")
+    |> Map.get("text")
+  end
+
   def run({city, name}) do
-    description =
-      "http://weather.livedoor.com/forecast/webservice/json/v1?city=#{city}"
-      |> HTTPoison.get!()
-      |> Map.get(:body)
-      |> Poison.decode!()
-      |> Map.get("description")
-      |> Map.get("text")
+    text =
+      text(city)
       |> String.split()
       |> Enum.reduce_while("#{name}\n", fn s, acc ->
         if String.length(acc <> "#{s}\n") < 140 - String.length(i_use_nerves()),
@@ -14,9 +18,9 @@ defmodule Weather.Forecast do
           else: {:halt, acc}
       end)
 
-    if String.length(description) <= String.length("#{name}\n"), do: raise(Weather.Error)
+    if String.length(text) <= String.length("#{name}\n"), do: raise(Weather.Error)
 
-    description |> Kernel.<>(i_use_nerves())
+    text <> i_use_nerves()
   end
 
   def run do
