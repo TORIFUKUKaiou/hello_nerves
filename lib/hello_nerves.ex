@@ -39,6 +39,16 @@ defmodule HelloNerves do
   end
 
   def sound_forecast(city) do
+    try do
+      _sound_forecast(city)
+    rescue
+      _e ->
+        Process.sleep(15000)
+        spawn(HelloNerves, :sound_forecast, [400_030])
+    end
+  end
+
+  defp _sound_forecast(city) do
     content =
       Weather.Forecast.text(city)
       |> String.split()
