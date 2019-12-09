@@ -58,11 +58,11 @@ defmodule HelloNerves do
 
     if Application.get_env(:hello_nerves, :target) != :host do
       File.write("/tmp/output.wav", content)
-      :os.cmd('aplay -q /tmp/output.wav')
+      1..3 |> Enum.each(fn _ -> :os.cmd('aplay -q /tmp/output.wav') end)
     else
       # macOS
       File.write("output.wav", content)
-      :os.cmd('afplay output.wav')
+      1..3 |> Enum.each(fn _ -> :os.cmd('afplay output.wav') end)
     end
   end
 
