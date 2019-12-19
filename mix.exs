@@ -57,10 +57,10 @@ defmodule HelloNerves.MixProject do
       {:nerves_system_rpi4, "~> 1.8", runtime: false, targets: :rpi4},
       {:nerves_system_bbb, "~> 2.3", runtime: false, targets: :bbb},
       {:nerves_system_x86_64, "~> 1.8", runtime: false, targets: :x86_64},
-      {:httpoison, "~> 1.6"},
-      {:poison, "~> 3.1"},
+      {:lwwsx, "~> 0.1.0"},
+      {:poison, "~> 3.0", override: true},
       {:oauther, "~> 1.1"},
-      {:extwitter, "~> 0.8"},
+      {:extwitter, "~> 0.9.6"},
       {:cronex, github: "jbernardo95/cronex", ref: "345b57e14667a08280d790afdfbb359f467649df"},
       {:circuits_gpio, "~> 0.4"},
       {:floki, "~> 0.23.0"}
