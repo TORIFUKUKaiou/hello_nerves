@@ -58,6 +58,7 @@ defmodule HelloNerves.MixProject do
       {:nerves_system_bbb, "~> 2.3", runtime: false, targets: :bbb},
       {:nerves_system_x86_64, "~> 1.8", runtime: false, targets: :x86_64},
       {:lwwsx, "~> 0.1.0"},
+      {:docomo_text_to_speech, "~> 0.1.0"},
       {:poison, "~> 3.0", override: true},
       {:oauther, "~> 1.1"},
       {:extwitter, "~> 0.9.6"},

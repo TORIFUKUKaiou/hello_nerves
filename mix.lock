@@ -3,6 +3,7 @@
   "circuits_gpio": {:hex, :circuits_gpio, "0.4.3", "1a53dff1eaeefb9f67f4ebc2c1852b603683eedaa6053bed51c038dd64b978bb", [:make, :mix], [{:elixir_make, "~> 0.6", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm"},
   "cronex": {:git, "https://github.com/jbernardo95/cronex.git", "345b57e14667a08280d790afdfbb359f467649df", [ref: "345b57e14667a08280d790afdfbb359f467649df"]},
   "dns": {:hex, :dns, "2.1.2", "81c46d39f7934f0e73368355126e4266762cf227ba61d5889635d83b2d64a493", [:mix], [{:socket, "~> 0.3.13", [hex: :socket, repo: "hexpm", optional: false]}], "hexpm"},
+  "docomo_text_to_speech": {:hex, :docomo_text_to_speech, "0.1.0", "f8f9f1eed16bba6ba8694d9b5f641622ea9dfcf288c1cc08b7dabc127d6039d2", [:mix], [{:httpoison, "~> 1.6", [hex: :httpoison, repo: "hexpm", optional: false]}, {:poison, "~> 4.0", [hex: :poison, repo: "hexpm", optional: false]}], "hexpm"},
   "elixir_make": {:hex, :elixir_make, "0.6.0", "38349f3e29aff4864352084fc736fa7fa0f2995a819a737554f7ebd28b85aaab", [:mix], [], "hexpm"},
   "extwitter": {:hex, :extwitter, "0.9.6", "27329093edced8a30d52599de3207c4e08e75c20cd1530c23ccd83ac2e88a33a", [:mix], [{:oauther, "~> 1.1", [hex: :oauther, repo: "hexpm", optional: false]}, {:poison, "~> 3.0", [hex: :poison, repo: "hexpm", optional: false]}], "hexpm"},
   "floki": {:hex, :floki, "0.23.1", "e100306ce7d8841d70a559748e5091542e2cfc67ffb3ade92b89a8435034dab1", [:mix], [{:html_entities, "~> 0.5.0", [hex: :html_entities, repo: "hexpm", optional: false]}], "hexpm"},

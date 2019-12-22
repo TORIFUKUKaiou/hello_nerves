@@ -6,8 +6,10 @@
 use Mix.Config
 
 config :hello_nerves,
-  target: Mix.target(),
-  text_to_speech_api_key: System.get_env("TEXT_TO_SPEECH_API_KEY")
+  target: Mix.target()
+
+config :docomo_text_to_speech,
+  api_key: System.get_env("DOCOMO_TEXT_TO_SPEECH_API_KEY")
 
 # Customize non-Elixir parts of the firmware. See
 # https://hexdocs.pm/nerves/advanced-configuration.html for details.

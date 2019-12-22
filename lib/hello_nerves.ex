@@ -44,7 +44,7 @@ defmodule HelloNerves do
     rescue
       _e ->
         Process.sleep(15000)
-        spawn(HelloNerves, :sound_forecast, [400_030])
+        spawn(HelloNerves, :sound_forecast, [city])
     end
   end
 
@@ -54,16 +54,15 @@ defmodule HelloNerves do
       |> String.split()
       |> Enum.take(2)
       |> Enum.join()
-      |> Torifuku.TextToSpeech.text_to_speech()
+      |> DocomoTextToSpeech.run!()
 
-    if Application.get_env(:hello_nerves, :target) != :host do
-      File.write("/tmp/output.wav", content)
-      1..3 |> Enum.each(fn _ -> :os.cmd('aplay -q /tmp/output.wav') end)
-    else
-      # macOS
-      File.write("output.wav", content)
-      1..3 |> Enum.each(fn _ -> :os.cmd('afplay output.wav') end)
-    end
+    {path, play_cmd} =
+      if Application.get_env(:hello_nerves, :target) != :host,
+        do: {"/tmp/output.wav", 'aplay -q /tmp/output.wav'},
+        else: {"output.wav", 'afplay output.wav'}
+
+    File.write(path, content)
+    1..3 |> Enum.each(fn _ -> :os.cmd(play_cmd) end)
   end
 
   defp greet do
