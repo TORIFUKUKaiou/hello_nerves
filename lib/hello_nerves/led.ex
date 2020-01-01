@@ -1,11 +1,13 @@
 defmodule HelloNerves.Led do
+  def run, do: spawn(HelloNerves.Led, :blink, [])
+
   def blink do
     turn_on()
     Process.sleep(500)
     turn_off()
     Process.sleep(500)
 
-    spawn(HelloNerves.Led, :blink, [])
+    blink()
   end
 
   defp turn_on do
