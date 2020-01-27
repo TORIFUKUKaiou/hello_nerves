@@ -17,14 +17,14 @@ defmodule HelloNerves.Observer do
   @impl true
   def handle_info({:circuits_gpio, @input_pin, _timestamp, 1}, state) do
     Logger.debug("Received rising event on pin #{@input_pin}")
-    HelloNerves.Blinker.enable()
+    HelloNerves.Led.Lighter.start_random()
     {:noreply, state ++ [1]}
   end
 
   @impl true
   def handle_info({:circuits_gpio, @input_pin, _timestamp, 0}, state) do
     Logger.debug("Received falling event on pin #{@input_pin}")
-    HelloNerves.Blinker.disable()
+    HelloNerves.Led.Lighter.stop_random()
     {:noreply, state ++ [0]}
   end
 end

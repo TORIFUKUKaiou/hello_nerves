@@ -36,7 +36,8 @@ defmodule HelloNerves.Application do
       # {HelloNerves.Worker, arg},
       {HelloNerves.Blinker, name: HelloNerves.Blinker},
       {HelloNerves.Observer, name: HelloNerves.Observer},
-      {HelloNerves.SetInterrupter, name: HelloNerves.SetInterrupter}
+      {HelloNerves.SetInterrupter, name: HelloNerves.SetInterrupter},
+      {HelloNerves.Led.Lighter, name: HelloNerves.Led.Lighter}
     ]
   end
 
