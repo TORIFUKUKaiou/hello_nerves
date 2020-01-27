@@ -14,7 +14,7 @@ defmodule HelloNerves.Led.Lighter do
 
   @impl true
   def handle_cast(:start_random, state) do
-    pid = spawn(fn -> HelloNerves.Led.SevenSeg.random() end)
+    pid = spawn(fn -> HelloNerves.Led.SevenSeg.random_forever() end)
 
     {:noreply, state ++ [pid]}
   end
@@ -42,8 +42,6 @@ defmodule HelloNerves.Led.Lighter do
   defp stop_random(_pid), do: nil
 
   defp dice do
-    1..6
-    |> Enum.random()
-    |> HelloNerves.Led.SevenSeg.show()
+    HelloNerves.Led.SevenSeg.random()
   end
 end
