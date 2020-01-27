@@ -18,28 +18,22 @@ defmodule HelloNerves.Led.SevenSeg do
   end
 
   def random do
-    1..6
-    |> Enum.random()
-    |> show()
+    f =
+      [&one/0, &two/0, &three/0, &four/0, &five/0, &six/0]
+      |> Enum.random()
+
+    f.()
+  end
+
+  def random_forever do
+    random()
 
     50..75
     |> Enum.random()
     |> Process.sleep()
 
-    random()
+    random_forever()
   end
-
-  def show(1), do: one()
-
-  def show(2), do: two()
-
-  def show(3), do: three()
-
-  def show(4), do: four()
-
-  def show(5), do: five()
-
-  def show(6), do: six()
 
   def one do
     clear()
