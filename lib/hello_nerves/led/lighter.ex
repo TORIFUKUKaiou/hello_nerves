@@ -42,6 +42,6 @@ defmodule HelloNerves.Led.Lighter do
   defp stop_random(_pid), do: nil
 
   defp dice do
-    HelloNerves.Led.SevenSeg.random()
+    HelloNerves.Led.SevenSeg.show()
   end
 end

@@ -1,11 +1,11 @@
 defmodule HelloNerves.Led.SevenSeg do
-  @a_led_pin Application.get_env(:hello_nerves, :a_led_pin, 13)
+  @a_led_pin Application.get_env(:hello_nerves, :a_led_pin, 26)
   @b_led_pin Application.get_env(:hello_nerves, :b_led_pin, 6)
   @c_led_pin Application.get_env(:hello_nerves, :c_led_pin, 5)
-  @d_led_pin Application.get_env(:hello_nerves, :d_led_pin, 20)
-  @e_led_pin Application.get_env(:hello_nerves, :e_led_pin, 21)
-  @f_led_pin Application.get_env(:hello_nerves, :f_led_pin, 19)
-  @g_led_pin Application.get_env(:hello_nerves, :g_led_pin, 26)
+  @d_led_pin Application.get_env(:hello_nerves, :d_led_pin, 16)
+  @e_led_pin Application.get_env(:hello_nerves, :e_led_pin, 23)
+  @f_led_pin Application.get_env(:hello_nerves, :f_led_pin, 25)
+  @g_led_pin Application.get_env(:hello_nerves, :g_led_pin, 22)
 
   alias Circuits.GPIO
 
@@ -17,12 +17,23 @@ defmodule HelloNerves.Led.SevenSeg do
     |> Enum.map(&turn_off(&1))
   end
 
-  def random do
-    f =
-      [&one/0, &two/0, &three/0, &four/0, &five/0, &six/0]
-      |> Enum.random()
+  def show do
+    fun = random_fun()
 
-    f.()
+    1..3
+    |> Enum.each(fn _ ->
+      fun.()
+      Process.sleep(50)
+      clear()
+      Process.sleep(25)
+    end)
+
+    fun.()
+  end
+
+  def random do
+    fun = random_fun()
+    fun.()
   end
 
   def random_forever do
@@ -82,5 +93,10 @@ defmodule HelloNerves.Led.SevenSeg do
   defp gpio(pin) do
     {:ok, output_gpio} = GPIO.open(pin, :output)
     output_gpio
+  end
+
+  defp random_fun do
+    [&one/0, &two/0, &three/0, &four/0, &five/0, &six/0]
+    |> Enum.random()
   end
 end
