@@ -23,6 +23,23 @@ defmodule Weather.Forecast do
     cities() |> Enum.random() |> run
   end
 
+  def text_and_temperature(city) do
+    json = Lwwsx.current(city) |> elem(1)
+
+    text =
+      json
+      |> Map.get("description")
+      |> Map.get("text")
+      |> String.split()
+      |> Enum.take(2)
+      |> Enum.join()
+
+    temperature =
+      json |> Map.get("forecasts") |> Enum.at(0) |> Map.get("temperature") |> temperature()
+
+    text <> temperature
+  end
+
   defp i_use_nerves do
     if Application.get_env(:hello_nerves, :target) != :host do
       "I use Nerves. I like it!"
@@ -32,4 +49,20 @@ defmodule Weather.Forecast do
   end
 
   defp cities, do: Lwwsx.cities()
+
+  defp temperature(%{"max" => %{"celsius" => max}, "min" => nil}) do
+    "最高気温は#{max}度です。"
+  end
+
+  defp temperature(%{"max" => nil, "min" => %{"celsius" => min}}) do
+    "最低気温は#{min}度です。"
+  end
+
+  defp temperature(%{"max" => %{"celsius" => max}, "min" => %{"celsius" => min}}) do
+    "最高気温は#{max}度、最低気温は#{min}度です。"
+  end
+
+  defp temperature(_) do
+    ""
+  end
 end
