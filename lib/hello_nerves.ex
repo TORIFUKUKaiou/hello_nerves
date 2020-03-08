@@ -49,12 +49,7 @@ defmodule HelloNerves do
   end
 
   defp _sound_forecast(city) do
-    content =
-      Weather.Forecast.text(city)
-      |> String.split()
-      |> Enum.take(2)
-      |> Enum.join()
-      |> DocomoTextToSpeech.run!()
+    content = Weather.Forecast.text_and_temperature(city) |> DocomoTextToSpeech.run!()
 
     {path, play_cmd} =
       if Application.get_env(:hello_nerves, :target) != :host,
