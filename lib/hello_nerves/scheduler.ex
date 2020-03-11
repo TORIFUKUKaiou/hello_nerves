@@ -14,10 +14,10 @@ defmodule HelloNerves.Scheduler do
   end
 
   every :day, at: "21:59" do
-    spawn(HelloNerves, :sound_forecast, [400_030])
+    spawn(HelloNerves, :sound_forecast, [400_030, 3])
   end
 
   every :day, at: "22:30" do
-    spawn(HelloNerves, :sound_forecast, [400_030])
+    spawn(HelloNerves, :sound_forecast, [400_030, 3])
   end
 end

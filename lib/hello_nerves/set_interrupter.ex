@@ -12,6 +12,11 @@ defmodule HelloNerves.SetInterrupter do
   @impl true
   def init(state) do
     GPIO.set_interrupts(HelloNerves.Util.input_gpio(), :both, receiver: HelloNerves.Observer)
+
+    GPIO.set_interrupts(HelloNerves.Util.weather_input_gpio(), :both,
+      receiver: HelloNerves.Observer
+    )
+
     {:ok, state}
   end
 end
