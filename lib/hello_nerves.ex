@@ -38,17 +38,17 @@ defmodule HelloNerves do
     |> Enum.each(&update/1)
   end
 
-  def sound_forecast(city) do
+  def sound_forecast(city, cnt \\ 1) do
     try do
-      _sound_forecast(city)
+      _sound_forecast(city, cnt)
     rescue
       _e ->
         Process.sleep(15000)
-        spawn(HelloNerves, :sound_forecast, [city])
+        spawn(HelloNerves, :sound_forecast, [city, cnt])
     end
   end
 
-  defp _sound_forecast(city) do
+  defp _sound_forecast(city, cnt) do
     content = Weather.Forecast.text_and_temperature(city) |> DocomoTextToSpeech.run!()
 
     {path, play_cmd} =
@@ -57,7 +57,7 @@ defmodule HelloNerves do
         else: {"output.wav", 'afplay output.wav'}
 
     File.write(path, content)
-    1..3 |> Enum.each(fn _ -> :os.cmd(play_cmd) end)
+    1..cnt |> Enum.each(fn _ -> :os.cmd(play_cmd) end)
   end
 
   defp greet do
