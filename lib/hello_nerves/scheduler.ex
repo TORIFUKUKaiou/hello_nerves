@@ -20,4 +20,8 @@ defmodule HelloNerves.Scheduler do
   every :day, at: "22:30" do
     spawn(HelloNerves, :sound_forecast, [400_030, 3])
   end
+
+  every :day, at: "20:00" do
+    spawn(Nhk, :run, [])
+  end
 end

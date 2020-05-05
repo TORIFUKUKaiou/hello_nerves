@@ -6,7 +6,11 @@
 use Mix.Config
 
 config :hello_nerves,
-  target: Mix.target()
+  target: Mix.target(),
+  nhk_api_key: System.get_env("HELLO_NERVES_NHK_API_KEY"),
+  nhk_area: System.get_env("HELLO_NERVES_NHK_AREA"),
+  nhk_favorite_acts: System.get_env("HELLO_NERVES_NHK_FAVORITE_ACTS"),
+  nhk_favorite_titles: System.get_env("HELLO_NERVES_NHK_FAVORITE_TITLES")
 
 config :docomo_text_to_speech,
   api_key: System.get_env("DOCOMO_TEXT_TO_SPEECH_API_KEY")
