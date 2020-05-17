@@ -29,6 +29,10 @@ To start your Nerves app:
   * `export TWITTER_ACCESS_TOKEN=zzz`
   * `export TWITTER_ACCESS_TOKEN_SECRET=aaa`
   * `export TEXT_TO_SPEECH_API_KEY=ttt`
+  * `export HELLO_NERVES_NHK_API_KEY=secret`
+  * `export HELLO_NERVES_NHK_AREA=401`
+  * `export HELLO_NERVES_NHK_FAVORITE_ACTS="加藤一二三,ベニシア・スタンリー・スミス,半澤鶴子"`
+  * `export HELLO_NERVES_NHK_FAVORITE_TITLES"ＬＩＦＥ！,将棋"`
   * Install dependencies with `mix deps.get`
   * Create firmware with `mix firmware`
   * Burn to an SD card with `mix firmware.burn`
