@@ -65,7 +65,8 @@ defmodule HelloNerves.MixProject do
       {:cronex, github: "jbernardo95/cronex", ref: "345b57e14667a08280d790afdfbb359f467649df"},
       {:circuits_gpio, "~> 0.4"},
       {:floki, "~> 0.23.0"},
-      {:flow, "~> 1.0"}
+      {:flow, "~> 1.0"},
+      {:timex, "~> 3.5"}
     ]
   end
 

@@ -37,7 +37,8 @@ defmodule HelloNerves.Application do
       {HelloNerves.Blinker, name: HelloNerves.Blinker},
       {HelloNerves.Observer, name: HelloNerves.Observer},
       {HelloNerves.SetInterrupter, name: HelloNerves.SetInterrupter},
-      {HelloNerves.Led.Lighter, name: HelloNerves.Led.Lighter}
+      {HelloNerves.Led.Lighter, name: HelloNerves.Led.Lighter},
+      TwitterSearch.Worker
     ]
   end
 
