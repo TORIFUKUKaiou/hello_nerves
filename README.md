@@ -33,6 +33,10 @@ To start your Nerves app:
   * `export HELLO_NERVES_NHK_AREA=401`
   * `export HELLO_NERVES_NHK_FAVORITE_ACTS="加藤一二三,ベニシア・スタンリー・スミス,半澤鶴子"`
   * `export HELLO_NERVES_NHK_FAVORITE_TITLES"ＬＩＦＥ！,将棋"`
+  * `export HELLO_NERVES_TWITTER_QUERY="NervesJP OR @NervesConf OR @NervesProject OR (Elixir AND Nerves) OR (Elixir AND IoT) -RT"`
+  * `export HELLO_NERVES_TWITTER_LAST_CREATED_AT="1589804414"`
+  * `export HELLO_NERVES_SLACK_INCOMING_WEBHOOK_URL="https://hooks.slack.com/services/secret/secret/secret"`
+  * `export HELLO_NERVES_SLACK_CHANNEL="notification-awesome"`
   * Install dependencies with `mix deps.get`
   * Create firmware with `mix firmware`
   * Burn to an SD card with `mix firmware.burn`
