@@ -2,6 +2,7 @@ defmodule TwitterSearch.Worker do
   use GenServer
 
   @one_minute 60 * 1000
+  @interval Application.get_env(:hello_nerves, :twitter_search_interval)
   @query Application.get_env(:hello_nerves, :twitter_query)
   @last_created_at Application.get_env(:hello_nerves, :twitter_last_created_at)
   @incoming_webhook_url Application.get_env(:hello_nerves, :slack_incoming_webhook_url)
@@ -17,7 +18,7 @@ defmodule TwitterSearch.Worker do
   end
 
   def handle_info(:tick, %{last_created_at: last_created_at}) do
-    Process.send_after(__MODULE__, :tick, @one_minute)
+    Process.send_after(__MODULE__, :tick, @interval)
 
     new_last_created_at = run(last_created_at)
 
@@ -91,13 +92,14 @@ defmodule TwitterSearch.Worker do
 
   defp do_post(%{
          text: text,
+         created_at: created_at,
          profile_image_url_https: profile_image_url_https,
          url: url,
          screen_name: screen_name
        }) do
     body =
       %{
-        text: "#{text}\n#{url}",
+        text: "#{text}\n#{url}\n(#{created_at})",
         username: screen_name,
         icon_url: profile_image_url_https,
         link_names: 1,
