@@ -58,3 +58,5 @@ config :nerves_network, :default,
       ]
     ]
   ]
+
+config :tzdata, :data_dir, "/root/tzdata"

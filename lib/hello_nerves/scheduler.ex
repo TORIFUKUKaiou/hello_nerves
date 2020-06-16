@@ -1,27 +1,3 @@
 defmodule HelloNerves.Scheduler do
-  use Cronex.Scheduler
-
-  every :day, at: "22:00" do
-    HelloNerves.update()
-  end
-
-  every :day, at: "14:00" do
-    HelloNerves.update()
-  end
-
-  every :day, at: "22:05" do
-    HelloNerves.tweet_autorace()
-  end
-
-  every :day, at: "21:59" do
-    spawn(HelloNerves, :sound_forecast, [400_030, 3])
-  end
-
-  every :day, at: "22:30" do
-    spawn(HelloNerves, :sound_forecast, [400_030, 3])
-  end
-
-  every :day, at: "20:00" do
-    spawn(Nhk, :run, [])
-  end
+  use Quantum, otp_app: :hello_nerves
 end
