@@ -19,6 +19,17 @@ config :hello_nerves,
   slack_incoming_webhook_url: System.get_env("HELLO_NERVES_SLACK_INCOMING_WEBHOOK_URL"),
   slack_channel: System.get_env("HELLO_NERVES_SLACK_CHANNEL")
 
+config :hello_nerves, HelloNerves.Scheduler,
+  jobs: [
+    # Every minute
+    {"0 22 * * *", {HelloNerves, :update, []}},
+    {"0 14 * * *", {HelloNerves, :update, []}},
+    {"5 22 * * *", {HelloNerves, :tweet_autorace, []}},
+    {"59 21 * * *", {HelloNerves, :sound_forecast, [400_030, 3]}},
+    {"30 22 * * *", {HelloNerves, :sound_forecast, [400_030, 3]}},
+    {"0 20 * * *", {Nhk, :run, []}}
+  ]
+
 config :docomo_text_to_speech,
   api_key: System.get_env("DOCOMO_TEXT_TO_SPEECH_API_KEY")
 
@@ -50,6 +61,3 @@ config :extwitter, :oauth,
   consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET"),
   access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
   access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")
-
-config :cronex,
-  ping_interval: 60000

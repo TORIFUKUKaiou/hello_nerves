@@ -26,6 +26,7 @@ defmodule HelloNerves.Application do
       # Children that only run on the host
       # Starts a worker by calling: HelloNerves.Worker.start_link(arg)
       # {HelloNerves.Worker, arg},
+      HelloNerves.Scheduler
     ]
   end
 
@@ -37,7 +38,8 @@ defmodule HelloNerves.Application do
       {HelloNerves.Blinker, name: HelloNerves.Blinker},
       {HelloNerves.Observer, name: HelloNerves.Observer},
       {HelloNerves.SetInterrupter, name: HelloNerves.SetInterrupter},
-      {HelloNerves.Led.Lighter, name: HelloNerves.Led.Lighter}
+      {HelloNerves.Led.Lighter, name: HelloNerves.Led.Lighter},
+      HelloNerves.Scheduler
     ]
   end
 

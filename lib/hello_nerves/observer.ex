@@ -12,7 +12,6 @@ defmodule HelloNerves.Observer do
 
   @impl true
   def init(_state) do
-    HelloNerves.Scheduler.start_link()
     {:ok, %{last_time: Time.utc_now()}}
   end
 

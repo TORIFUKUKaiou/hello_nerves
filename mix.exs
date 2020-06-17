@@ -62,11 +62,11 @@ defmodule HelloNerves.MixProject do
       {:poison, "~> 3.0", override: true},
       {:oauther, "~> 1.1"},
       {:extwitter, "~> 0.12"},
-      {:cronex, github: "jbernardo95/cronex", ref: "345b57e14667a08280d790afdfbb359f467649df"},
       {:circuits_gpio, "~> 0.4"},
       {:floki, "~> 0.23.0"},
       {:flow, "~> 1.0"},
-      {:timex, "~> 3.5"}
+      {:timex, "~> 3.5"},
+      {:quantum, "~> 3.0"}
     ]
   end
 
