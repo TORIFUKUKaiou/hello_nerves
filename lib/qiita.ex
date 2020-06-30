@@ -23,7 +23,7 @@ defmodule Qiita do
 
     # 実行環境
     もちろん[Nerves](https://www.nerves-project.org/) :robot:
-    [ソースコード](https://github.com/TORIFUKUKaiou/hello_nerves)
+    [ソースコード](https://github.com/TORIFUKUKaiou/hello_nerves/pull/34)
     """
   end
 
