@@ -27,7 +27,8 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"5 22 * * *", {HelloNerves, :tweet_autorace, []}},
     {"59 21 * * *", {HelloNerves, :sound_forecast, [400_030, 3]}},
     {"30 22 * * *", {HelloNerves, :sound_forecast, [400_030, 3]}},
-    {"0 20 * * *", {Nhk, :run, []}}
+    {"0 20 * * *", {Nhk, :run, []}},
+    {"0 23 * * *", {Qiita, :run, []}}
   ]
 
 config :docomo_text_to_speech,
