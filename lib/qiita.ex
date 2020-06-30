@@ -6,6 +6,14 @@ defmodule Qiita do
       [%{"name" => "Elixir"}, %{"name" => "Qiita夏祭り2020_パソナテック"}],
       "【毎日自動更新】QiitaのElixir LGTMランキング！"
     )
+
+    ExTwitter.update("""
+    Automatic Updates
+    https://qiita.com/torifukukaiou/items/1edb3e961acf002478fd
+
+    I use Nerves. I like it!
+    #myelixirstatus #NervesJP
+    """)
   end
 
   defp markdown do
