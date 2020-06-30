@@ -23,11 +23,14 @@ defmodule Qiita do
     # 総件数
     #{Enum.count(items)}件 :tada::tada::tada:
 
+    # 新着 :hatching_chick::baby_chick::hatched_chick:
+    #{filter(items, Timex.now() |> Timex.shift(days: -2), 1000)}
+
     # 直近1ヶ月
-    #{take(items, Timex.now() |> Timex.shift(days: -30))}
+    #{filter(items, Timex.now() |> Timex.shift(days: -30))}
 
     # 全期間 :confetti_ball::military_medal::confetti_ball:
-    #{take(items, Timex.from_unix(0))}
+    #{filter(items, Timex.from_unix(0))}
 
     # [Elixir](https://elixir-lang.org/)のみを使って、今QiitaのElixir LGTMランキングを作ってみました
     実行環境は、もちろん[Nerves](https://www.nerves-project.org/) :robot:
@@ -35,17 +38,17 @@ defmodule Qiita do
     """
   end
 
-  defp take(items, from) do
+  defp filter(items, from, amount \\ 20) do
     items
     |> Enum.filter(fn %{"updated_at" => updated_at} ->
       DateTime.compare(updated_at, from) == :gt
     end)
     |> Enum.sort_by(fn %{"likes_count" => likes_count} -> likes_count end, :desc)
-    |> Enum.take(20)
-    |> table()
+    |> Enum.take(amount)
+    |> build_table()
   end
 
-  defp table(items) do
+  defp build_table(items) do
     Enum.with_index(items, 1)
     |> Enum.reduce("|No|タイトル|更新日|LGTM|\n|---|---|---|---|\n", fn {item, index}, acc_string ->
       %{
