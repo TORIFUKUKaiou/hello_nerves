@@ -21,8 +21,8 @@ defmodule Qiita do
     # 全期間 :confetti_ball::military_medal::confetti_ball:
     #{take(items, Timex.from_unix(0))}
 
-    # 実行環境
-    もちろん[Nerves](https://www.nerves-project.org/) :robot:
+    # [Elixir](https://elixir-lang.org/)のみを使って、今QiitaのElixir LGTMランキングを作ってみました
+    実行環境は、もちろん[Nerves](https://www.nerves-project.org/) :robot:
     [ソースコード](https://github.com/TORIFUKUKaiou/hello_nerves/pull/34)
     """
   end
