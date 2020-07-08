@@ -3,7 +3,11 @@ defmodule Qiita do
     Qiita.Api.patch_item(
       markdown(),
       false,
-      [%{"name" => "Elixir"}, %{"name" => "Qiita夏祭り2020_パソナテック"}],
+      [
+        %{"name" => "Elixir"},
+        %{"name" => "Qiita夏祭り2020_パソナテック"},
+        %{"name" => "Qiita夏祭り2020_Qiita"}
+      ],
       "【毎日自動更新】QiitaのElixir LGTMランキング！"
     )
 
@@ -35,6 +39,8 @@ defmodule Qiita do
 
     # [Elixir](https://elixir-lang.org/)のみを使って、今QiitaのElixir LGTMランキングを作ってみました
     - 実行環境は、もちろん[Nerves](https://www.nerves-project.org/) :robot:
+      - [NervesはElixirのIoTでナウでヤングなcoolなすごいヤツです🚀](https://twitter.com/torifukukaiou/status/1201266889990623233)
+      - Co-Author of [Nerves](https://www.nerves-project.org/) Projectの[Justin Schneck](https://twitter.com/mobileoverlord)さんからいいねをいただいています
     - [ソースコード](https://github.com/TORIFUKUKaiou/hello_nerves/pull/34) ※その後いろいろ変えています :fire::fire::fire:
 
     ## Motivation
@@ -44,6 +50,9 @@ defmodule Qiita do
     - ちょうど、[〇〇（言語）のみを使って、今△△（アプリ）を作るとしたら](https://qiita.com/official-events/5d181aadf5db26b73d33) という夏祭りが気になっておりまして、私の中では〇〇は[Elixir](https://elixir-lang.org/)一択でした
       - I was born to love [Elixir](https://elixir-lang.org/).
     - △△はなかなか思い浮かばなかったのですが、「検索窓に`elixir`と打ち込んで新着記事を探す」部分の自動化とでもいいますか、とにかく自分が欲しいものを楽しみながら作りました
+    - そうしてその後、これはもしかすると「APIを作った連携サービスやChrome拡張など、Qiitaに関わるものであれば形式は問いません」という概要の [みんなでQiitaを便利にしよう！](https://qiita.com/official-events/0e872f8893283d4fd212) の方にも該当するのではないかとおもいました
+    - 自動化とかなんとか言っていますが、その後よくよくみると、[ココ](https://qiita.com/tags/elixir)をブックマークしておけば事足りますねという話を長々としているだけという気もしてきた今日このごろです
+    - もう一度繰り返しますが、とにかく私は[Elixir](https://elixir-lang.org/)を書くことを楽しみました
     - **Enjoy!**
 
     ## 大河の一滴
