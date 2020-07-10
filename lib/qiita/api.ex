@@ -6,6 +6,7 @@ defmodule Qiita.Api do
     Accept: "Application/json; Charset=utf-8",
     "Content-Type": "application/json"
   ]
+  @options [timeout: 50_000, recv_timeout: 50_000]
   @base_url "https://qiita.com/api/v2"
   @per_page 100
 
@@ -16,7 +17,7 @@ defmodule Qiita.Api do
     1..max_page
     |> Enum.reduce([], fn page, acc_list ->
       "#{@base_url}/items?#{query}&per_page=#{@per_page}&page=#{page}"
-      |> HTTPoison.get!(@headers)
+      |> HTTPoison.get!(@headers, @options)
       |> Map.get(:body)
       |> Jason.decode!()
       |> Enum.map(
@@ -62,7 +63,7 @@ defmodule Qiita.Api do
 
   defp total_count(query) do
     "#{@base_url}/items?#{query}&per_page=1"
-    |> HTTPoison.get!(@headers)
+    |> HTTPoison.get!(@headers, @options)
     |> Map.get(:headers)
     |> Enum.filter(fn {key, _} -> key == "Total-Count" end)
     |> Enum.at(0)
