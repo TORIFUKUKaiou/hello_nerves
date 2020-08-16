@@ -1,6 +1,6 @@
 # HelloNerves
 
-- Weather.Forecast.run means getting "http://weather.livedoor.com/forecast/webservice/json/v1?city=#{city}".
+- Weather.Forecast.run means getting "http://api.openweathermap.org/data/2.5/weather?id=#{city}&lang=ja&units=metric&appid=#{appid}".
 - HelloNerves.update means ExTwitter.update.
 
 ## Targets
@@ -37,7 +37,9 @@ To start your Nerves app:
   * `export HELLO_NERVES_TWITTER_LAST_CREATED_AT="1589804414"`
   * `export HELLO_NERVES_SLACK_INCOMING_WEBHOOK_URL="https://hooks.slack.com/services/secret/secret/secret"`
   * `export HELLO_NERVES_SLACK_CHANNEL="notification-awesome"`
+  * `export HELLO_NERVES_OPEN_WEATHER_API_KEY="secret"`
   * Install dependencies with `mix deps.get`
+  * Download `http://bulk.openweathermap.org/sample/city.list.json.gz` |> Ungz |> Put `rootfs_overlay/usr/local/share/city.list.json`
   * Create firmware with `mix firmware`
   * Burn to an SD card with `mix firmware.burn`
 

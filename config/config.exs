@@ -17,7 +17,8 @@ config :hello_nerves,
   twitter_search_interval:
     System.get_env("HELLO_NERVES_TWITTER_SEARCH_INTERVAL") |> String.to_integer(),
   slack_incoming_webhook_url: System.get_env("HELLO_NERVES_SLACK_INCOMING_WEBHOOK_URL"),
-  slack_channel: System.get_env("HELLO_NERVES_SLACK_CHANNEL")
+  slack_channel: System.get_env("HELLO_NERVES_SLACK_CHANNEL"),
+  open_weather_api_key: System.get_env("HELLO_NERVES_OPEN_WEATHER_API_KEY")
 
 config :hello_nerves, HelloNerves.Scheduler,
   jobs: [
@@ -25,8 +26,8 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"0 22 * * *", {HelloNerves, :update, []}},
     {"0 14 * * *", {HelloNerves, :update, []}},
     {"5 22 * * *", {HelloNerves, :tweet_autorace, []}},
-    {"59 21 * * *", {HelloNerves, :sound_forecast, [400_030, 3]}},
-    {"30 22 * * *", {HelloNerves, :sound_forecast, [400_030, 3]}},
+    {"59 21 * * *", {HelloNerves, :sound_forecast, [1_861_835, 3]}},
+    {"30 22 * * *", {HelloNerves, :sound_forecast, [1_861_835, 3]}},
     {"0 20 * * *", {Nhk, :run, []}},
     {"0 23 * * *", {Qiita, :run, []}},
     {"0 11 * * *", {Qiita, :run, []}}
