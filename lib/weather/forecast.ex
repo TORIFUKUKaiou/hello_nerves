@@ -1,43 +1,34 @@
 defmodule Weather.Forecast do
-  def text(city) do
-    {:ok, text} = Lwwsx.current_text(city)
-    text
-  end
+  @api_key Application.get_env(:hello_nerves, :open_weather_api_key)
+  @city_list_json "/usr/local/share/city.list.json"
 
-  def run({city, name}) do
-    text =
-      text(city)
-      |> String.split()
-      |> Enum.reduce_while("#{name}\n", fn s, acc ->
-        if String.length(acc <> "#{s}\n") < 140 - String.length(i_use_nerves()),
-          do: {:cont, acc <> "#{s}\n"},
-          else: {:halt, acc}
-      end)
+  def run(city) do
+    %{
+      "name" => name,
+      "weather" => weathers,
+      "main" => %{"temp_max" => temp_max, "temp_min" => temp_min}
+    } =
+      city
+      |> url()
+      |> HTTPoison.get!()
+      |> Map.get(:body)
+      |> Jason.decode!()
 
-    if String.length(text) <= String.length("#{name}\n"), do: raise(Weather.Error)
+    description = weathers |> Enum.at(0) |> Map.get("description")
 
-    text <> i_use_nerves()
+    "#{name}の天気は、#{description}です。\n最高気温は#{temp_max}℃です。最低気温は#{temp_min}℃です。\n\n#{i_use_nerves()}"
   end
 
   def run do
-    cities() |> Enum.random() |> run
+    cities()
+    |> Enum.random()
+    |> run()
   end
 
-  def text_and_temperature(city) do
-    json = Lwwsx.current(city) |> elem(1)
-
-    text =
-      json
-      |> Map.get("description")
-      |> Map.get("text")
-      |> String.split()
-      |> Enum.take(2)
-      |> Enum.join()
-
-    temperature =
-      json |> Map.get("forecasts") |> Enum.at(0) |> Map.get("temperature") |> temperature()
-
-    text <> temperature
+  defp url(city) do
+    "http://api.openweathermap.org/data/2.5/weather?id=#{city}&lang=ja&units=metric&appid=#{
+      @api_key
+    }"
   end
 
   defp i_use_nerves do
@@ -48,21 +39,15 @@ defmodule Weather.Forecast do
     end
   end
 
-  defp cities, do: Lwwsx.cities()
+  defp cities do
+    path =
+      if Application.get_env(:hello_nerves, :target) != :host,
+        do: @city_list_json,
+        else: "rootfs_overlay/#{@city_list_json}"
 
-  defp temperature(%{"max" => %{"celsius" => max}, "min" => nil}) do
-    "最高気温は#{max}度です。"
-  end
-
-  defp temperature(%{"max" => nil, "min" => %{"celsius" => min}}) do
-    "最低気温は#{min}度です。"
-  end
-
-  defp temperature(%{"max" => %{"celsius" => max}, "min" => %{"celsius" => min}}) do
-    "最高気温は#{max}度、最低気温は#{min}度です。"
-  end
-
-  defp temperature(_) do
-    ""
+    File.read!(path)
+    |> Jason.decode!()
+    |> Enum.filter(fn %{"country" => country} -> country == "JP" end)
+    |> Enum.map(fn %{"id" => id} -> id end)
   end
 end
