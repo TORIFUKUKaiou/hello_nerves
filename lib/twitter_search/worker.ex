@@ -105,7 +105,7 @@ defmodule TwitterSearch.Worker do
         link_names: 1,
         channel: @channel
       }
-      |> Poison.encode!()
+      |> Jason.encode!()
 
     headers = [{"Content-type", "application/json"}]
     HTTPoison.post!(@incoming_webhook_url, body, headers)
