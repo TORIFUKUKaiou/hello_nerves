@@ -2,19 +2,26 @@ defmodule Weather.Forecast do
   @api_key Application.get_env(:hello_nerves, :open_weather_api_key)
   @city_list_json "/usr/local/share/city.list.json"
 
-  def run(city) do
+  def run(%{"coord" => %{"lat" => lat, "lon" => lon}, "id" => city_id}) do
     %{
-      "name" => name,
-      "weather" => weathers,
-      "main" => %{"temp_max" => temp_max, "temp_min" => temp_min}
+      "name" => name
     } =
-      city
-      |> url()
+      current(city_id)
       |> HTTPoison.get!()
       |> Map.get(:body)
       |> Jason.decode!()
 
-    description = weathers |> Enum.at(0) |> Map.get("description")
+    %{"daily" => dailies} =
+      onecall(lat, lon)
+      |> HTTPoison.get!()
+      |> Map.get(:body)
+      |> Jason.decode!()
+
+    description =
+      dailies |> Enum.at(0) |> Map.get("weather") |> Enum.at(0) |> Map.get("description")
+
+    temp_max = dailies |> Enum.at(0) |> Map.get("temp") |> Map.get("max")
+    temp_min = dailies |> Enum.at(0) |> Map.get("temp") |> Map.get("min")
 
     "#{name}の天気は、#{description}です。\n最高気温は#{temp_max}℃です。最低気温は#{temp_min}℃です。\n\n#{i_use_nerves()}"
   end
@@ -25,8 +32,14 @@ defmodule Weather.Forecast do
     |> run()
   end
 
-  defp url(city) do
-    "http://api.openweathermap.org/data/2.5/weather?id=#{city}&lang=ja&units=metric&appid=#{
+  defp current(city_id) do
+    "http://api.openweathermap.org/data/2.5/weather?id=#{city_id}&lang=ja&units=metric&appid=#{
+      @api_key
+    }"
+  end
+
+  defp onecall(lat, lon) do
+    "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{lon}&lang=ja&units=metric&exclude=current,minutely,hourly&appid=#{
       @api_key
     }"
   end
@@ -48,6 +61,5 @@ defmodule Weather.Forecast do
     File.read!(path)
     |> Jason.decode!()
     |> Enum.filter(fn %{"country" => country} -> country == "JP" end)
-    |> Enum.map(fn %{"id" => id} -> id end)
   end
 end
