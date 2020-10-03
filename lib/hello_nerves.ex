@@ -25,7 +25,7 @@ defmodule HelloNerves do
       Weather.Forecast.run() |> update()
     rescue
       _e in Weather.Error ->
-        Process.sleep(15000)
+        Process.sleep(150000)
         update()
     end
   end
