@@ -19,26 +19,8 @@ defmodule Qiita.Api do
       "#{@base_url}/items?#{query}&per_page=#{@per_page}&page=#{page}"
       |> HTTPoison.get!(@headers, @options)
       |> Map.get(:body)
-      |> Jason.decode!()
-      |> Enum.map(
-        &Map.take(&1, ["title", "likes_count", "updated_at", "created_at", "url", "user"])
-      )
-      |> Enum.map(fn %{
-                       "user" => %{"id" => user_id},
-                       "updated_at" => updated_at,
-                       "created_at" => created_at
-                     } = item ->
-        updated_at = Timex.parse!(updated_at, "{ISO:Extended}") |> Timex.to_datetime()
-        created_at = Timex.parse!(created_at, "{ISO:Extended}") |> Timex.to_datetime()
-
-        item
-        |> Map.delete("user")
-        |> Map.merge(%{
-          "user_id" => user_id,
-          "updated_at" => updated_at,
-          "created_at" => created_at
-        })
-      end)
+      |> Jason.decode()
+      |> handle_json_decode()
       |> Kernel.++(acc_list)
     end)
   end
@@ -81,5 +63,30 @@ defmodule Qiita.Api do
     (div(total_count, @per_page) + 1)
     # https://qiita.com/api/v2/docs#%E3%83%9A%E3%83%BC%E3%82%B8%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3
     |> min(100)
+  end
+
+  defp handle_json_decode({:error, _}), do: []
+
+  defp handle_json_decode({:ok, map}) do
+    Enum.map(
+      map,
+      &Map.take(&1, ["title", "likes_count", "updated_at", "created_at", "url", "user"])
+    )
+    |> Enum.map(fn %{
+                     "user" => %{"id" => user_id},
+                     "updated_at" => updated_at,
+                     "created_at" => created_at
+                   } = item ->
+      updated_at = Timex.parse!(updated_at, "{ISO:Extended}") |> Timex.to_datetime()
+      created_at = Timex.parse!(created_at, "{ISO:Extended}") |> Timex.to_datetime()
+
+      item
+      |> Map.delete("user")
+      |> Map.merge(%{
+        "user_id" => user_id,
+        "updated_at" => updated_at,
+        "created_at" => created_at
+      })
+    end)
   end
 end
