@@ -22,6 +22,7 @@ defmodule Qiita.Yubaba do
     """
     # この記事は
     - @Nemesis さんの[Javaで湯婆婆を実装してみる](https://qiita.com/Nemesis/items/c7192a7c510788d2cba2)よりはじまった「湯婆婆」関連記事のリンク集です
+      - `"title:湯婆婆 OR tag:湯婆婆"`で検索しています
       - LGTM数順に並べています
     - 令和２年なのに未だにRaspberry Pi 2しかもっていない私の虎の子のRaspberry Pi 2が毎日自動更新しております
       - [コミット](https://github.com/TORIFUKUKaiou/hello_nerves/pull/47/commits/5e0ea0f3fdaac3d5ab1930b6e99f10ae5a688851)
