@@ -10,19 +10,15 @@ defmodule Qiita.Api do
   @base_url "https://qiita.com/api/v2"
   @per_page 100
 
-  def items(tags \\ ["Elixir", "Nerves", "Phoenix"]) do
-    query = query(tags)
-    max_page = total_count(query) |> max_page()
+  def items(tags) when is_list(tags) do
+    query(tags)
+    |> do_items()
+  end
 
-    1..max_page
-    |> Enum.reduce([], fn page, acc_list ->
-      "#{@base_url}/items?#{query}&per_page=#{@per_page}&page=#{page}"
-      |> HTTPoison.get!(@headers, @options)
-      |> Map.get(:body)
-      |> Jason.decode()
-      |> handle_json_decode()
-      |> Kernel.++(acc_list)
-    end)
+  def items(query) when is_bitstring(query) do
+    %{"query" => query}
+    |> URI.encode_query()
+    |> do_items()
   end
 
   def patch_item(markdown, private, tags, title, item_id \\ @item_id) do
@@ -36,6 +32,20 @@ defmodule Qiita.Api do
       |> Jason.encode!()
 
     HTTPoison.patch!("#{@base_url}/items/#{item_id}", body, @headers)
+  end
+
+  defp do_items(query) do
+    max_page = total_count(query) |> max_page()
+
+    1..max_page
+    |> Enum.reduce([], fn page, acc_list ->
+      "#{@base_url}/items?#{query}&per_page=#{@per_page}&page=#{page}"
+      |> HTTPoison.get!(@headers, @options)
+      |> Map.get(:body)
+      |> Jason.decode()
+      |> handle_json_decode()
+      |> Kernel.++(acc_list)
+    end)
   end
 
   defp query(tags) do
