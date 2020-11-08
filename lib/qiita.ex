@@ -22,7 +22,7 @@ defmodule Qiita do
   end
 
   defp markdown do
-    items = Qiita.Api.items()
+    items = Qiita.Api.items(["Elixir", "Nerves", "Phoenix"])
 
     """
     # 総件数

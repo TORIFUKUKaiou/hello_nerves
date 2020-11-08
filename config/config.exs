@@ -34,7 +34,9 @@ config :hello_nerves, HelloNerves.Scheduler,
       [%{"coord" => %{"lat" => 33.633331, "lon" => 130.683334}, "id" => 1_861_835}, 3]}},
     {"0 20 * * *", {Nhk, :run, []}},
     {"0 23 * * *", {Qiita, :run, []}},
-    {"0 11 * * *", {Qiita, :run, []}}
+    {"0 11 * * *", {Qiita, :run, []}},
+    {"0 9 * * *", {Qiita.Yubaba, :run, []}},
+    {"0 21 * * *", {Qiita.Yubaba, :run, []}}
   ]
 
 config :docomo_text_to_speech,
