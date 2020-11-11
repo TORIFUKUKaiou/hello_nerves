@@ -22,7 +22,7 @@ defmodule Qiita.Yubaba do
     """
     # この記事は
     - @Nemesis さんの[Javaで湯婆婆を実装してみる](https://qiita.com/Nemesis/items/c7192a7c510788d2cba2)よりはじまった「湯婆婆」関連記事のリンク集です
-      - `"title:湯婆婆 OR tag:湯婆婆"`で検索しています
+      - [`"title:湯婆婆 OR tag:湯婆婆"`](https://qiita.com/search?sort=&q=title%3A%E6%B9%AF%E5%A9%86%E5%A9%86+OR+tag%3A%E6%B9%AF%E5%A9%86%E5%A9%86)で検索しています
       - LGTM数順に並べています
 
     # 総件数
