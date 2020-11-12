@@ -25,6 +25,10 @@ defmodule Qiita.Yubaba do
       - [`"title:湯婆婆 OR tag:湯婆婆"`](https://qiita.com/search?sort=&q=title%3A%E6%B9%AF%E5%A9%86%E5%A9%86+OR+tag%3A%E6%B9%AF%E5%A9%86%E5%A9%86)で検索しています
       - LGTM数順に並べています
 
+    # :santa: :santa_tone1: :santa_tone2:
+    - @YushiOMOTE さんに用意していただいた[湯婆婆 Advent Calendar 2020](https://qiita.com/advent-calendar/2020/yubaba)にもぜひ参加してみてはいかがでしょうか
+    - その際は`湯婆婆`タグをお忘れなく！
+
     # 総件数
     #{Enum.count(items)}件 :tada::tada::tada:
 
