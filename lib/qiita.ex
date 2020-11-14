@@ -8,7 +8,9 @@ defmodule Qiita do
         %{"name" => "Qiita夏祭り2020_パソナテック"},
         %{"name" => "Qiita夏祭り2020_Qiita"}
       ],
-      "【毎日自動更新】QiitaのElixir LGTMランキング！"
+      "【毎日自動更新】QiitaのElixir LGTMランキング！#{
+        if HelloNerves.is_xmas?(), do: ":santa: :santa_tone1: :santa_tone2:", else: ""
+      }"
     )
 
     ExTwitter.update("""
@@ -25,6 +27,8 @@ defmodule Qiita do
     items = Qiita.Api.items(["Elixir", "Nerves", "Phoenix"])
 
     """
+    #{maybe_write_advent_calendar()}
+
     # 総件数
     #{Enum.count(items)}件 :tada::tada::tada:
 
@@ -100,5 +104,16 @@ defmodule Qiita do
           updated_at |> Timex.to_date() |> Date.to_string()
         }|#{likes_count}|\n"
     end)
+  end
+
+  defp maybe_write_advent_calendar do
+    if HelloNerves.is_xmas?() do
+      """
+      # メリークリスマス！ :santa: :santa_tone1: :santa_tone2:
+      - [クリスマスエディション](https://github.com/TORIFUKUKaiou/hello_nerves/pull/54)
+      - 以前から公開している記事ですがこの時期だからこそ見ていただきたく、アドベントカレンダーに登録しました
+      - 12月限定の飾りをつけています！
+      """
+    end
   end
 end
