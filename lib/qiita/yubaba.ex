@@ -8,7 +8,9 @@ defmodule Qiita.Yubaba do
         %{"name" => "ネタ"},
         %{"name" => "湯婆婆"}
       ],
-      "【毎日自動更新】湯婆婆 LGTMランキング！",
+      "【毎日自動更新】湯婆婆 LGTMランキング！#{
+        if HelloNerves.is_xmas?(), do: ":santa: :santa_tone1: :santa_tone2:", else: ""
+      }",
       "c8361231cdc56e493245"
     )
   end
