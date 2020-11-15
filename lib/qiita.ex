@@ -8,9 +8,7 @@ defmodule Qiita do
         %{"name" => "Qiita夏祭り2020_パソナテック"},
         %{"name" => "Qiita夏祭り2020_Qiita"}
       ],
-      "【毎日自動更新】QiitaのElixir LGTMランキング！#{
-        if HelloNerves.is_xmas?(), do: ":santa: :santa_tone1: :santa_tone2:", else: ""
-      }"
+      "【毎日自動更新】QiitaのElixir LGTMランキング！"
     )
 
     ExTwitter.update("""
@@ -29,11 +27,16 @@ defmodule Qiita do
     """
     #{maybe_write_advent_calendar()}
 
-    # 総件数
+    # 総件数 #{
+      if HelloNerves.is_xmas?(),
+        do:
+          ":christmas_tree::santa::santa_tone1::santa_tone2::santa_tone3::santa_tone4::santa_tone5::christmas_tree:",
+        else: ""
+    }
     #{Enum.count(items)}件 :tada::tada::tada:
 
     # 新着 :hatching_chick::baby_chick::hatched_chick:
-    #{filter(items, Timex.now() |> Timex.shift(days: -2), "created_at", 1000)}
+    #{filter(items, Timex.now() |> Timex.shift(days: -3), "created_at", 1000)}
 
     # 直近1ヶ月
     #{filter(items, Timex.now() |> Timex.shift(days: -30))}
@@ -109,7 +112,7 @@ defmodule Qiita do
   defp maybe_write_advent_calendar do
     if HelloNerves.is_xmas?() do
       """
-      # メリークリスマス！ :santa: :santa_tone1: :santa_tone2:
+      # メリークリスマス！ :santa: :santa_tone1: :santa_tone2: :santa_tone3: :santa_tone4: :santa_tone5:
       - [クリスマスエディション](https://github.com/TORIFUKUKaiou/hello_nerves/pull/54)
       - 以前から公開している記事ですがこの時期だからこそ見ていただきたく、アドベントカレンダーに登録しました
       - 12月限定の飾りをつけています！
