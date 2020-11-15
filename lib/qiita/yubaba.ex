@@ -8,9 +8,7 @@ defmodule Qiita.Yubaba do
         %{"name" => "ネタ"},
         %{"name" => "湯婆婆"}
       ],
-      "【毎日自動更新】湯婆婆 LGTMランキング！#{
-        if HelloNerves.is_xmas?(), do: ":santa: :santa_tone1: :santa_tone2:", else: ""
-      }",
+      "【毎日自動更新】湯婆婆 LGTMランキング！",
       "c8361231cdc56e493245"
     )
   end
@@ -22,12 +20,17 @@ defmodule Qiita.Yubaba do
       Enum.sort_by(items, fn %{"likes_count" => likes_count} -> likes_count end, :desc)
 
     """
-    # この記事は
+    # この記事は #{
+      if HelloNerves.is_xmas?(),
+        do:
+          ":christmas_tree::santa::santa_tone1::santa_tone2::santa_tone3::santa_tone4::santa_tone5::christmas_tree:",
+        else: ""
+    }
     - @Nemesis さんの[Javaで湯婆婆を実装してみる](https://qiita.com/Nemesis/items/c7192a7c510788d2cba2)よりはじまった「湯婆婆」関連記事のリンク集です
       - [`"title:湯婆婆 OR tag:湯婆婆"`](https://qiita.com/search?sort=&q=title%3A%E6%B9%AF%E5%A9%86%E5%A9%86+OR+tag%3A%E6%B9%AF%E5%A9%86%E5%A9%86)で検索しています
       - LGTM数順に並べています
 
-    # :santa: :santa_tone1: :santa_tone2:
+    # :santa: :santa_tone1: :santa_tone2: :santa_tone3: :santa_tone4: :santa_tone5:
     - @YushiOMOTE さんに用意していただいた[湯婆婆 Advent Calendar 2020](https://qiita.com/advent-calendar/2020/yubaba)にもぜひ参加してみてはいかがでしょうか
     - その際は`湯婆婆`タグをお忘れなく！
 
