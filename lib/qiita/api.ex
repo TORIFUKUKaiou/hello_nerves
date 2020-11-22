@@ -80,22 +80,26 @@ defmodule Qiita.Api do
   defp handle_json_decode({:ok, map}) do
     Enum.map(
       map,
-      &Map.take(&1, ["title", "likes_count", "updated_at", "created_at", "url", "user"])
+      &Map.take(&1, ["title", "likes_count", "updated_at", "created_at", "url", "user", "tags"])
     )
     |> Enum.map(fn %{
                      "user" => %{"id" => user_id},
                      "updated_at" => updated_at,
-                     "created_at" => created_at
+                     "created_at" => created_at,
+                     "tags" => tags
                    } = item ->
       updated_at = Timex.parse!(updated_at, "{ISO:Extended}") |> Timex.to_datetime()
       created_at = Timex.parse!(created_at, "{ISO:Extended}") |> Timex.to_datetime()
+      tags = Enum.map(tags, &Map.get(&1, "name"))
 
       item
       |> Map.delete("user")
+      |> Map.delete("tags")
       |> Map.merge(%{
         "user_id" => user_id,
         "updated_at" => updated_at,
-        "created_at" => created_at
+        "created_at" => created_at,
+        "tags" => tags
       })
     end)
   end

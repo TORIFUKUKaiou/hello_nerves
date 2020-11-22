@@ -49,6 +49,13 @@ defmodule Qiita.Yubaba do
     - 自動更新は、[Elixir](https://elixir-lang.org/)というプログラミング言語がありまして、その[Elixir](https://elixir-lang.org/)で作られた[Nerves](https://www.nerves-project.org/)というナウでヤングなcoolなすごいIoTフレームワークを使ってつくったアプリケーションで行っております
       - [Nerves](https://www.nerves-project.org/)の始め方につきましては下記の記事が詳しいです
       - [ElixirでIoT#4.1：Nerves開発環境の準備](https://qiita.com/takasehideki/items/88dda57758051d45fcf9)
+
+    # タグ別まとめ(試験的)
+    - @sengoku さんの[[ネタ] 湯婆婆 言語まとめ](https://qiita.com/sengoku/items/9dba838d94d5120f8a73)を参考に追加してみました
+    - 単純にタグに設定された文字列で分類しております
+    - `ネタ`、`湯婆婆`、`ポエム`は除外いたしております
+
+    #{tags(items)}
     """
   end
 
@@ -70,6 +77,34 @@ defmodule Qiita.Yubaba do
         "|#{index}|[#{title}](#{url})<br>@#{user_id}|#{
           created_at |> Timex.to_date() |> Date.to_string()
         }|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{likes_count}|\n"
+    end)
+  end
+
+  def tags(items) do
+    tags =
+      Enum.flat_map(items, fn %{"tags" => tags} -> tags end)
+      |> Enum.reduce(MapSet.new(), fn tag, acc -> MapSet.put(acc, tag) end)
+
+    map =
+      tags
+      |> Enum.reject(&(&1 == "ネタ" || &1 == "湯婆婆" || &1 == "ポエム"))
+      |> Enum.reduce(%{}, fn tag, acc ->
+        filtered = Enum.filter(items, &(Map.get(&1, "tags") |> Enum.any?(fn t -> t == tag end)))
+        Map.put(acc, tag, filtered)
+      end)
+
+    Enum.reduce(map, "", fn {tag, items}, acc ->
+      """
+      #{acc}
+
+      # #{tag}
+      #{
+        Enum.map(items, fn %{"title" => title, "url" => url, "user_id" => user_id} ->
+          "- [#{title}](#{url}) ーー @#{user_id}"
+        end)
+        |> Enum.join("\n")
+      }
+      """
     end)
   end
 end
