@@ -93,11 +93,13 @@ defmodule Qiita.Yubaba do
         Map.put(acc, tag, filtered)
       end)
 
-    Enum.reduce(map, "", fn {tag, items}, acc ->
+    Enum.to_list(map)
+    |> Enum.sort_by(fn {tag, _items} -> tag end)
+    |> Enum.reduce("", fn {tag, items}, acc ->
       """
       #{acc}
 
-      # #{tag}
+      # #{if(tag == "C#", do: "C Sharp", else: tag)}
       #{
         Enum.map(items, fn %{"title" => title, "url" => url, "user_id" => user_id} ->
           "- [#{title}](#{url}) ーー @#{user_id}"
