@@ -80,7 +80,16 @@ defmodule Qiita.Api do
   defp handle_json_decode({:ok, map}) do
     Enum.map(
       map,
-      &Map.take(&1, ["title", "likes_count", "updated_at", "created_at", "url", "user", "tags"])
+      &Map.take(&1, [
+        "title",
+        "likes_count",
+        "updated_at",
+        "created_at",
+        "url",
+        "user",
+        "tags",
+        "private"
+      ])
     )
     |> Enum.map(fn %{
                      "user" => %{"id" => user_id},
@@ -102,5 +111,6 @@ defmodule Qiita.Api do
         "tags" => tags
       })
     end)
+    |> Enum.reject(&Map.get(&1, "private"))
   end
 end
