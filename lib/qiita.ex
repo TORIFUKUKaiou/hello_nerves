@@ -30,6 +30,7 @@ defmodule Qiita do
     # アドベントカレンダー :santa: :santa_tone1: :santa_tone2: :santa_tone3: :santa_tone4: :santa_tone5:
     - ぜひご参加ください！
     - [Elixir Advent Calendar 2020](https://qiita.com/advent-calendar/2020/elixir)
+    - [Elixir その2 Advent Calendar 2020](https://qiita.com/advent-calendar/2020/elixir2)
     - [fukuoka.ex Elixir／Phoenix Advent Calendar 2020](https://qiita.com/advent-calendar/2020/fukuokaex)
     - [#NervesJP Advent Calendar 2020](https://qiita.com/advent-calendar/2020/nervesjp)
 
