@@ -34,6 +34,8 @@ defmodule Qiita do
     - [fukuoka.ex Elixir／Phoenix Advent Calendar 2020](https://qiita.com/advent-calendar/2020/fukuokaex)
     - [#NervesJP Advent Calendar 2020](https://qiita.com/advent-calendar/2020/nervesjp)
 
+    #{adventcalendar_table(items)}
+
     # 総件数 #{
       if HelloNerves.is_xmas?(),
         do:
@@ -124,6 +126,15 @@ defmodule Qiita do
       - 以前から公開している記事ですがこの時期だからこそ見ていただきたく、アドベントカレンダーに登録しました
       - 12月限定の飾りをつけています！
       """
+    end
+  end
+
+  defp adventcalendar_table(items) do
+    if HelloNerves.is_xmas?() do
+      year = Timex.now().year
+
+      filter(items, Timex.beginning_of_month(year, 12) |> Timex.to_datetime(), "updated_at", 1000) <>
+        "\nupdated_atが#{year}/12/01より大きい記事を並べています。アドベントカレンダーだけ取得するようないい方法があればお知らせください！"
     end
   end
 end
