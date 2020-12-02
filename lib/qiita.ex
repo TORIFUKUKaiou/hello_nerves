@@ -1,5 +1,5 @@
 defmodule Qiita do
-  def run do
+  def run(post \\ false) do
     Qiita.Api.patch_item(
       markdown(),
       false,
@@ -11,14 +11,16 @@ defmodule Qiita do
       "【毎日自動更新】QiitaのElixir LGTMランキング！"
     )
 
-    ExTwitter.update("""
-    Automatic Updates
-    https://qiita.com/torifukukaiou/items/1edb3e961acf002478fd
+    if post do
+      ExTwitter.update("""
+      Automatic Updates
+      https://qiita.com/torifukukaiou/items/1edb3e961acf002478fd
 
-    I use Nerves. I like it!
-    #myelixirstatus #NervesJP
-    #{Timex.now() |> Timex.to_datetime() |> DateTime.to_string()}
-    """)
+      I use Nerves. I like it!
+      #myelixirstatus #NervesJP
+      #{Timex.now() |> Timex.to_datetime() |> DateTime.to_string()}
+      """)
+    end
   end
 
   defp markdown do
