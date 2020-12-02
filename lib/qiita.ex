@@ -47,13 +47,16 @@ defmodule Qiita do
     #{Enum.count(items)}件 :tada::tada::tada:
 
     # 新着 :hatching_chick::baby_chick::hatched_chick:
-    #{filter(items, Timex.now() |> Timex.shift(days: -3), "created_at", 1000)}
+    #{
+      filter(items, Timex.now() |> Timex.shift(days: -3), "created_at", 1000)
+      |> build_table("created_at")
+    }
 
     # 直近1ヶ月
-    #{filter(items, Timex.now() |> Timex.shift(days: -30))}
+    #{filter(items, Timex.now() |> Timex.shift(days: -30)) |> build_table("updated_at")}
 
     # 全期間 :confetti_ball::military_medal::confetti_ball:
-    #{filter(items, Timex.from_unix(0))}
+    #{filter(items, Timex.from_unix(0)) |> build_table("updated_at")}
 
     # [Elixir](https://elixir-lang.org/)のみを使って、今QiitaのElixir LGTMランキングを作ってみました
     - 実行環境は、もちろん[Nerves](https://www.nerves-project.org/) :robot:
@@ -98,7 +101,6 @@ defmodule Qiita do
     end)
     |> Enum.sort_by(fn %{"likes_count" => likes_count} -> likes_count end, :desc)
     |> Enum.take(amount)
-    |> build_table(key)
   end
 
   defp build_table(items, title_of_date) do
@@ -135,8 +137,11 @@ defmodule Qiita do
     if HelloNerves.is_xmas?() do
       year = Timex.now().year
 
-      filter(items, Timex.beginning_of_month(year, 12) |> Timex.to_datetime(), "updated_at", 1000) <>
+      filter(items, Timex.beginning_of_month(year, 12) |> Timex.to_datetime(), "updated_at", 1000)
+      |> build_table("updated_at")
+      |> Kernel.<>(
         "\nupdated_atが#{year}/12/01より大きい記事を並べています。アドベントカレンダーだけ取得するようないい方法があればお知らせください！"
+      )
     end
   end
 end
