@@ -74,7 +74,7 @@ defmodule Qiita.Yubaba do
       } = item
 
       acc_string <>
-        "|#{index}|[#{title}](#{url})<br>@#{user_id}|#{
+        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{
           created_at |> Timex.to_date() |> Date.to_string()
         }|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{likes_count}|\n"
     end)
