@@ -29,13 +29,6 @@ defmodule Qiita do
     """
     #{maybe_write_advent_calendar()}
 
-    # アドベントカレンダー :santa: :santa_tone1: :santa_tone2: :santa_tone3: :santa_tone4: :santa_tone5:
-    - ぜひご参加ください！
-    - [Elixir Advent Calendar 2020](https://qiita.com/advent-calendar/2020/elixir)
-    - [Elixir その2 Advent Calendar 2020](https://qiita.com/advent-calendar/2020/elixir2)
-    - [fukuoka.ex Elixir／Phoenix Advent Calendar 2020](https://qiita.com/advent-calendar/2020/fukuokaex)
-    - [#NervesJP Advent Calendar 2020](https://qiita.com/advent-calendar/2020/nervesjp)
-
     #{adventcalendar_table(items)}
 
     # 総件数 #{
@@ -129,6 +122,13 @@ defmodule Qiita do
       - [クリスマスエディション](https://github.com/TORIFUKUKaiou/hello_nerves/pull/54)
       - 以前から公開している記事ですがこの時期だからこそ見ていただきたく、アドベントカレンダーに登録しました
       - 12月限定の飾りをつけています！
+
+      # アドベントカレンダー :santa: :santa_tone1: :santa_tone2: :santa_tone3: :santa_tone4: :santa_tone5:
+      - ぜひご参加ください！
+      - [Elixir Advent Calendar 2020](https://qiita.com/advent-calendar/2020/elixir)
+      - [Elixir その2 Advent Calendar 2020](https://qiita.com/advent-calendar/2020/elixir2)
+      - [fukuoka.ex Elixir／Phoenix Advent Calendar 2020](https://qiita.com/advent-calendar/2020/fukuokaex)
+      - [#NervesJP Advent Calendar 2020](https://qiita.com/advent-calendar/2020/nervesjp)
       """
     end
   end
