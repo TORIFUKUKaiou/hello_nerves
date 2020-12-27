@@ -5,6 +5,9 @@
 # is restricted to this project.
 import Config
 
+# Enable the Nerves integration with Mix
+Application.start(:nerves_bootstrap)
+
 config :hello_nerves,
   target: Mix.target(),
   nhk_api_key: System.get_env("HELLO_NERVES_NHK_API_KEY"),
@@ -80,7 +83,9 @@ config :nerves, source_date_epoch: "1597551838"
 
 config :logger, backends: [RingLogger]
 
-if Mix.target() != :host do
+if Mix.target() == :host or Mix.target() == :"" do
+  import_config "host.exs"
+else
   import_config "target.exs"
 end
 
