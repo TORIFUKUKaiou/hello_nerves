@@ -52,12 +52,15 @@ defmodule HelloNerves.MixProject do
       {:nerves_system_x86_64, "~> 1.13", runtime: false, targets: :x86_64},
       {:docomo_text_to_speech, "~> 0.2.0"},
       {:oauther, "~> 1.1"},
-      {:extwitter, "~> 0.12"},
-      {:circuits_gpio, "~> 0.4"},
-      {:floki, "~> 0.27.0"},
-      {:flow, "~> 1.0"},
+      {:extwitter, "~> 0.12.2"},
+      {:circuits_gpio, "~> 0.4.6"},
+      {:floki, "~> 0.29.0"},
+      {:flow, "~> 1.1"},
       {:timex, "~> 3.6"},
-      {:quantum, "~> 3.0"}
+      {:quantum, "== 3.0.0"},
+      {:pelemay, "~> 0.0.14"},
+      {:cpu_info, "~> 0.2.2"},
+      {:mix_tasks_upload_hotswap, "~> 0.1.1", only: :dev}
     ]
   end
 

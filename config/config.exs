@@ -10,6 +10,7 @@ Application.start(:nerves_bootstrap)
 
 config :hello_nerves,
   target: Mix.target(),
+  env: Mix.env(),
   nhk_api_key: System.get_env("HELLO_NERVES_NHK_API_KEY"),
   nhk_area: System.get_env("HELLO_NERVES_NHK_AREA"),
   nhk_favorite_acts: System.get_env("HELLO_NERVES_NHK_FAVORITE_ACTS"),

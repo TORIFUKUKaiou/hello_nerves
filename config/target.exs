@@ -81,7 +81,7 @@ config :mdns_lite,
   # "nerves.local" for convenience. If more than one Nerves device is on the
   # network, delete "nerves" from the list.
 
-  host: [:hostname, "nerves"],
+  host: [:hostname, "nerves-rpi2"],
   ttl: 120,
 
   # Advertise the following services over mDNS.
@@ -112,4 +112,9 @@ config :mdns_lite,
 
 # import_config "#{Mix.target()}.exs"
 
-config :tzdata, :data_dir, "/root/tzdata"
+config :tzdata, :data_dir, "/data/tzdata"
+
+config :mix_tasks_upload_hotswap,
+  app_name: :hello_nerves,
+  nodes: [:"pi@nerves-rpi2.local"],
+  cookie: System.get_env("HELLO_NERVES_COOKIE") |> String.to_atom()
