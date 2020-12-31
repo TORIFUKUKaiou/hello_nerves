@@ -57,7 +57,7 @@ defmodule HelloNerves.MixProject do
       {:floki, "~> 0.29.0"},
       {:flow, "~> 1.1"},
       {:timex, "~> 3.6"},
-      {:quantum, "== 3.0.0"},
+      {:quantum, "~> 3.3"},
       {:pelemay, "~> 0.0.14"},
       {:cpu_info, "~> 0.2.2"},
       {:mix_tasks_upload_hotswap, "~> 0.1.1", only: :dev}
