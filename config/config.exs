@@ -62,7 +62,8 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"0 22 * * *", {Qiita, :run, [false]}},
     {"0 23 * * *", {Qiita, :run, [true]}},
     {"0 9 * * *", {Qiita.Yubaba, :run, []}},
-    {"0 21 * * *", {Qiita.Yubaba, :run, []}}
+    {"0 21 * * *", {Qiita.Yubaba, :run, []}},
+    {"1 22 * * *", {HelloNerves.TrashDay, :run, []}}
   ]
 
 config :docomo_text_to_speech,
