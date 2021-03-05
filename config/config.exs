@@ -63,6 +63,12 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"0 23 * * *", {Qiita, :run, [true]}},
     {"0 9 * * *", {Qiita.Yubaba, :run, []}},
     {"0 21 * * *", {Qiita.Yubaba, :run, []}},
+    {"30 0 * * *", {Qiita.CafeDung, :run, []}},
+    {"30 4 * * *", {Qiita.CafeDung, :run, []}},
+    {"30 8 * * *", {Qiita.CafeDung, :run, []}},
+    {"30 12 * * *", {Qiita.CafeDung, :run, []}},
+    {"30 16 * * *", {Qiita.CafeDung, :run, []}},
+    {"30 20 * * *", {Qiita.CafeDung, :run, []}},
     {"1 22 * * *", {HelloNerves.TrashDay, :run, []}}
   ]
 
