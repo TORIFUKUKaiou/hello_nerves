@@ -14,7 +14,10 @@ defmodule Qiita.CafeDung do
   end
 
   defp markdown do
-    items = Qiita.Api.items("title:カフェでプログラミングしてる風 OR tag:カフェでプログラミングしてる風")
+    items =
+      Qiita.Api.items(
+        "title:カフェでプログラミングしてる風 OR tag:カフェでプログラミングしてる風 OR title:スタバでつよつよエンジニアを演じられるプログラム"
+      )
 
     sorted_items =
       Enum.sort_by(items, fn %{"likes_count" => likes_count} -> likes_count end, :desc)
@@ -22,8 +25,10 @@ defmodule Qiita.CafeDung do
     """
     # この記事は
     - @3S_Laboo さんの[カフェでプログラミングしてる風（でも何もやってない）Java（クソ）コード](https://qiita.com/3S_Laboo/items/660883a0184dabaea65b)よりはじまった「カフェでプログラミングしてる風」関連記事のリンク集です
-      - [`"title:カフェでプログラミングしてる風 OR tag:カフェでプログラミングしてる風"`](https://qiita.com/search?sort=&q=title%3A%E3%82%AB%E3%83%95%E3%82%A7%E3%81%A7%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%97%E3%81%A6%E3%82%8B%E9%A2%A8+OR+tag%3A%E3%82%AB%E3%83%95%E3%82%A7%E3%81%A7%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%97%E3%81%A6%E3%82%8B%E9%A2%A8)で検索しています
+      - [`"title:カフェでプログラミングしてる風 OR tag:カフェでプログラミングしてる風 OR title:スタバでつよつよエンジニアを演じられるプログラム"`](https://qiita.com/search?q=title%3A%E3%82%AB%E3%83%95%E3%82%A7%E3%81%A7%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%97%E3%81%A6%E3%82%8B%E9%A2%A8+OR+tag%3A%E3%82%AB%E3%83%95%E3%82%A7%E3%81%A7%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%81%97%E3%81%A6%E3%82%8B%E9%A2%A8+OR+title%3A%E3%82%B9%E3%82%BF%E3%83%90%E3%81%A7%E3%81%A4%E3%82%88%E3%81%A4%E3%82%88%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2%E3%82%92%E6%BC%94%E3%81%98%E3%82%89%E3%82%8C%E3%82%8B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0) で検索しています
       - LGTM数順に並べています
+
+    https://qiita.com/3S_Laboo/items/660883a0184dabaea65b
 
     # 総件数
     #{Enum.count(items)}件 :tada::tada::tada:
