@@ -50,7 +50,6 @@ defmodule HelloNerves.MixProject do
       {:nerves_system_bbb, "~> 2.8", runtime: false, targets: :bbb},
       {:nerves_system_osd32mp1, "~> 0.4", runtime: false, targets: :osd32mp1},
       {:nerves_system_x86_64, "~> 1.13", runtime: false, targets: :x86_64},
-      {:docomo_text_to_speech, "~> 0.2.0"},
       {:oauther, "~> 1.1"},
       {:extwitter, "~> 0.12.2"},
       {:circuits_gpio, "~> 0.4.6"},
@@ -60,7 +59,9 @@ defmodule HelloNerves.MixProject do
       {:quantum, "~> 3.3"},
       {:pelemay, "~> 0.0.14"},
       {:cpu_info, "~> 0.2.2"},
-      {:mix_tasks_upload_hotswap, "~> 0.1.1", only: :dev}
+      {:mix_tasks_upload_hotswap, "~> 0.1.1", only: :dev},
+      {:httpoison, "~> 1.8"},
+      {:jason, "~> 1.2"}
     ]
   end
 

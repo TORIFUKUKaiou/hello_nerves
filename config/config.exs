@@ -22,7 +22,9 @@ config :hello_nerves,
     System.get_env("HELLO_NERVES_TWITTER_SEARCH_INTERVAL") |> String.to_integer(),
   slack_incoming_webhook_url: System.get_env("HELLO_NERVES_SLACK_INCOMING_WEBHOOK_URL"),
   slack_channel: System.get_env("HELLO_NERVES_SLACK_CHANNEL"),
-  open_weather_api_key: System.get_env("HELLO_NERVES_OPEN_WEATHER_API_KEY")
+  open_weather_api_key: System.get_env("HELLO_NERVES_OPEN_WEATHER_API_KEY"),
+  azure_text_to_speech_subscription_key:
+    System.get_env("HELLO_NERVES_AZURE_TEXT_TO_SPEECH_SUBSCRIPTION_KEY")
 
 config :hello_nerves, HelloNerves.Scheduler,
   jobs: [
@@ -71,9 +73,6 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"30 20 * * *", {Qiita.CafeDung, :run, []}},
     {"1 22 * * *", {HelloNerves.TrashDay, :run, []}}
   ]
-
-config :docomo_text_to_speech,
-  api_key: System.get_env("DOCOMO_TEXT_TO_SPEECH_API_KEY")
 
 # Customize non-Elixir parts of the firmware. See
 # https://hexdocs.pm/nerves/advanced-configuration.html for details.
