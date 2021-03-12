@@ -23,7 +23,7 @@ defmodule Weather.Forecast do
     temp_max = dailies |> Enum.at(0) |> Map.get("temp") |> Map.get("max")
     temp_min = dailies |> Enum.at(0) |> Map.get("temp") |> Map.get("min")
 
-    "#{name}の天気は、#{description}です。\n最高気温は#{temp_max}℃です。最低気温は#{temp_min}℃です。\n\n#{i_use_nerves()}"
+    "#{name}の天気は、#{description}です。\n最高気温は#{temp_max}度です。最低気温は#{temp_min}度です。\n\n#{i_use_nerves()}"
   end
 
   def run do
