@@ -60,7 +60,7 @@ defmodule Qiita.MicrosoftIgnite do
     - で、なにを書こうかと考えて、一体どれくらい記事が投稿されているのだろうと調べた結果をアウトプットします
     - こちらの動画の中で[Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)と[GitHub](https://github.com/)のことが触れられておりました
     - 私は記事の自動更新プログラムを[Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)を利用していま書いていますし、ソースコードは[GitHub](https://github.com/)の[TORIFUKUKaiou/hello_nerves](https://github.com/TORIFUKUKaiou/hello_nerves)に置いていますので、きっとイベントの参加資格を満たしているだろうとおもって投稿をしました
-      - [コミット]()
+      - [コミット](https://github.com/TORIFUKUKaiou/hello_nerves/pull/64/commits/09b227e551e88800d111dee794593404208666aa)
     - いや、いいんです
     - 参加資格なんか満たしていなくったっていいのです
     - とにかくこのほとばしるものをどこかに書いておきたいとおもって、好きな[Elixir](https://elixir-lang.org/)を使って、LGTMランキング記事を作ってみたわけです
