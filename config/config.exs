@@ -71,6 +71,12 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"30 12 * * *", {Qiita.CafeDung, :run, []}},
     {"30 16 * * *", {Qiita.CafeDung, :run, []}},
     {"30 20 * * *", {Qiita.CafeDung, :run, []}},
+    {"45 0 * * *", {Qiita.MicrosoftIgnite, :run, []}},
+    {"45 4 * * *", {Qiita.MicrosoftIgnite, :run, []}},
+    {"45 8 * * *", {Qiita.MicrosoftIgnite, :run, []}},
+    {"45 12 * * *", {Qiita.MicrosoftIgnite, :run, []}},
+    {"45 16 * * *", {Qiita.MicrosoftIgnite, :run, []}},
+    {"45 20 * * *", {Qiita.MicrosoftIgnite, :run, []}},
     {"1 22 * * *", {HelloNerves.TrashDay, :run, []}}
   ]
 
