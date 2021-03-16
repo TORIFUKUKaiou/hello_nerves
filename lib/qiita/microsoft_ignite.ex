@@ -32,7 +32,8 @@ defmodule Qiita.MicrosoftIgnite do
     # この記事は
     - [Microsoft Igniteに参加してイベントに関する記事を投稿しよう！](https://qiita.com/official-events/a50e99d62dc62d68a9c9)
     - というイベントに参加していると**おもわれる**記事の一覧です
-      - 「参加ボタン」押すのをお忘れなく
+      - 「参加ボタン」を押すのをお忘れなく
+      - [tag:QiitaAzure tag:Azure created:>2021-03-02](https://qiita.com/search?q=tag%3AQiitaAzure+tag%3AAzure+created%3A%3E2021-03-02)
     - [QiitaAzure](https://qiita.com/tags/qiitaazure)タグと[Azure](https://qiita.com/tags/azure)タグの両方がついていて、`created_at`が`2021/3/3– 2021/3/31`になっている記事を集めて、LGTM数順に並べています
       - 期間の境界のところは誤りがあるかもしれません
       - そこはご愛嬌ということでお許しください :pray::pray_tone1::pray_tone2::pray_tone3::pray_tone4::pray_tone5:
@@ -59,10 +60,12 @@ defmodule Qiita.MicrosoftIgnite do
     - ぜひご覧になってください
     - で、なにを書こうかと考えて、一体どれくらい記事が投稿されているのだろうと調べた結果をアウトプットします
     - こちらの動画の中で[Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)と[GitHub](https://github.com/)のことが触れられておりました
-    - 私は記事の自動更新プログラムを[Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)を利用していま書いていますし、ソースコードは[GitHub](https://github.com/)の[TORIFUKUKaiou/hello_nerves](https://github.com/TORIFUKUKaiou/hello_nerves)に置いていますので、きっとイベントの参加資格を満たしているだろうとおもって投稿をしました
+    - 私は記事の自動更新プログラムを[Visual Studio Code](https://azure.microsoft.com/ja-jp/products/visual-studio-code/)を利用していま書いていますし、ソースコードは[GitHub](https://github.com/)の[TORIFUKUKaiou/hello_nerves](https://github.com/TORIFUKUKaiou/hello_nerves)に置いていますので、きっとイベントの参加資格を満たしているだろうとおもっています
       - [コミット](https://github.com/TORIFUKUKaiou/hello_nerves/pull/64/commits/09b227e551e88800d111dee794593404208666aa)
     - いや、いいんです
     - 参加資格なんか満たしていなくったっていいのです
+      - <font color="purple">$\\huge{I　use　Elixir.}$</font>
+      - <font color="purple">$\\huge{I　like　it!}$</font>
     - とにかくこのほとばしるものをどこかに書いておきたいとおもって、好きな[Elixir](https://elixir-lang.org/)を使って、LGTMランキング記事を作ってみたわけです
     - 記事を書くきっかけをいただいたことに感謝いたします
     - 3月は、他のセッションもみて期間の間にまた記事を投稿したいとおもっています
