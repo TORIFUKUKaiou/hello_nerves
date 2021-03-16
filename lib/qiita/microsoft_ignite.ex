@@ -18,7 +18,7 @@ defmodule Qiita.MicrosoftIgnite do
     start = DateTime.new(~D[2021-03-02], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
     ending = DateTime.new(~D[2021-03-31], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
 
-    Qiita.Api.items("tag:QiitaAzure AND tag:Azure")
+    Qiita.Api.items("tag:QiitaAzure tag:Azure created:>2021-03-02")
     |> Enum.filter(fn %{"created_at" => created_at} ->
       Timex.between?(created_at, start, ending, inclusive: :start)
     end)
