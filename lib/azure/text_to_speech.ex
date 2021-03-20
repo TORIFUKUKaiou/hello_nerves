@@ -1,5 +1,8 @@
 defmodule Azure.TextToSpeech do
   @subscription_key Application.get_env(:hello_nerves, :azure_text_to_speech_subscription_key)
+  @locale "ja-JP"
+  @gender "Female"
+  @voice_type "Neural"
 
   def run!(text) do
     access_token()
@@ -12,19 +15,21 @@ defmodule Azure.TextToSpeech do
       "Content-type": "application/x-www-form-urlencoded"
     ]
 
-    "https://japaneast.api.cognitive.microsoft.com/sts/v1.0/issuetoken"
+    "https://eastus.api.cognitive.microsoft.com/sts/v1.0/issuetoken"
     |> HTTPoison.post!("", headers)
     |> Map.get(:body)
   end
 
   def voices_list(token) do
-    "https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list"
+    "https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list"
     |> HTTPoison.get!(authorization_header(token))
     |> Map.get(:body)
     |> Jason.decode!()
   end
 
   def voice(token, text) do
+    %{"Name" => name} = select_voice(token)
+
     headers =
       authorization_header(token)
       |> Keyword.merge(
@@ -33,31 +38,32 @@ defmodule Azure.TextToSpeech do
         "User-Agent": "awesome"
       )
 
-    locale = "ja-JP"
-    gender = "Female"
+    "https://eastus.tts.speech.microsoft.com/cognitiveservices/v1"
+    |> HTTPoison.post!(ssml(text, name), headers)
+    |> Map.get(:body)
+  end
 
-    %{"Name" => name} =
-      voices_list(token)
-      |> Enum.filter(fn %{"Locale" => l} -> l == locale end)
-      |> Enum.filter(fn %{"Gender" => g} -> g == gender end)
-      |> Enum.random()
+  defp authorization_header(token) do
+    [Authorization: "Bearer #{token}"]
+  end
 
-    body = """
-    <speak version='1.0' xml:lang='#{locale}'>
-      <voice xml:lang='#{locale}' xml:gender='#{gender}' name='#{name}'>
+  defp select_voice(token) do
+    voices_list(token)
+    |> Enum.filter(fn %{"Locale" => l} -> l == @locale end)
+    |> Enum.filter(fn %{"Gender" => g} -> g == @gender end)
+    |> Enum.filter(fn %{"VoiceType" => vt} -> vt == @voice_type end)
+    |> Enum.random()
+  end
+
+  defp ssml(text, name) do
+    """
+    <speak version='1.0' xml:lang='#{@locale}'>
+      <voice xml:lang='#{@locale}' xml:gender='#{@gender}' name='#{name}'>
         <prosody volume="100.0">
           #{text}
         </prosody>
       </voice>
     </speak>
     """
-
-    "https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1"
-    |> HTTPoison.post!(body, headers)
-    |> Map.get(:body)
-  end
-
-  defp authorization_header(token) do
-    [Authorization: "Bearer #{token}"]
   end
 end
