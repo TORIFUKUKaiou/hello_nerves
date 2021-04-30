@@ -35,8 +35,12 @@ defmodule Qiita.Api do
   end
 
   defp do_items(query) do
-    max_page = total_count(query) |> max_page()
+    total_count(query) |> max_page() |> do_items(query)
+  end
 
+  defp do_items(0, _query), do: []
+
+  defp do_items(max_page, query) do
     1..max_page
     |> Enum.reduce([], fn page, acc_list ->
       "#{@base_url}/items?#{query}&per_page=#{@per_page}&page=#{page}"

@@ -77,6 +77,12 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"45 12 * * *", {Qiita.MicrosoftIgnite, :run, []}},
     {"45 16 * * *", {Qiita.MicrosoftIgnite, :run, []}},
     {"45 20 * * *", {Qiita.MicrosoftIgnite, :run, []}},
+    {"15 0 * * *", {Qiita.Azure.MicrosoftJava, :run, []}},
+    {"15 4 * * *", {Qiita.Azure.MicrosoftJava, :run, []}},
+    {"15 8 * * *", {Qiita.Azure.MicrosoftJava, :run, []}},
+    {"15 12 * * *", {Qiita.Azure.MicrosoftJava, :run, []}},
+    {"15 16 * * *", {Qiita.Azure.MicrosoftJava, :run, []}},
+    {"15 20 * * *", {Qiita.Azure.MicrosoftJava, :run, []}},
     {"1 22 * * *", {HelloNerves.TrashDay, :run, []}}
   ]
 
