@@ -16,7 +16,7 @@ defmodule Qiita.Azure.MicrosoftJava do
 
   def items do
     start = DateTime.new(~D[2021-04-05], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
-    ending = DateTime.new(~D[2021-05-08], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
+    ending = DateTime.new(~D[2021-05-09], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
 
     Qiita.Api.items("tag:QiitaAzure tag:Azure created:>2021-04-05")
     |> Enum.filter(fn %{"created_at" => created_at} ->
@@ -60,7 +60,7 @@ defmodule Qiita.Azure.MicrosoftJava do
     - この記事では、いっさいJavaなことは書いていませんーーまとめ記事です
       - 私だけの感じ方かもしれません[^1]が、自分が書いた記事が他の方の記事からリンクされると、Qiitaの画面の上のほうで「**あなたの記事にリンクしました**」とお知らせがくることがありますよね
       - あれが私はうれしいです
-      - イベントですし、お祭りということで身勝手な話ですが応援させてください :lgtm::tada::tada::tada::lgtm:
+      - イベントですし、お祭りということで勝手に応援させてください :lgtm::tada::tada::tada::lgtm:
 
     [^1]: 矢吹丈がそんな言い方を乾物屋の紀ちゃんにするシーンがあって、私は多用しています
 
