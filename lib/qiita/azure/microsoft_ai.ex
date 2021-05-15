@@ -1,4 +1,4 @@
-defmodule Qiita.Azure.MicrosoftJava do
+defmodule Qiita.Azure.MicrosoftAI do
   def run do
     Qiita.Api.patch_item(
       markdown(),
@@ -9,16 +9,16 @@ defmodule Qiita.Azure.MicrosoftJava do
         %{"name" => "Azure"},
         %{"name" => "Nerves"}
       ],
-      "【毎日自動更新】Java開発者のためのAzure入門(2021/4/6–2021/5/9) LGTMランキング！",
-      "9cfefb20ec347514576b"
+      "【毎日自動更新】Azure AIを活用した機械学習に関する記事を投稿しよう！(2021/5/10–2021/6/9) LGTMランキング！",
+      "17f05aad2aff239ab6d2"
     )
   end
 
   def items do
-    start = DateTime.new(~D[2021-04-05], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
-    ending = DateTime.new(~D[2021-05-09], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
+    start = DateTime.new(~D[2021-05-09], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
+    ending = DateTime.new(~D[2021-06-09], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
 
-    Qiita.Api.items("tag:QiitaAzure tag:Azure created:>2021-04-05")
+    Qiita.Api.items("tag:QiitaAzure tag:Azure created:>2021-05-09")
     |> Enum.filter(fn %{"created_at" => created_at} ->
       Timex.between?(created_at, start, ending, inclusive: :start)
     end)
@@ -29,18 +29,26 @@ defmodule Qiita.Azure.MicrosoftJava do
     sorted_items = items()
 
     """
-    https://qiita.com/official-events/22637c675c61a797a24f
+    https://qiita.com/official-events/5a0932fbeb1443ae1094
 
     # この記事は
-    - [Java開発者のためのAzure入門(2021/4/6–2021/5/9)](https://qiita.com/official-events/22637c675c61a797a24f)
+    - [Azure AIを活用した機械学習に関する記事を投稿しよう！(2021/5/10–2021/6/9)](https://qiita.com/official-events/5a0932fbeb1443ae1094)
     - というイベントに参加していると**おもわれる**記事の一覧です
       - 「参加ボタン」を押すのをお忘れなく
-      - [tag:QiitaAzure tag:Azure created:>2021-04-06](https://qiita.com/search?q=tag%3AQiitaAzure+tag%3AAzure+created%3A%3E2021-04-06)
-    - [QiitaAzure](https://qiita.com/tags/qiitaazure)タグと[Azure](https://qiita.com/tags/azure)タグの両方がついていて、`created_at`が`2021/4/6– 2021/5/9`になっている記事を集めて、LGTM数順に並べています
+      - [tag:QiitaAzure tag:Azure created:>2021-05-09](https://qiita.com/search?q=tag%3AQiitaAzure+tag%3AAzure+created%3A%3E2021-05-09)
+    - [QiitaAzure](https://qiita.com/tags/qiitaazure)タグと[Azure](https://qiita.com/tags/azure)タグの両方がついていて、`created_at`が`2021/5/10– 2021/6/10`になっている記事を集めて、LGTM数順に並べています
       - 期間の境界のところは誤りがあるかもしれません
       - そこはご愛嬌ということでお許しください :pray::pray_tone1::pray_tone2::pray_tone3::pray_tone4::pray_tone5:
 
+    ## QiitaAzure記事投稿キャンペーン
+    ### 3月
+    https://qiita.com/official-events/a50e99d62dc62d68a9c9
+
+    ### 4月
     https://qiita.com/official-events/22637c675c61a797a24f
+
+    ### 5月
+    https://qiita.com/official-events/5a0932fbeb1443ae1094
 
 
     # 総件数
@@ -49,15 +57,16 @@ defmodule Qiita.Azure.MicrosoftJava do
     # 全期間 :confetti_ball::military_medal::confetti_ball:
     #{build_table(sorted_items)}
 
-    # JavaとAzureと私
-    - 最近はあんまりJavaを触っていないのですがこのイベントをきっかけに久しぶりに触ってみようとおもいます
-    - androidアプリはJavaで書いたことがあります
-      - [読書日記](https://play.google.com/store/apps/details?id=jp.torifuku.ReadingDiary&hl=ja&gl=US)
-      - [オートレースオンデマンド再生](https://play.google.com/store/apps/details?id=jp.torifuku.ondemandplayer&hl=ja&gl=US)
-    - [Azure](https://azure.microsoft.com/ja-jp/)との関係は、こちらが[仮想マシン](https://azure.microsoft.com/ja-jp/services/virtual-machines/)でイゴいています
-      - https://aht20.torifuku-kaiou.tokyo/aht20-dashboard
-      - https://aht20.torifuku-kaiou.tokyo/yubaba
-    - この記事では、いっさいJavaなことは書いていませんーーまとめ記事です
+    # AIとAzureと私
+    - 私はAIについては全くの門外漢です
+      - 以下のビデオや記事に期限までに取り組んで記事を書いてみようとおもいます
+      - [Microsoft Ignite](https://myignite.microsoft.com/home)
+        - [Intro to Azure AI](https://myignite.microsoft.com/sessions/f30a17a8-e478-4f9e-99cf-913e3f0f3a49?source=sessions)
+        - [Getting started with Machine Learning using Python](https://myignite.microsoft.com/sessions/5d21f1ca-199e-401f-aa35-2e51efa518ff?source=sessions)
+        - [Getting started with Azure AI](https://myignite.microsoft.com/sessions/061f7404-d668-46bf-b4bd-1ef4cb20b885?source=sessions)
+        - [Getting started with Azure AI](https://myignite.microsoft.com/sessions/1f477d45-7b15-4c79-8d08-9e4476d3bda7?source=sessions)
+      - [AI エンジニア向けの MICROSOFT LEARN 最先端の AI ソリューションを定義して実装する](https://docs.microsoft.com/ja-jp/learn/roles/ai-engineer)
+    - この記事では、いっさいAIなことは書いていませんーーまとめ記事です
       - 私だけの感じ方かもしれません[^1]が、自分が書いた記事が他の方の記事からリンクされると、Qiitaの画面の上のほうで「**あなたの記事にリンクしました**」とお知らせがくることがありますよね
       - あれが私はうれしいです
       - イベントですし、お祭りということで勝手に応援させてください :lgtm::tada::tada::tada::lgtm:
@@ -82,7 +91,7 @@ defmodule Qiita.Azure.MicrosoftJava do
     - [elixir.jp Slack](https://join.slack.com/t/elixirjp/shared_invite/zt-ae8m5bad-WW69GH1w4iuafm1tKNgd~w)の`#autoracex`というところに私は入り浸っておりますのでお気軽にお声がけください
     - [勉強会が頻繁に行われています](https://twitter.com/piacere_ex/status/1364109880362115078)
         - 私がよく参加している勉強会です
-        - [autoracex](https://autoracex.connpass.com/) 【毎週月曜】 主催
+        - [autoracex](https://autoracex.connpass.com/) 【毎週土曜〜月曜】 主催
         - [Sapporo.beam](https://sapporo-beam.connpass.com)　　【毎週水曜】
         - [OkazaKirin.beam](https://okazakirin-beam.connpass.com)　【毎週木曜】
         - [fukuoka.ex／kokura.ex](https://fukuokaex.connpass.com)　【毎月2～3回】
