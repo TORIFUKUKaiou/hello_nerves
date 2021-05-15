@@ -83,6 +83,12 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"15 12 * * *", {Qiita.Azure.MicrosoftJava, :run, []}},
     {"15 16 * * *", {Qiita.Azure.MicrosoftJava, :run, []}},
     {"15 20 * * *", {Qiita.Azure.MicrosoftJava, :run, []}},
+    {"10 0 * * *", {Qiita.Azure.MicrosoftAI, :run, []}},
+    {"10 4 * * *", {Qiita.Azure.MicrosoftAI, :run, []}},
+    {"10 8 * * *", {Qiita.Azure.MicrosoftAI, :run, []}},
+    {"10 12 * * *", {Qiita.Azure.MicrosoftAI, :run, []}},
+    {"10 16 * * *", {Qiita.Azure.MicrosoftAI, :run, []}},
+    {"10 20 * * *", {Qiita.Azure.MicrosoftAI, :run, []}},
     {"1 22 * * *", {HelloNerves.TrashDay, :run, []}}
   ]
 
