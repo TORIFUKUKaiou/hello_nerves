@@ -67,6 +67,9 @@ defmodule Qiita.Azure do
         ### 5月
         https://qiita.com/official-events/5a0932fbeb1443ae1094
 
+        ### 6月
+        https://qiita.com/official-events/885e4031d03c787eceab
+
         # Wrapping up :lgtm: :qiitan: :lgtm:
         - 自動更新は、[Elixir](https://elixir-lang.org/)というプログラミング言語がありまして、その[Elixir](https://elixir-lang.org/)で作られた[Nerves](https://www.nerves-project.org/)という[ナウでヤングでcoolなすごいIoTフレームワーク](https://www.slideshare.net/takasehideki/elixiriotcoolnerves-236780506)を使ってつくったアプリケーションで行っております
           - [Nerves](https://www.nerves-project.org/)の始め方につきましては下記の記事が詳しいです
