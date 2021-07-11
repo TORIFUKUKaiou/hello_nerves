@@ -146,10 +146,21 @@ defmodule Qiita.EngineerFesta do
       - [ElixirでIoT#4.1：Nerves開発環境の準備](https://qiita.com/takasehideki/items/88dda57758051d45fcf9)
     - 令和２年なのに未だに我が家の主力Raspberry Pi 2が毎日自動更新しております
       - [TORIFUKUKaiou/hello_nerves](https://github.com/TORIFUKUKaiou/hello_nerves)
-    - この記事自身があわよくば賞の末席に加えていただけるようなことがもしあるならば、いただいたプレゼントにて**自分の心**という一番御しがたい開発環境を改善することにつながるとおもいまして「[開発環境を豊かにする開発事例](https://qiita.com/official-events/89fd4ad3c24d7882117d)」に応募します
+    - この記事自身があわよくば賞をいただけるようなことがもしあるならば、いただいたプレゼントにてテンションがあがり、**自分の心**という一番御しがたい開発環境を改善することにつながるとおもいまして「[開発環境を豊かにする開発事例](https://qiita.com/official-events/89fd4ad3c24d7882117d)」に応募します
       - **山中の賊を破るは易く心中の賊を破るは難し**
 
     https://qiita.com/official-events/89fd4ad3c24d7882117d
+
+    # 日本マイクロソフト賞④
+    - 開発環境を豊かにする開発事例ーーそれは[Qiita Advent Calendar 2020](https://qiita.com/advent-calendar/2020)に積極的に投稿を行ったことです
+    - 結果は、[マイクロソフト賞 ④：「クラウドネイティブの ASP.NET Core マイクロサービスを作成してデプロイする」 をやってみる (@torifukukaiou さん)](https://qiita.com/chomado/items/7d1f757f18c5b442fadd#%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%BD%E3%83%95%E3%83%88%E8%B3%9E-%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%83%8D%E3%82%A4%E3%83%86%E3%82%A3%E3%83%96%E3%81%AE-aspnet-core-%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%A6%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4%E3%81%99%E3%82%8B-%E3%82%92%E3%82%84%E3%81%A3%E3%81%A6%E3%81%BF%E3%82%8B-torifukukaiou-%E3%81%95%E3%82%93)を受賞することができました
+    - このとき賞品としていただいた、ボタン操作で机の高さを調整できる[FLEXISPOT スタンディングデスク 電動式 昇降デスク ＆ 天板](https://flexispot.jp/desk/height-adjustable-desks)は開発環境を改善してくれました
+      - たまには立ってPCと向き合うことができています
+      - 150cm x 70cmの天板にモノを全部ならべることができてすっきりしています
+    - そうしてさらに、マイクロソフトさんのYouTubeチャンネル[クラウドデベロッパーちゃんねる](https://www.youtube.com/channel/UCMmRHq3E_9Hc9noZeo3zDCw)に出していただけました
+    - :movie_camera: [Qiita Advent Calendar インタビュー特集第1弾 Elixir と Azure の愛を語る！](https://www.youtube.com/watch?v=R3o8vR1A9ao) :movie_camera:
+
+    ![IMG_20210130_144449.jpg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/131808/a088e754-3684-dc25-e72c-53a041469f15.jpeg)
 
     # [NervesJP](https://nerves-jp.connpass.com/)
     - ここで自動更新につかっている[Nerves](https://www.nerves-project.org/)のコミュニティ[NervesJP](https://nerves-jp.connpass.com/)のご紹介です
