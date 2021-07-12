@@ -5,7 +5,8 @@ defmodule Qiita.EngineerFesta do
       false,
       [
         %{"name" => "Elixir"},
-        %{"name" => "Qiitaエンジニアフェスタ_開発環境"}
+        %{"name" => "Qiitaエンジニアフェスタ_開発環境"},
+        %{"name" => "Nerves"}
       ],
       "Qiitaエンジニアフェスタ2021 LGTMランキング！",
       "949ff6d59ffeeec0cd51"
