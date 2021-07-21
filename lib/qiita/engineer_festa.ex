@@ -5,7 +5,8 @@ defmodule Qiita.EngineerFesta do
       false,
       [
         %{"name" => "Elixir"},
-        %{"name" => "Qiitaエンジニアフェスタ_開発環境"}
+        %{"name" => "Qiitaエンジニアフェスタ_開発環境"},
+        %{"name" => "Nerves"}
       ],
       "Qiitaエンジニアフェスタ2021 LGTMランキング！",
       "949ff6d59ffeeec0cd51"
@@ -42,6 +43,10 @@ defmodule Qiita.EngineerFesta do
     "https://qiita.com/official-events/21bbb48549a4a68172a4" => ["Qiitaエンジニアフェスタ_TrendMicro"],
     "https://qiita.com/official-events/8d3820474c1143e88801" => [
       "Qiitaエンジニアフェスタ_StaticWebApps",
+      "Azure"
+    ],
+    "https://qiita.com/official-events/c6ee70084f9aeb38b0cc" => [
+      "Qiitaエンジニアフェスタ_MS開発ツール",
       "Azure"
     ],
     "https://qiita.com/official-events/aa53d801cf3d9d578e18" => [
@@ -98,7 +103,7 @@ defmodule Qiita.EngineerFesta do
     [^1]: 矢吹丈がそんな言い方を乾物屋の紀ちゃんにするシーンがあって、私は多用しています
 
     # 総件数
-    #{Enum.count(items)}件 :tada::tada::tada:
+    #{items |> Map.values() |> List.flatten() |> Enum.count()}件 :tada::tada::tada:
 
     # 総合賞
     https://qiita.com/official-campaigns/engineer-festa/2021
@@ -115,6 +120,7 @@ defmodule Qiita.EngineerFesta do
         "https://qiita.com/official-events/64ff6ba4e653a822fce9",
         "https://qiita.com/official-events/21bbb48549a4a68172a4",
         "https://qiita.com/official-events/8d3820474c1143e88801",
+        "https://qiita.com/official-events/c6ee70084f9aeb38b0cc",
         "https://qiita.com/official-events/aa53d801cf3d9d578e18"
       ]
       |> Enum.map(fn url ->
@@ -122,8 +128,6 @@ defmodule Qiita.EngineerFesta do
       end)
       |> Enum.join("---\n")
     }
-
-    日本マイクロソフト株式会社 7/22テーマ公開予定 (Coming Soon)
 
     # Qiita運営テーマ
     #{
