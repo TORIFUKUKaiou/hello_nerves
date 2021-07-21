@@ -99,7 +99,7 @@ defmodule Qiita.EngineerFesta do
     [^1]: 矢吹丈がそんな言い方を乾物屋の紀ちゃんにするシーンがあって、私は多用しています
 
     # 総件数
-    #{Enum.count(items)}件 :tada::tada::tada:
+    #{items |> Map.values() |> List.flatten() |> Enum.count()}件 :tada::tada::tada:
 
     # 総合賞
     https://qiita.com/official-campaigns/engineer-festa/2021
