@@ -104,9 +104,9 @@ defmodule Qiita.MicrosoftIgnite do
 
   defp build_table(items) do
     Enum.with_index(items, 1)
-    |> Enum.reduce("|No|title|created_at|updated_at|LGTM|\n|---|---|---|---|---|\n", fn {item,
-                                                                                         index},
-                                                                                        acc_string ->
+    |> Enum.reduce("|No|title|created_at|updated_at|LGTM|\n|---|---|---|---|---:|\n", fn {item,
+                                                                                          index},
+                                                                                         acc_string ->
       %{
         "title" => title,
         "likes_count" => likes_count,
@@ -119,7 +119,9 @@ defmodule Qiita.MicrosoftIgnite do
       acc_string <>
         "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{
           created_at |> Timex.to_date() |> Date.to_string()
-        }|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{likes_count}|\n"
+        }|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{
+          Number.Delimit.number_to_delimited(likes_count, precision: 0)
+        }|\n"
     end)
   end
 

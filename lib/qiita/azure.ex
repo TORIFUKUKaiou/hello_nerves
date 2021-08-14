@@ -103,23 +103,26 @@ defmodule Qiita.Azure do
 
       defp build_table(items) do
         Enum.with_index(items, 1)
-        |> Enum.reduce("|No|title|created_at|updated_at|LGTM|\n|---|---|---|---|---|\n", fn {item,
-                                                                                             index},
-                                                                                            acc_string ->
-          %{
-            "title" => title,
-            "likes_count" => likes_count,
-            "created_at" => created_at,
-            "updated_at" => updated_at,
-            "url" => url,
-            "user_id" => user_id
-          } = item
+        |> Enum.reduce(
+          "|No|title|created_at|updated_at|LGTM|\n|---|---|---|---|---:|\n",
+          fn {item, index}, acc_string ->
+            %{
+              "title" => title,
+              "likes_count" => likes_count,
+              "created_at" => created_at,
+              "updated_at" => updated_at,
+              "url" => url,
+              "user_id" => user_id
+            } = item
 
-          acc_string <>
-            "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{
-              created_at |> Timex.to_date() |> Date.to_string()
-            }|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{likes_count}|\n"
-        end)
+            acc_string <>
+              "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{
+                created_at |> Timex.to_date() |> Date.to_string()
+              }|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{
+                Number.Delimit.number_to_delimited(likes_count, precision: 0)
+              }|\n"
+          end
+        )
       end
     end
   end

@@ -98,8 +98,8 @@ defmodule Qiita do
 
   defp build_table(items, title_of_date) do
     Enum.with_index(items, 1)
-    |> Enum.reduce("|No|title|#{title_of_date}|LGTM|\n|---|---|---|---|\n", fn {item, index},
-                                                                               acc_string ->
+    |> Enum.reduce("|No|title|#{title_of_date}|LGTM|\n|---|---|---|---:|\n", fn {item, index},
+                                                                                acc_string ->
       %{
         "title" => title,
         "likes_count" => likes_count,
@@ -111,7 +111,7 @@ defmodule Qiita do
       acc_string <>
         "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{
           updated_at |> Timex.to_date() |> Date.to_string()
-        }|#{likes_count}|\n"
+        }|#{Number.Delimit.number_to_delimited(likes_count, precision: 0)}|\n"
     end)
   end
 
