@@ -87,6 +87,14 @@ defmodule Qiita.EngineerFesta do
     |> Enum.join(" ")
   end
 
+  defp sum_of_likes_count(items) do
+    items
+    |> Map.values()
+    |> List.flatten()
+    |> Enum.map(fn %{"likes_count" => likes_count} -> likes_count end)
+    |> Enum.sum()
+  end
+
   defp markdown do
     items = items()
 
@@ -104,6 +112,9 @@ defmodule Qiita.EngineerFesta do
 
     # 総件数
     #{items |> Map.values() |> List.flatten() |> Enum.count()}件 :tada::tada::tada:
+
+    # 総LGTM数 :lgtm::lgtm::lgtm::lgtm::lgtm:
+    #{sum_of_likes_count(items) |> Number.Delimit.number_to_delimited(precision: 0)} :rocket::rocket::rocket:
 
     # 総合賞
     https://qiita.com/official-campaigns/engineer-festa/2021

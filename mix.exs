@@ -61,7 +61,8 @@ defmodule HelloNerves.MixProject do
       {:cpu_info, "~> 0.2.2"},
       {:mix_tasks_upload_hotswap, "~> 0.1.1", only: :dev},
       {:httpoison, "~> 1.8"},
-      {:jason, "~> 1.2"}
+      {:jason, "~> 1.2"},
+      {:number, "~> 1.0.1"}
     ]
   end
 
