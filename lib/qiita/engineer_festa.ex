@@ -169,6 +169,7 @@ defmodule Qiita.EngineerFesta do
     # [NervesJP](https://nerves-jp.connpass.com/)
     - ここで自動更新につかっている[Nerves](https://www.nerves-project.org/)のコミュニティ[NervesJP](https://nerves-jp.connpass.com/)のご紹介です
       - 月1回程度、ワイワイガヤガヤ オンラインで集まっています
+      - [Nerves](https://www.nerves-project.org/)は、[Elixir](https://elixir-lang.org/)でIoTを楽しめる[ナウでヤングなcoolなすごいヤツ](https://www.slideshare.net/takasehideki/elixirnervescool-249038510)です
     - 愉快なfolksたちがあなたの参加を待っています
     - れっつじょいな〜す
     - https://join.slack.com/t/nerves-jp/shared_invite/enQtNzc0NTM1OTA5MzQ1LTg5NTAyYThiYzRlNDRmNDIwM2ZlZTJiZDc1MmE5NTFjYzA5OTE4ZTM5OWQxODFhZjY1NWJmZTc4NThkMjQ1Yjk
