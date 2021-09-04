@@ -22,17 +22,18 @@ defmodule HelloNerves.Autorace do
 
   def places do
     [
-      {"川口", "http://autorace.jp/netstadium/Player/kawaguchi"},
-      {"伊勢崎", "http://autorace.jp/netstadium/Player/isesaki"},
-      {"浜松", "http://autorace.jp/netstadium/Player/hamamatsu"},
-      {"飯塚", "http://autorace.jp/netstadium/Player/iizuka"},
-      {"鉄壁山陽", "http://autorace.jp/netstadium/Player/sanyou"}
+      {"川口", "https://autorace.jp/netstadium/Player/kawaguchi"},
+      {"伊勢崎", "https://autorace.jp/netstadium/Player/isesaki"},
+      {"浜松", "https://autorace.jp/netstadium/Player/hamamatsu"},
+      {"飯塚", "https://autorace.jp/netstadium/Player/iizuka"},
+      {"鉄壁山陽", "https://autorace.jp/netstadium/Player/sanyou"}
     ]
   end
 
   defp _get(url, date) do
-    HTTPoison.get!(url)
+    HTTPoison.get!(url, [], [ssl: [{:ciphers, ['AES256-SHA256']}]])
     |> Map.get(:body)
+    |> Floki.parse_fragment!()
     |> Floki.find("h3.h3_ttl")
     |> Enum.map(fn t -> elem(t, 2) end)
     |> Enum.map(&List.first/1)
