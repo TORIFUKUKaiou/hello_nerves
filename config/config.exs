@@ -70,12 +70,13 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"15 0 * * *", {Qiita.Azure.MicrosoftJava, :run, []}},
     {"10 0 * * *", {Qiita.Azure.MicrosoftAI, :run, []}},
     {"10 0 * * *", {Qiita.Azure.MicrosoftBuild, :run, []}},
-    {"10 0 * * *", {Qiita.EngineerFesta, :run, []}},
     {"10 4 * * *", {Qiita.EngineerFesta, :run, []}},
-    {"10 8 * * *", {Qiita.EngineerFesta, :run, []}},
-    {"10 12 * * *", {Qiita.EngineerFesta, :run, []}},
-    {"10 16 * * *", {Qiita.EngineerFesta, :run, []}},
-    {"10 20 * * *", {Qiita.EngineerFesta, :run, []}},
+    {"20 0 * * *", {Qiita.Tenth, :run, []}},
+    {"20 8 * * *", {Qiita.Tenth, :run, []}},
+    {"20 4 * * *", {Qiita.Tenth, :run, []}},
+    {"20 12 * * *", {Qiita.Tenth, :run, []}},
+    {"20 16 * * *", {Qiita.Tenth, :run, []}},
+    {"20 20 * * *", {Qiita.Tenth, :run, []}},
     {"1 22 * * *", {HelloNerves.TrashDay, :run, []}}
   ]
 
