@@ -53,7 +53,11 @@ defmodule Qiita.Azure do
         #{Enum.count(sorted_items)}件 :tada::tada::tada:
 
         # 総LGTM数 :lgtm::lgtm::lgtm::lgtm::lgtm:
-        #{Enum.map(sorted_items, fn %{"likes_count" => likes_count} -> likes_count end) |> Enum.sum() |> Number.Delimit.number_to_delimited(precision: 0) } :rocket::rocket::rocket:
+        #{
+          Enum.map(sorted_items, fn %{"likes_count" => likes_count} -> likes_count end)
+          |> Enum.sum()
+          |> Number.Delimit.number_to_delimited(precision: 0)
+        } :rocket::rocket::rocket:
 
         # 全期間 :confetti_ball::military_medal::confetti_ball:
         #{build_table(sorted_items)}
