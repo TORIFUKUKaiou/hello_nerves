@@ -98,7 +98,7 @@ defmodule Qiita.Tenth do
     - [Elixir](https://elixir-lang.org/)です。
       - Webアプリケーションつくるなら[Phoenix](https://phoenixframework.org/)
       - IoTやるなら[Nerves](https://www.nerves-project.org/)
-    - 正確には2012年とQiitaさんのいっこ後輩です。
+    - [Elixir](https://elixir-lang.org/)の誕生は、正確には2012年ということでQiitaさんのいっこ後輩です。
     - 四捨五入して10年ってことで出た当時から知っておきたかったと思っています。
     - さらにいま私が現在勉強している技術はとにかく[Elixir](https://elixir-lang.org/)にからんだものです。
     - 何が良いって、とにかく私は好きなんです。好きなものは好きなのです。これ以上の理由が必要でしょうか。
