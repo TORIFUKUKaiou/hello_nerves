@@ -52,6 +52,9 @@ defmodule Qiita.Azure do
         # 総件数
         #{Enum.count(sorted_items)}件 :tada::tada::tada:
 
+        # 総LGTM数 :lgtm::lgtm::lgtm::lgtm::lgtm:
+        #{Enum.map(sorted_items, fn %{"likes_count" => likes_count} -> likes_count end) |> Enum.sum() |> Number.Delimit.number_to_delimited(precision: 0) } :rocket::rocket::rocket:
+
         # 全期間 :confetti_ball::military_medal::confetti_ball:
         #{build_table(sorted_items)}
 
@@ -69,6 +72,9 @@ defmodule Qiita.Azure do
 
         ### 6月
         https://qiita.com/official-events/885e4031d03c787eceab
+
+        ### 9月
+        https://qiita.com/official-events/b7811ce1542be54e6efe
 
         # Wrapping up :lgtm: :qiitan: :lgtm:
         - 自動更新は、[Elixir](https://elixir-lang.org/)というプログラミング言語がありまして、その[Elixir](https://elixir-lang.org/)で作られた[Nerves](https://www.nerves-project.org/)という[ナウでヤングでcoolなすごいIoTフレームワーク](https://www.slideshare.net/takasehideki/elixiriotcoolnerves-236780506)を使ってつくったアプリケーションで行っております
