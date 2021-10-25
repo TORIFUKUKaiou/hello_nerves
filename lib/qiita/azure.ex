@@ -80,6 +80,9 @@ defmodule Qiita.Azure do
         ### 9月
         https://qiita.com/official-events/b7811ce1542be54e6efe
 
+        ### 10月
+        https://qiita.com/official-events/8bc3780a142f8ee8effa
+
         # Wrapping up :lgtm: :qiitan: :lgtm:
         - 自動更新は、[Elixir](https://elixir-lang.org/)というプログラミング言語がありまして、その[Elixir](https://elixir-lang.org/)で作られた[Nerves](https://www.nerves-project.org/)という[ナウでヤングでcoolなすごいIoTフレームワーク](https://www.slideshare.net/takasehideki/elixiriotcoolnerves-236780506)を使ってつくったアプリケーションで行っております
           - [Nerves](https://www.nerves-project.org/)の始め方につきましては下記の記事が詳しいです
@@ -104,8 +107,9 @@ defmodule Qiita.Azure do
             - [OkazaKirin.beam](https://okazakirin-beam.connpass.com)　【毎週木曜】
             - [fukuoka.ex／kokura.ex](https://fukuokaex.connpass.com)　【毎月2～3回】
             - [NervesJP](https://nerves-jp.connpass.com/) 　【毎月1回】
+        - [Elixirコミュニティ の歩き方〜国内オンライン編〜](https://speakerdeck.com/elijo/elixirkomiyunitei-falsebu-kifang-guo-nei-onrainbian)
 
-        ![EsvA7uQU0AEoTuX.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/131808/2ad87109-2684-1605-e1dc-457b835b8c15.jpeg)
+        ![FCOvBkAUYAE6mL8.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/131808/a277d0ea-2780-d9a3-4062-66d38b175125.jpeg)
 
         (@piacerex さん作 :pray::pray_tone1::pray_tone2::pray_tone3::pray_tone4::pray_tone5:)
         """
