@@ -108,6 +108,7 @@ defmodule Qiita.Azure do
             - [fukuoka.ex／kokura.ex](https://fukuokaex.connpass.com)　【毎月2～3回】
             - [NervesJP](https://nerves-jp.connpass.com/) 　【毎月1回】
         - [Elixirコミュニティ の歩き方〜国内オンライン編〜](https://speakerdeck.com/elijo/elixirkomiyunitei-falsebu-kifang-guo-nei-onrainbian)
+            - @kn339264 さん作 :clap::clap_tone1::clap_tone2::clap_tone3::clap_tone4::clap_tone5:
 
         ![FCOvBkAUYAE6mL8.jpeg](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/131808/a277d0ea-2780-d9a3-4062-66d38b175125.jpeg)
 
