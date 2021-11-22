@@ -83,6 +83,9 @@ defmodule Qiita.Azure do
         ### 10月
         https://qiita.com/official-events/8bc3780a142f8ee8effa
 
+        ### 11月
+        https://qiita.com/official-events/2578ba1c949d056847df
+
         # Wrapping up :lgtm: :qiitan: :lgtm:
         - 自動更新は、[Elixir](https://elixir-lang.org/)というプログラミング言語がありまして、その[Elixir](https://elixir-lang.org/)で作られた[Nerves](https://www.nerves-project.org/)という[ナウでヤングでcoolなすごいIoTフレームワーク](https://www.slideshare.net/takasehideki/elixiriotcoolnerves-236780506)を使ってつくったアプリケーションで行っております
           - [Nerves](https://www.nerves-project.org/)の始め方につきましては下記の記事が詳しいです
@@ -100,6 +103,8 @@ defmodule Qiita.Azure do
             - [プログラミングElixir（第2版）](https://www.ohmsha.co.jp/book/9784274226373/)
             - [Elixir実践ガイド](https://book.impress.co.jp/books/1120101021)
         - [elixir.jp Slack](https://join.slack.com/t/elixirjp/shared_invite/zt-ae8m5bad-WW69GH1w4iuafm1tKNgd~w)の`#autoracex`というところに私は入り浸っておりますのでお気軽にお声がけください
+        - [NervesJP Slack](https://join.slack.com/t/nerves-jp/shared_invite/zt-9vteokip-iVAqi8TkT0ID_uK9dSqVHA)
+            - [Nerves](https://www.nerves-project.org/)やIoTが好きな愉快なfolksたちがあなたの訪れを歓迎します :tada:
         - [勉強会が頻繁に行われています](https://twitter.com/piacere_ex/status/1364109880362115078)
             - 私がよく参加している勉強会です
             - [autoracex](https://autoracex.connpass.com/) 【毎週土曜〜月曜】 主催
