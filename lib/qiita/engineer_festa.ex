@@ -124,36 +124,10 @@ defmodule Qiita.EngineerFesta do
 
     # スポンサー企業のテーマ
 
-    #{
-      [
-        "https://qiita.com/official-events/5fcd3867b233a9228fd0",
-        "https://qiita.com/official-events/846e19ec9af76ca9c940",
-        "https://qiita.com/official-events/64ff6ba4e653a822fce9",
-        "https://qiita.com/official-events/21bbb48549a4a68172a4",
-        "https://qiita.com/official-events/8d3820474c1143e88801",
-        "https://qiita.com/official-events/c6ee70084f9aeb38b0cc",
-        "https://qiita.com/official-events/aa53d801cf3d9d578e18"
-      ]
-      |> Enum.map(fn url ->
-        "#{url}\n\n#{Map.get(items, url) |> build_table()}\n"
-      end)
-      |> Enum.join("---\n")
-    }
+    #{["https://qiita.com/official-events/5fcd3867b233a9228fd0", "https://qiita.com/official-events/846e19ec9af76ca9c940", "https://qiita.com/official-events/64ff6ba4e653a822fce9", "https://qiita.com/official-events/21bbb48549a4a68172a4", "https://qiita.com/official-events/8d3820474c1143e88801", "https://qiita.com/official-events/c6ee70084f9aeb38b0cc", "https://qiita.com/official-events/aa53d801cf3d9d578e18"] |> Enum.map(fn url -> "#{url}\n\n#{Map.get(items, url) |> build_table()}\n" end) |> Enum.join("---\n")}
 
     # Qiita運営テーマ
-    #{
-      [
-        "https://qiita.com/official-events/89fd4ad3c24d7882117d",
-        "https://qiita.com/official-events/be8c5ab5a9ddf90055cd",
-        "https://qiita.com/official-events/339b6440dbd578f4f66f",
-        "https://qiita.com/official-events/d409f91fc8b9b44cefb4",
-        "https://qiita.com/official-events/e55396f286b3e2b85a62"
-      ]
-      |> Enum.map(fn url ->
-        "#{url}\n\n#{Map.get(items, url) |> build_table()}\n"
-      end)
-      |> Enum.join("---\n")
-    }
+    #{["https://qiita.com/official-events/89fd4ad3c24d7882117d", "https://qiita.com/official-events/be8c5ab5a9ddf90055cd", "https://qiita.com/official-events/339b6440dbd578f4f66f", "https://qiita.com/official-events/d409f91fc8b9b44cefb4", "https://qiita.com/official-events/e55396f286b3e2b85a62"] |> Enum.map(fn url -> "#{url}\n\n#{Map.get(items, url) |> build_table()}\n" end) |> Enum.join("---\n")}
 
     # Wrapping up :lgtm: :qiitan: :lgtm:
     - 自動更新は、[Elixir](https://elixir-lang.org/)というプログラミング言語がありまして、その[Elixir](https://elixir-lang.org/)で作られた[Nerves](https://www.nerves-project.org/)というナウでヤングなcoolなすごいIoTフレームワークを使ってつくったアプリケーションで行っております
@@ -207,11 +181,7 @@ defmodule Qiita.EngineerFesta do
       } = item
 
       acc_string <>
-        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{
-          created_at |> Timex.to_date() |> Date.to_string()
-        }|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{
-          Number.Delimit.number_to_delimited(likes_count, precision: 0)
-        }|\n"
+        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{created_at |> Timex.to_date() |> Date.to_string()}|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{Number.Delimit.number_to_delimited(likes_count, precision: 0)}|\n"
     end)
   end
 end

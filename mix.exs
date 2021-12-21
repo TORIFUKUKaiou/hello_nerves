@@ -31,35 +31,39 @@ defmodule HelloNerves.MixProject do
   defp deps do
     [
       # Dependencies for all targets
-      {:nerves, "~> 1.7.0", runtime: false},
+      {:nerves, "~> 1.7.4", runtime: false},
       {:shoehorn, "~> 0.7.0"},
       {:ring_logger, "~> 0.8.1"},
       {:toolshed, "~> 0.2.13"},
 
       # Dependencies for all targets except :host
       {:nerves_runtime, "~> 0.11.3", targets: @all_targets},
-      {:nerves_pack, "~> 0.4.0", targets: @all_targets},
+      {:nerves_pack, "~> 0.6.0", targets: @all_targets},
 
       # Dependencies for specific targets
-      {:nerves_system_rpi, "~> 1.13", runtime: false, targets: :rpi},
-      {:nerves_system_rpi0, "~> 1.13", runtime: false, targets: :rpi0},
-      {:nerves_system_rpi2, "~> 1.13", runtime: false, targets: :rpi2},
-      {:nerves_system_rpi3, "~> 1.13", runtime: false, targets: :rpi3},
-      {:nerves_system_rpi3a, "~> 1.13", runtime: false, targets: :rpi3a},
-      {:nerves_system_rpi4, "~> 1.13", runtime: false, targets: :rpi4},
-      {:nerves_system_bbb, "~> 2.8", runtime: false, targets: :bbb},
-      {:nerves_system_osd32mp1, "~> 0.4", runtime: false, targets: :osd32mp1},
-      {:nerves_system_x86_64, "~> 1.13", runtime: false, targets: :x86_64},
-      {:oauther, "~> 1.1"},
-      {:extwitter, "~> 0.12.2"},
-      {:circuits_gpio, "~> 0.4.6"},
-      {:floki, "~> 0.29.0"},
+      # NOTE: It's generally low risk and recommended to follow minor version
+      # bumps to Nerves systems. Since these include Linux kernel and Erlang
+      # version updates, please review their release notes in case
+      # changes to your application are needed.
+      {:nerves_system_rpi, "~> 1.17", runtime: false, targets: :rpi},
+      {:nerves_system_rpi0, "~> 1.17", runtime: false, targets: :rpi0},
+      {:nerves_system_rpi2, "~> 1.17", runtime: false, targets: :rpi2},
+      {:nerves_system_rpi3, "~> 1.17", runtime: false, targets: :rpi3},
+      {:nerves_system_rpi3a, "~> 1.17", runtime: false, targets: :rpi3a},
+      {:nerves_system_rpi4, "~> 1.17", runtime: false, targets: :rpi4},
+      {:nerves_system_bbb, "~> 2.12", runtime: false, targets: :bbb},
+      {:nerves_system_osd32mp1, "~> 0.8", runtime: false, targets: :osd32mp1},
+      {:nerves_system_x86_64, "~> 1.17", runtime: false, targets: :x86_64},
+      {:oauther, "~> 1.3"},
+      {:extwitter, "~> 0.12.5"},
+      {:circuits_gpio, "~> 1.0"},
+      {:floki, "~> 0.32.0"},
       {:flow, "~> 1.1"},
-      {:timex, "~> 3.6"},
-      {:quantum, "~> 3.3"},
-      {:pelemay, "~> 0.0.14"},
+      {:timex, "~> 3.7"},
+      {:quantum, "~> 3.4"},
+      {:pelemay, "~> 0.0.15"},
       {:cpu_info, "~> 0.2.2"},
-      {:mix_tasks_upload_hotswap, "~> 0.1.1", only: :dev},
+      {:mix_tasks_upload_hotswap, "~> 0.1.2", only: :dev},
       {:httpoison, "~> 1.8"},
       {:jason, "~> 1.2"},
       {:number, "~> 1.0.1"}
@@ -69,10 +73,12 @@ defmodule HelloNerves.MixProject do
   def release do
     [
       overwrite: true,
+      # Erlang distribution is not started automatically.
+      # See https://hexdocs.pm/nerves_pack/readme.html#erlang-distribution
       cookie: "#{@app}_cookie",
       include_erts: &Nerves.Release.erts/0,
       steps: [&Nerves.Release.init/1, :assemble],
-      strip_beams: Mix.env() == :prod
+      strip_beams: Mix.env() == :prod or [keep: ["Docs"]]
     ]
   end
 end

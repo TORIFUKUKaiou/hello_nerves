@@ -33,15 +33,11 @@ defmodule Weather.Forecast do
   end
 
   defp current(city_id) do
-    "http://api.openweathermap.org/data/2.5/weather?id=#{city_id}&lang=ja&units=metric&appid=#{
-      @api_key
-    }"
+    "http://api.openweathermap.org/data/2.5/weather?id=#{city_id}&lang=ja&units=metric&appid=#{@api_key}"
   end
 
   defp onecall(lat, lon) do
-    "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{lon}&lang=ja&units=metric&exclude=current,minutely,hourly&appid=#{
-      @api_key
-    }"
+    "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{lon}&lang=ja&units=metric&exclude=current,minutely,hourly&appid=#{@api_key}"
   end
 
   defp i_use_nerves do
