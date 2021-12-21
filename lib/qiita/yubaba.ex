@@ -20,12 +20,9 @@ defmodule Qiita.Yubaba do
       Enum.sort_by(items, fn %{"likes_count" => likes_count} -> likes_count end, :desc)
 
     """
-    # この記事は #{
-      if HelloNerves.is_xmas?(),
-        do:
-          ":christmas_tree::santa::santa_tone1::santa_tone2::santa_tone3::santa_tone4::santa_tone5::christmas_tree:",
-        else: ""
-    }
+    # この記事は #{if HelloNerves.is_xmas?(),
+      do: ":christmas_tree::santa::santa_tone1::santa_tone2::santa_tone3::santa_tone4::santa_tone5::christmas_tree:",
+      else: ""}
     - @Nemesis さんの[Javaで湯婆婆を実装してみる](https://qiita.com/Nemesis/items/c7192a7c510788d2cba2)よりはじまった「湯婆婆」関連記事のリンク集です
       - [`"title:湯婆婆 OR tag:湯婆婆"`](https://qiita.com/search?sort=&q=title%3A%E6%B9%AF%E5%A9%86%E5%A9%86+OR+tag%3A%E6%B9%AF%E5%A9%86%E5%A9%86)で検索しています
       - LGTM数順に並べています
@@ -74,11 +71,7 @@ defmodule Qiita.Yubaba do
       } = item
 
       acc_string <>
-        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{
-          created_at |> Timex.to_date() |> Date.to_string()
-        }|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{
-          Number.Delimit.number_to_delimited(likes_count, precision: 0)
-        }|\n"
+        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{created_at |> Timex.to_date() |> Date.to_string()}|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{Number.Delimit.number_to_delimited(likes_count, precision: 0)}|\n"
     end)
   end
 
@@ -102,12 +95,7 @@ defmodule Qiita.Yubaba do
       #{acc}
 
       # #{if(tag == "C#", do: "C Sharp", else: tag)}
-      #{
-        Enum.map(items, fn %{"title" => title, "url" => url, "user_id" => user_id} ->
-          "- [#{title}](#{url}) ーー @#{user_id}"
-        end)
-        |> Enum.join("\n")
-      }
+      #{Enum.map(items, fn %{"title" => title, "url" => url, "user_id" => user_id} -> "- [#{title}](#{url}) ーー @#{user_id}" end) |> Enum.join("\n")}
       """
     end)
   end

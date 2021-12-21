@@ -1,7 +1,8 @@
 defmodule Qiita.Azure.Certification do
   use Qiita.Azure,
     item_id: "5105eed1aff115b8a4ef",
-    title: "【毎日自動更新】マイクロソフト認定資格を取得する際の学習方法や経験談、おすすめ学習リソースなどを紹介しよう！(2021/11/11–2021/12/10) LGTMランキング！",
+    title:
+      "【毎日自動更新】マイクロソフト認定資格を取得する際の学習方法や経験談、おすすめ学習リソースなどを紹介しよう！(2021/11/11–2021/12/10) LGTMランキング！",
     event_title: "マイクロソフト認定資格を取得する際の学習方法や経験談、おすすめ学習リソースなどを紹介しよう！",
     event_url: "https://qiita.com/official-events/2578ba1c949d056847df",
     description: """

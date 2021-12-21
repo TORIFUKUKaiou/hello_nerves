@@ -80,16 +80,7 @@ defmodule Qiita.Tenth do
     #{sum_of_likes_count(items) |> Number.Delimit.number_to_delimited(precision: 0)} :rocket::rocket::rocket:
 
     # ランキング〜〜〜 :crown::crown::crown::crown::crown:
-    #{
-      [
-        "https://qiita.com/official-events/1e99fc384200c38548fd",
-        "https://qiita.com/official-events/12fc7bacec894d33a981"
-      ]
-      |> Enum.map(fn url ->
-        "#{url}\n\n#{Map.get(items, url) |> build_table()}\n"
-      end)
-      |> Enum.join("---\n")
-    }
+    #{["https://qiita.com/official-events/1e99fc384200c38548fd", "https://qiita.com/official-events/12fc7bacec894d33a981"] |> Enum.map(fn url -> "#{url}\n\n#{Map.get(items, url) |> build_table()}\n" end) |> Enum.join("---\n")}
 
     # イベント参加記事
     > 10年前に勉強しておきたかったと思えるような技術
@@ -172,11 +163,7 @@ defmodule Qiita.Tenth do
       } = item
 
       acc_string <>
-        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{
-          created_at |> Timex.to_date() |> Date.to_string()
-        }|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{
-          Number.Delimit.number_to_delimited(likes_count, precision: 0)
-        }|\n"
+        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{created_at |> Timex.to_date() |> Date.to_string()}|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{Number.Delimit.number_to_delimited(likes_count, precision: 0)}|\n"
     end)
   end
 end

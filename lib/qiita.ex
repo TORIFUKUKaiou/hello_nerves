@@ -31,19 +31,13 @@ defmodule Qiita do
 
     #{adventcalendar_table(items)}
 
-    # 総件数 #{
-      if HelloNerves.is_xmas?(),
-        do:
-          ":christmas_tree::santa::santa_tone1::santa_tone2::santa_tone3::santa_tone4::santa_tone5::christmas_tree:",
-        else: ""
-    }
+    # 総件数 #{if HelloNerves.is_xmas?(),
+      do: ":christmas_tree::santa::santa_tone1::santa_tone2::santa_tone3::santa_tone4::santa_tone5::christmas_tree:",
+      else: ""}
     #{Enum.count(items)}件 :tada::tada::tada:
 
     # 新着 :hatching_chick::baby_chick::hatched_chick:
-    #{
-      filter(items, Timex.now() |> Timex.shift(days: -3), "created_at", 1000)
-      |> build_table("created_at")
-    }
+    #{filter(items, Timex.now() |> Timex.shift(days: -3), "created_at", 1000) |> build_table("created_at")}
 
     # 直近1ヶ月
     #{filter(items, Timex.now() |> Timex.shift(days: -30)) |> build_table("updated_at")}
@@ -109,9 +103,7 @@ defmodule Qiita do
       } = item
 
       acc_string <>
-        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{
-          updated_at |> Timex.to_date() |> Date.to_string()
-        }|#{Number.Delimit.number_to_delimited(likes_count, precision: 0)}|\n"
+        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{Number.Delimit.number_to_delimited(likes_count, precision: 0)}|\n"
     end)
   end
 

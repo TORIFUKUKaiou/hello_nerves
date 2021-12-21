@@ -62,11 +62,7 @@ defmodule Qiita.CafeDung do
       } = item
 
       acc_string <>
-        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{
-          created_at |> Timex.to_date() |> Date.to_string()
-        }|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{
-          Number.Delimit.number_to_delimited(likes_count, precision: 0)
-        }|\n"
+        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{created_at |> Timex.to_date() |> Date.to_string()}|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{Number.Delimit.number_to_delimited(likes_count, precision: 0)}|\n"
     end)
   end
 
@@ -90,12 +86,7 @@ defmodule Qiita.CafeDung do
       #{acc}
 
       # #{if(tag == "C#", do: "C Sharp", else: tag)}
-      #{
-        Enum.map(items, fn %{"title" => title, "url" => url, "user_id" => user_id} ->
-          "- [#{title}](#{url}) ーー @#{user_id}"
-        end)
-        |> Enum.join("\n")
-      }
+      #{Enum.map(items, fn %{"title" => title, "url" => url, "user_id" => user_id} -> "- [#{title}](#{url}) ーー @#{user_id}" end) |> Enum.join("\n")}
       """
     end)
   end
