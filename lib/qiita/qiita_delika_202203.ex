@@ -46,6 +46,8 @@ defmodule Qiita.Qiitadelika202203 do
     - LGTM数順に記事を並べます
     - 投稿者ごとの記事数を集計します
     - 投稿者ごとのLGTM数を集計します
+    - tagごとの記事数を集計します
+    - tagごとのLGTM数を集計します
 
     **面白い結果がでること**間違いなしです。
     だって、キャンペーン自体が面白いのですもの！！！
@@ -62,10 +64,16 @@ defmodule Qiita.Qiitadelika202203 do
     #{build_table(sorted_items)}
 
     # 投稿者ごとの記事数とLGTM数
-    #{build_table_for_authors(sorted_items)}
+    #{build_table_for_util(sorted_items)}
 
     # 投稿者ごとのLGTM数と記事数
-    #{build_table_for_authors(sorted_items, fn {_, {_, likes_cnt}} -> likes_cnt end, "|No|user|LGTM|count|", 1, 0)}
+    #{build_table_for_util(sorted_items, &aggregate_by_author/1, fn {_, {_, likes_cnt}} -> likes_cnt end, "|No|user|LGTM|count|", true, 1, 0)}
+
+    # タグごとの記事数とLGTM数
+    #{build_table_for_util(sorted_items, &aggregate_by_tag/1, fn {_, {cnt, _}} -> cnt end, "|No|tag|count|LGTM|", false, 0, 1)}
+
+    # タグごとのLGTM数と記事数
+    #{build_table_for_util(sorted_items, &aggregate_by_tag/1, fn {_, {_, likes_cnt}} -> likes_cnt end, "|No|tag|LGTM|count|", false, 1, 0)}
 
     ---
 
@@ -73,6 +81,7 @@ defmodule Qiita.Qiitadelika202203 do
 
     いかがでしょうか。
     **面白い結果**がでましたよね！！！
+    いやぁ、データって本当にいいもんですね～ :movie_camera:
 
     般若心経の最初に「観自在菩薩」とあります。
     データにおいてもまず「観」ることが出発点なのだとおもいます。
@@ -90,9 +99,9 @@ defmodule Qiita.Qiitadelika202203 do
     - [Elixir](https://elixir-lang.org/)には、データを自在に取り扱える[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールがあります
     - [Elixir](https://elixir-lang.org/)をはじめてみようという方は、[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールの習得からはじめるとよいとおもいます
     - [WEB+DB PRESS Vol.127](https://gihyo.jp/magazine/wdpress/archive/2022/vol127) :book: の特集２「Elixirによる高速なWeb開発！ 作って学ぶPhoenix」は、[Elixir](https://elixir-lang.org/)でWebアプリケーション開発を楽しめる[Phoenix](https://www.phoenixframework.org/)の基礎がぎっしりと詰まっていて、**オススメ**です
-    - プログラムは、 https://github.com/TORIFUKUKaiou/hello_nerves/blob/f56229d372703d44819062bf81f8633905942a8a/lib/qiita/qiita_delika_202203.ex にあります
+    - プログラムは、 https://github.com/TORIFUKUKaiou/hello_nerves/blob/master/lib/qiita/qiita_delika_202203.ex にあります
 
-    https://github.com/TORIFUKUKaiou/hello_nerves/blob/f56229d372703d44819062bf81f8633905942a8a/lib/qiita/qiita_delika_202203.ex
+    https://github.com/TORIFUKUKaiou/hello_nerves/blob/master/lib/qiita/qiita_delika_202203.ex
     """
   end
 
@@ -115,16 +124,18 @@ defmodule Qiita.Qiitadelika202203 do
     end)
   end
 
-  def build_table_for_authors(
-        items,
-        f \\ fn {_, {cnt, _}} -> cnt end,
-        header \\ "|No|user|count|LGTM|",
-        first_value_index \\ 0,
-        second_value_index \\ 1
-      ) do
-    aggregate_by_author(items)
+  defp build_table_for_util(
+         items,
+         aggregate \\ &aggregate_by_author/1,
+         mapper \\ fn {_, {cnt, _}} -> cnt end,
+         header \\ "|No|user|count|LGTM|",
+         user_id? \\ true,
+         first_value_index \\ 0,
+         second_value_index \\ 1
+       ) do
+    aggregate.(items)
     |> Map.to_list()
-    |> Enum.sort_by(f, :desc)
+    |> Enum.sort_by(mapper, :desc)
     |> Enum.with_index(1)
     |> Enum.reduce("#{header}\n|---|---|---:|---:|\n", fn {{user_id, counts}, index},
                                                           acc_string ->
@@ -132,15 +143,29 @@ defmodule Qiita.Qiitadelika202203 do
       second_value = elem(counts, second_value_index)
 
       acc_string <>
-        "|#{index}|@#{user_id}|#{Number.Delimit.number_to_delimited(first_value, precision: 0)}|#{Number.Delimit.number_to_delimited(second_value, precision: 0)}|\n"
+        "|#{index}|#{if(user_id?, do: "@", else: "")}#{user_id}|#{Number.Delimit.number_to_delimited(first_value, precision: 0)}|#{Number.Delimit.number_to_delimited(second_value, precision: 0)}|\n"
     end)
   end
 
-  def aggregate_by_author(items) do
+  defp aggregate_by_author(items) do
     items
     |> Enum.reduce(%{}, fn %{"user_id" => user_id, "likes_count" => likes_count}, acc ->
       Map.update(acc, user_id, {1, likes_count}, fn {cnt, old_likes_count} ->
         {cnt + 1, old_likes_count + likes_count}
+      end)
+    end)
+  end
+
+  def aggregate_by_tag(items) do
+    items
+    |> Enum.reduce(%{}, fn %{"tags" => tags, "likes_count" => likes_count}, acc ->
+      tags
+      |> Enum.reduce(acc, fn tag, acc2 ->
+        tag = "[#{tag}](https://qiita.com/tags/#{tag})"
+
+        Map.update(acc2, tag, {1, likes_count}, fn {cnt, old_likes_count} ->
+          {cnt + 1, old_likes_count + likes_count}
+        end)
       end)
     end)
   end
