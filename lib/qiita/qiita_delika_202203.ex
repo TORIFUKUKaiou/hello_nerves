@@ -64,6 +64,9 @@ defmodule Qiita.Qiitadelika202203 do
     # 投稿者ごとの記事数とLGTM数
     #{build_table_for_authors(sorted_items)}
 
+    # 投稿者ごとのLGTM数と記事数
+    #{build_table_for_authors(sorted_items, fn {_, {_, likes_cnt}} -> likes_cnt end, "|No|user|LGTM|count|", 1, 0)}
+
     ---
 
     # Wrapping up :lgtm: :qiitan: :lgtm:
@@ -112,17 +115,24 @@ defmodule Qiita.Qiitadelika202203 do
     end)
   end
 
-  def build_table_for_authors(items) do
+  def build_table_for_authors(
+        items,
+        f \\ fn {_, {cnt, _}} -> cnt end,
+        header \\ "|No|user|count|LGTM|",
+        first_value_index \\ 0,
+        second_value_index \\ 1
+      ) do
     aggregate_by_author(items)
     |> Map.to_list()
-    |> Enum.sort_by(fn {_, {cnt, _}} -> cnt end, :desc)
+    |> Enum.sort_by(f, :desc)
     |> Enum.with_index(1)
-    |> Enum.reduce("|No|user|count|LGTM|\n|---|---|---:|---:|\n", fn {{user_id,
-                                                                       {cnt, likes_count}},
-                                                                      index},
-                                                                     acc_string ->
+    |> Enum.reduce("#{header}\n|---|---|---:|---:|\n", fn {{user_id, counts}, index},
+                                                          acc_string ->
+      first_value = elem(counts, first_value_index)
+      second_value = elem(counts, second_value_index)
+
       acc_string <>
-        "|#{index}|@#{user_id}|#{Number.Delimit.number_to_delimited(cnt, precision: 0)}|#{Number.Delimit.number_to_delimited(likes_count, precision: 0)}|\n"
+        "|#{index}|@#{user_id}|#{Number.Delimit.number_to_delimited(first_value, precision: 0)}|#{Number.Delimit.number_to_delimited(second_value, precision: 0)}|\n"
     end)
   end
 
