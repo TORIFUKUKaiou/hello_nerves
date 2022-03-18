@@ -58,10 +58,10 @@ defmodule Qiita.Qiitadelika202203 do
     # 総件数
     #{Enum.count(items)}件 :tada::tada::tada:
 
-    # 全期間 :confetti_ball::military_medal::confetti_ball:
+    # LGTM数 :confetti_ball::military_medal::confetti_ball:
     #{build_table(sorted_items)}
 
-    # 投稿者ごとの記事数
+    # 投稿者ごとの記事数とLGTM数
     #{build_table_for_authors(sorted_items)}
 
     ---
@@ -75,7 +75,7 @@ defmodule Qiita.Qiitadelika202203 do
     データにおいてもまず「観」るということが出発点なのだとおもいます。
     「観」る、つまり気づけたところから自在にデータを分析をすることでその結果として、**面白い結果**が得られるのです。
     みえる形にするにはまず集めることが必要です。
-    「データの民主化」に激しく同意いたします。
+    [イベントの概要](https://qiita.com/official-events/30be12dd14c0aad2c1c2#%E6%A6%82%E8%A6%81)に書いてある「**データの民主化**」に激しく同意いたします。
 
     以下、この記事を自動更新しているプログラムについて補足しておきます。
 
@@ -84,7 +84,7 @@ defmodule Qiita.Qiitadelika202203 do
       - [ElixirでIoT#4.1：Nerves開発環境の準備](https://qiita.com/takasehideki/items/88dda57758051d45fcf9)
     - [Elixir](https://elixir-lang.org/)には、データを自在に取り扱える[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールがあります
     - [Elixir](https://elixir-lang.org/)をはじめられる方は、[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールの習得からはじめるとよいとおもいます
-    - [WEB+DB PRESS Vol.127](https://gihyo.jp/magazine/wdpress/archive/2022/vol127)の特集２「Elixirによる高速なWeb開発！ 作って学ぶPhoenix」は、[Elixir](https://elixir-lang.org/)でWebアプリケーション開発を楽しめる[Phoenix](https://www.phoenixframework.org/)の基礎がガッシリ詰まっていて、**オススメ**です
+    - [WEB+DB PRESS Vol.127](https://gihyo.jp/magazine/wdpress/archive/2022/vol127) :book: の特集２「Elixirによる高速なWeb開発！ 作って学ぶPhoenix」は、[Elixir](https://elixir-lang.org/)でWebアプリケーション開発を楽しめる[Phoenix](https://www.phoenixframework.org/)の基礎がガッシリ詰まっていて、**オススメ**です
     - プログラムは、 https://github.com/TORIFUKUKaiou/hello_nerves/blob/f56229d372703d44819062bf81f8633905942a8a/lib/qiita/qiita_delika_202203.ex にあります
 
     https://github.com/TORIFUKUKaiou/hello_nerves/blob/f56229d372703d44819062bf81f8633905942a8a/lib/qiita/qiita_delika_202203.ex
