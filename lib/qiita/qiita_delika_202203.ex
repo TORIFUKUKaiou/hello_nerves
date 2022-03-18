@@ -45,6 +45,7 @@ defmodule Qiita.Qiitadelika202203 do
 
     - LGTM数順に記事を並べています
     - 投稿者ごとの記事数を集計しています
+    - 投稿者ごとのLGTM数を集計しています
 
     **面白い結果がでること**間違いなしです。
     だって、キャンペーン自体が面白いのですもの！！！
@@ -76,7 +77,7 @@ defmodule Qiita.Qiitadelika202203 do
     みえる形にするにはまず集めることが必要です。
     「データの民主化」に激しく同意いたします。
 
-    以下、この自動更新プログラムについて補足しておきます。
+    以下、この記事を自動更新しているプログラムについて補足しておきます。
 
     - 自動更新は、[Elixir](https://elixir-lang.org/)というプログラミング言語がありまして、その[Elixir](https://elixir-lang.org/)で作られた[Nerves](https://www.nerves-project.org/)という[ナウでヤングでcoolなすごいIoTフレームワーク](https://www.slideshare.net/takasehideki/elixiriotcoolnerves-236780506)を使ってつくったアプリケーションで行っております
       - [Nerves](https://www.nerves-project.org/)の始め方につきましては下記の記事が詳しいです
@@ -84,7 +85,9 @@ defmodule Qiita.Qiitadelika202203 do
     - [Elixir](https://elixir-lang.org/)には、データを自在に取り扱える[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールがあります
     - [Elixir](https://elixir-lang.org/)をはじめられる方は、[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールの習得からはじめるとよいとおもいます
     - [WEB+DB PRESS Vol.127](https://gihyo.jp/magazine/wdpress/archive/2022/vol127)の特集２「Elixirによる高速なWeb開発！ 作って学ぶPhoenix」は、[Elixir](https://elixir-lang.org/)でWebアプリケーション開発を楽しめる[Phoenix](https://www.phoenixframework.org/)の基礎がガッシリ詰まっていて、**オススメ**です
-    - プログラムは、 にあります
+    - プログラムは、 https://github.com/TORIFUKUKaiou/hello_nerves/blob/f56229d372703d44819062bf81f8633905942a8a/lib/qiita/qiita_delika_202203.ex にあります
+
+    https://github.com/TORIFUKUKaiou/hello_nerves/blob/f56229d372703d44819062bf81f8633905942a8a/lib/qiita/qiita_delika_202203.ex
     """
   end
 
@@ -110,18 +113,23 @@ defmodule Qiita.Qiitadelika202203 do
   def build_table_for_authors(items) do
     aggregate_by_author(items)
     |> Map.to_list()
-    |> Enum.sort_by(fn {_, cnt} -> cnt end, :desc)
+    |> Enum.sort_by(fn {_, {cnt, _}} -> cnt end, :desc)
     |> Enum.with_index(1)
-    |> Enum.reduce("|No|user|count|\n|---|---|---:|\n", fn {{user_id, cnt}, index}, acc_string ->
+    |> Enum.reduce("|No|user|count|LGTM|\n|---|---|---:|---:|\n", fn {{user_id,
+                                                                       {cnt, likes_count}},
+                                                                      index},
+                                                                     acc_string ->
       acc_string <>
-        "|#{index}|@#{user_id}|#{Number.Delimit.number_to_delimited(cnt, precision: 0)}|\n"
+        "|#{index}|@#{user_id}|#{Number.Delimit.number_to_delimited(cnt, precision: 0)}|#{Number.Delimit.number_to_delimited(likes_count, precision: 0)}|\n"
     end)
   end
 
   def aggregate_by_author(items) do
     items
-    |> Enum.reduce(%{}, fn %{"user_id" => user_id}, acc ->
-      Map.update(acc, user_id, 1, &(&1 + 1))
+    |> Enum.reduce(%{}, fn %{"user_id" => user_id, "likes_count" => likes_count}, acc ->
+      Map.update(acc, user_id, {1, likes_count}, fn {cnt, old_likes_count} ->
+        {cnt + 1, old_likes_count + likes_count}
+      end)
     end)
   end
 end
