@@ -129,7 +129,7 @@ defmodule Qiita.Qiitadelika202203 do
          aggregate \\ &aggregate_by_author/1,
          mapper \\ fn {_, {cnt, _}} -> cnt end,
          header \\ "|No|user|count|LGTM|",
-         user_id? \\ true,
+         is_user_id? \\ true,
          first_value_index \\ 0,
          second_value_index \\ 1
        ) do
@@ -137,13 +137,13 @@ defmodule Qiita.Qiitadelika202203 do
     |> Map.to_list()
     |> Enum.sort_by(mapper, :desc)
     |> Enum.with_index(1)
-    |> Enum.reduce("#{header}\n|---|---|---:|---:|\n", fn {{user_id, counts}, index},
+    |> Enum.reduce("#{header}\n|---|---|---:|---:|\n", fn {{key, counts}, index},
                                                           acc_string ->
       first_value = elem(counts, first_value_index)
       second_value = elem(counts, second_value_index)
 
       acc_string <>
-        "|#{index}|#{if(user_id?, do: "@", else: "")}#{user_id}|#{Number.Delimit.number_to_delimited(first_value, precision: 0)}|#{Number.Delimit.number_to_delimited(second_value, precision: 0)}|\n"
+        "|#{index}|#{if(is_user_id?, do: "@", else: "")}#{key}|#{Number.Delimit.number_to_delimited(first_value, precision: 0)}|#{Number.Delimit.number_to_delimited(second_value, precision: 0)}|\n"
     end)
   end
 
