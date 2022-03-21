@@ -1,10 +1,12 @@
-defmodule Mnishiguchi.Qiita.Markdown do
+defmodule Qiita.Events.Qiitadelika202203.Markdown do
+  @behaviour Qiita.Events.Markdown
+
   defmodule Data do
-    defstruct [item_count: 0, tables: {}]
+    defstruct item_count: 0, tables: {}
   end
 
-  alias Mnishiguchi.Qiita.Markdown.Data
-  alias Mnishiguchi.Qiita.TableUtils
+  alias Qiita.Events.Qiitadelika202203.Markdown.Data
+  alias Qiita.Events.TableUtils
 
   def generate(items) do
     items
@@ -25,17 +27,15 @@ defmodule Mnishiguchi.Qiita.Markdown do
         table(items, :b),
         table(items, :c),
         table(items, :d),
-        table(items, :e),
+        table(items, :e)
       }
     }
   end
 
-  defp build_markdown(
-    %Data{
-      item_count: item_count,
-      tables: {table_a, table_b, table_c, table_d, table_e}
-    }
-  ) do
+  defp build_markdown(%Data{
+         item_count: item_count,
+         tables: {table_a, table_b, table_c, table_d, table_e}
+       }) do
     """
     https://qiita.com/official-events/30be12dd14c0aad2c1c2
 
@@ -111,22 +111,46 @@ defmodule Mnishiguchi.Qiita.Markdown do
   end
 
   defp table(items, :a) do
-    TableUtils.build_table(sorted_items)
+    TableUtils.build_table(items)
   end
 
   defp table(items, :b) do
-    TableUtils.build_table_for_util(sorted_items)
+    TableUtils.build_table_for_util(items)
   end
 
   defp table(items, :c) do
-    TableUtils.build_table_for_util(sorted_items, &TableUtils.aggregate_by_author/1, fn {_, {_, likes_cnt}} -> likes_cnt end, "|No|user|LGTM|count|", true, 1, 0)
+    TableUtils.build_table_for_util(
+      items,
+      &TableUtils.aggregate_by_author/1,
+      fn {_, {_, likes_cnt}} -> likes_cnt end,
+      "|No|user|LGTM|count|",
+      true,
+      1,
+      0
+    )
   end
 
   defp table(items, :d) do
-    TableUtils.build_table_for_util(sorted_items, &TableUtils.aggregate_by_tag/1, fn {_, {cnt, _}} -> cnt end, "|No|tag|count|LGTM|", false, 0, 1)
+    TableUtils.build_table_for_util(
+      items,
+      &TableUtils.aggregate_by_tag/1,
+      fn {_, {cnt, _}} -> cnt end,
+      "|No|tag|count|LGTM|",
+      false,
+      0,
+      1
+    )
   end
 
   defp table(items, :e) do
-    TableUtils.build_table_for_util(sorted_items, &TableUtils.aggregate_by_tag/1, fn {_, {_, likes_cnt}} -> likes_cnt end, "|No|tag|LGTM|count|", false, 1, 0)
+    TableUtils.build_table_for_util(
+      items,
+      &TableUtils.aggregate_by_tag/1,
+      fn {_, {_, likes_cnt}} -> likes_cnt end,
+      "|No|tag|LGTM|count|",
+      false,
+      1,
+      0
+    )
   end
 end

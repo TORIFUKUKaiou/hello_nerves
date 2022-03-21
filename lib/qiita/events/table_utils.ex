@@ -1,4 +1,4 @@
-defmodule Mnishiguchi.Qiita.TableUtils do
+defmodule Qiita.Events.TableUtils do
   def build_table(items) do
     Enum.with_index(items, 1)
     |> Enum.reduce("|No|title|created_at|updated_at|LGTM|\n|---|---|---|---|---:|\n", fn {item,
@@ -19,20 +19,19 @@ defmodule Mnishiguchi.Qiita.TableUtils do
   end
 
   def build_table_for_util(
-         items,
-         aggregate \\ &aggregate_by_author/1,
-         mapper \\ fn {_, {cnt, _}} -> cnt end,
-         header \\ "|No|user|count|LGTM|",
-         is_user_id? \\ true,
-         first_value_index \\ 0,
-         second_value_index \\ 1
-       ) do
+        items,
+        aggregate \\ &aggregate_by_author/1,
+        mapper \\ fn {_, {cnt, _}} -> cnt end,
+        header \\ "|No|user|count|LGTM|",
+        is_user_id? \\ true,
+        first_value_index \\ 0,
+        second_value_index \\ 1
+      ) do
     aggregate.(items)
     |> Map.to_list()
     |> Enum.sort_by(mapper, :desc)
     |> Enum.with_index(1)
-    |> Enum.reduce("#{header}\n|---|---|---:|---:|\n", fn {{key, counts}, index},
-                                                          acc_string ->
+    |> Enum.reduce("#{header}\n|---|---|---:|---:|\n", fn {{key, counts}, index}, acc_string ->
       first_value = elem(counts, first_value_index)
       second_value = elem(counts, second_value_index)
 
