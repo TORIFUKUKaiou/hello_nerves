@@ -8,6 +8,7 @@ defmodule Qiita.Events.Qiitadelika202203.Markdown do
   alias Qiita.Events.Qiitadelika202203.Markdown.Data
   alias Qiita.Events.TableUtils
 
+  @impl true # or @impl Qiita.Events.Markdown
   def generate(items) do
     items
     |> sort_items()
