@@ -1,5 +1,4 @@
 defmodule Qiita.Events.Qiitadelika202203.MarkdownGenerator do
-  @behaviour Qiita.Events.MarkdownGenerator
   use Qiita.Events.MarkdownGenerator
 
   defmodule Data do
