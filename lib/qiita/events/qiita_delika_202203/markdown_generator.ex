@@ -1,36 +1,42 @@
-defmodule Qiita.Qiitadelika202203 do
-  def run do
-    Qiita.Api.patch_item(
-      markdown(),
-      false,
-      [
-        %{"name" => "Elixir"},
-        %{"name" => "delika"},
-        %{"name" => "Qiitadelika"},
-        %{"name" => "40代駆け出しエンジニア"},
-        %{"name" => "AdventCalendar2022"}
-      ],
-      "【毎日自動更新】データに関する記事を書こう！ LGTMランキング！",
-      "b10fa94764aaaa2c6db1"
-    )
+defmodule Qiita.Events.Qiitadelika202203.MarkdownGenerator do
+  use Qiita.Events.MarkdownGenerator
+
+  defmodule Data do
+    defstruct item_count: 0, tables: {}
   end
 
-  def items do
-    start = DateTime.new(~D[2022-03-13], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
-    ending = DateTime.new(~D[2022-04-30], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
+  alias Qiita.Events.Qiitadelika202203.MarkdownGenerator.Data
+  alias Qiita.Events.TableUtils
 
-    Qiita.Api.items("tag:Qiitadelika OR tag:delika")
-    |> Enum.filter(fn %{"created_at" => created_at} ->
-      Timex.between?(created_at, start, ending, inclusive: :start)
-    end)
+  @impl true
+  def generate(items) do
+    items
+    |> sort_items()
+    |> build_data()
+    |> build_markdown()
   end
 
-  def markdown do
-    items = items()
+  defp sort_items(items) do
+    Enum.sort_by(items, fn %{"likes_count" => likes_count} -> likes_count end, :desc)
+  end
 
-    sorted_items =
-      Enum.sort_by(items, fn %{"likes_count" => likes_count} -> likes_count end, :desc)
+  defp build_data(items) do
+    %Data{
+      item_count: Enum.count(items),
+      tables: {
+        table(items, :a),
+        table(items, :b),
+        table(items, :c),
+        table(items, :d),
+        table(items, :e)
+      }
+    }
+  end
 
+  defp build_markdown(%Data{
+         item_count: item_count,
+         tables: {table_a, table_b, table_c, table_d, table_e}
+       }) do
     """
     https://qiita.com/official-events/30be12dd14c0aad2c1c2
 
@@ -58,22 +64,22 @@ defmodule Qiita.Qiitadelika202203 do
     ---
 
     # 総件数
-    #{Enum.count(items)}件 :tada::tada::tada:
+    #{item_count}件 :tada::tada::tada:
 
     # LGTM数 :confetti_ball::military_medal::confetti_ball:
-    #{build_table(sorted_items)}
+    #{table_a}
 
     # 投稿者ごとの記事数とLGTM数
-    #{build_table_for_util(sorted_items)}
+    #{table_b}
 
     # 投稿者ごとのLGTM数と記事数
-    #{build_table_for_util(sorted_items, &aggregate_by_author/1, fn {_, {_, likes_cnt}} -> likes_cnt end, "|No|user|LGTM|count|", true, 1, 0)}
+    #{table_c}
 
     # タグごとの記事数とLGTM数
-    #{build_table_for_util(sorted_items, &aggregate_by_tag/1, fn {_, {cnt, _}} -> cnt end, "|No|tag|count|LGTM|", false, 0, 1)}
+    #{table_d}
 
     # タグごとのLGTM数と記事数
-    #{build_table_for_util(sorted_items, &aggregate_by_tag/1, fn {_, {_, likes_cnt}} -> likes_cnt end, "|No|tag|LGTM|count|", false, 1, 0)}
+    #{table_e}
 
     ---
 
@@ -105,68 +111,47 @@ defmodule Qiita.Qiitadelika202203 do
     """
   end
 
-  defp build_table(items) do
-    Enum.with_index(items, 1)
-    |> Enum.reduce("|No|title|created_at|updated_at|LGTM|\n|---|---|---|---|---:|\n", fn {item,
-                                                                                          index},
-                                                                                         acc_string ->
-      %{
-        "title" => title,
-        "likes_count" => likes_count,
-        "created_at" => created_at,
-        "updated_at" => updated_at,
-        "url" => url,
-        "user_id" => user_id
-      } = item
-
-      acc_string <>
-        "|#{index}|[#{String.replace(title, "|", "&#124;")}](#{url})<br>@#{user_id}|#{created_at |> Timex.to_date() |> Date.to_string()}|#{updated_at |> Timex.to_date() |> Date.to_string()}|#{Number.Delimit.number_to_delimited(likes_count, precision: 0)}|\n"
-    end)
+  defp table(items, :a) do
+    TableUtils.build_table(items)
   end
 
-  defp build_table_for_util(
-         items,
-         aggregate \\ &aggregate_by_author/1,
-         mapper \\ fn {_, {cnt, _}} -> cnt end,
-         header \\ "|No|user|count|LGTM|",
-         is_user_id? \\ true,
-         first_value_index \\ 0,
-         second_value_index \\ 1
-       ) do
-    aggregate.(items)
-    |> Map.to_list()
-    |> Enum.sort_by(mapper, :desc)
-    |> Enum.with_index(1)
-    |> Enum.reduce("#{header}\n|---|---|---:|---:|\n", fn {{key, counts}, index},
-                                                          acc_string ->
-      first_value = elem(counts, first_value_index)
-      second_value = elem(counts, second_value_index)
-
-      acc_string <>
-        "|#{index}|#{if(is_user_id?, do: "@", else: "")}#{key}|#{Number.Delimit.number_to_delimited(first_value, precision: 0)}|#{Number.Delimit.number_to_delimited(second_value, precision: 0)}|\n"
-    end)
+  defp table(items, :b) do
+    TableUtils.build_table_for_util(items)
   end
 
-  defp aggregate_by_author(items) do
-    items
-    |> Enum.reduce(%{}, fn %{"user_id" => user_id, "likes_count" => likes_count}, acc ->
-      Map.update(acc, user_id, {1, likes_count}, fn {cnt, old_likes_count} ->
-        {cnt + 1, old_likes_count + likes_count}
-      end)
-    end)
+  defp table(items, :c) do
+    TableUtils.build_table_for_util(
+      items,
+      &TableUtils.aggregate_by_author/1,
+      fn {_, {_, likes_cnt}} -> likes_cnt end,
+      "|No|user|LGTM|count|",
+      true,
+      1,
+      0
+    )
   end
 
-  def aggregate_by_tag(items) do
-    items
-    |> Enum.reduce(%{}, fn %{"tags" => tags, "likes_count" => likes_count}, acc ->
-      tags
-      |> Enum.reduce(acc, fn tag, acc2 ->
-        tag = "[#{tag}](https://qiita.com/tags/#{tag})"
+  defp table(items, :d) do
+    TableUtils.build_table_for_util(
+      items,
+      &TableUtils.aggregate_by_tag/1,
+      fn {_, {cnt, _}} -> cnt end,
+      "|No|tag|count|LGTM|",
+      false,
+      0,
+      1
+    )
+  end
 
-        Map.update(acc2, tag, {1, likes_count}, fn {cnt, old_likes_count} ->
-          {cnt + 1, old_likes_count + likes_count}
-        end)
-      end)
-    end)
+  defp table(items, :e) do
+    TableUtils.build_table_for_util(
+      items,
+      &TableUtils.aggregate_by_tag/1,
+      fn {_, {_, likes_cnt}} -> likes_cnt end,
+      "|No|tag|LGTM|count|",
+      false,
+      1,
+      0
+    )
   end
 end
