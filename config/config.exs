@@ -41,9 +41,9 @@ config :hello_nerves,
   nhk_favorite_titles: System.get_env("HELLO_NERVES_NHK_FAVORITE_TITLES"),
   twitter_query: System.get_env("HELLO_NERVES_TWITTER_QUERY"),
   twitter_last_created_at:
-    System.get_env("HELLO_NERVES_TWITTER_LAST_CREATED_AT") |> String.to_integer(),
+    System.get_env("HELLO_NERVES_TWITTER_LAST_CREATED_AT", "0") |> String.to_integer(),
   twitter_search_interval:
-    System.get_env("HELLO_NERVES_TWITTER_SEARCH_INTERVAL") |> String.to_integer(),
+    System.get_env("HELLO_NERVES_TWITTER_SEARCH_INTERVAL", "300000") |> String.to_integer(),
   slack_incoming_webhook_url: System.get_env("HELLO_NERVES_SLACK_INCOMING_WEBHOOK_URL"),
   slack_channel: System.get_env("HELLO_NERVES_SLACK_CHANNEL"),
   open_weather_api_key: System.get_env("HELLO_NERVES_OPEN_WEATHER_API_KEY"),
