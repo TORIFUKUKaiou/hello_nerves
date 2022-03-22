@@ -1,11 +1,12 @@
-defmodule Qiita.Events.Qiitadelika202203.Markdown do
-  @behaviour Qiita.Events.Markdown
+defmodule Qiita.Events.Qiitadelika202203.MarkdownGenerator do
+  @behaviour Qiita.Events.MarkdownGenerator
+  use Qiita.Events.MarkdownGenerator
 
   defmodule Data do
     defstruct item_count: 0, tables: {}
   end
 
-  alias Qiita.Events.Qiitadelika202203.Markdown.Data
+  alias Qiita.Events.Qiitadelika202203.MarkdownGenerator.Data
   alias Qiita.Events.TableUtils
 
   @impl true
