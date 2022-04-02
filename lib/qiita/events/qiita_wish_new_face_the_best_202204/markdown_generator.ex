@@ -131,6 +131,7 @@ defmodule Qiita.Events.QiitaWishNewFaceTheBest202204.MarkdownGenerator do
 
     https://elixir-jp-calendar.fly.dev/
 
+    ---
 
     https://qiita.com/official-events/30be12dd14c0aad2c1c2
     """
