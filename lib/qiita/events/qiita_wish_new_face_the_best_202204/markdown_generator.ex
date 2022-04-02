@@ -90,8 +90,11 @@ defmodule Qiita.Events.QiitaWishNewFaceTheBest202204.MarkdownGenerator do
     新人プログラマさん向けの記事と侮るなかれ。（これは私自身、自分自身に対して言っています）
 
     このページに挙がっている[記事の一覧](https://qiita.com/torifukukaiou/items/18dad64ba99aa5a40f95#lgtm%E6%95%B0-confetti_ballmilitary_medalconfetti_ball)は諸先輩方の汗と涙の結晶です。
+    記事の中には愛と勇気が詰まっています。
     聞くも涙語るも涙の物語たちです。
+    友情、努力、勝利です。
     きっと私自身が学びを得られる良い記事にたくさん出会えるとおもっています。
+    **新人プログラマさんを応援する諸先輩方みなさまを応援します！**
 
     新人プログラマさんのお役にたてれば望外の喜びです。
 
@@ -103,6 +106,7 @@ defmodule Qiita.Events.QiitaWishNewFaceTheBest202204.MarkdownGenerator do
     - 自動更新は、[Elixir](https://elixir-lang.org/)というプログラミング言語がありまして、その[Elixir](https://elixir-lang.org/)で作られた[Nerves](https://www.nerves-project.org/)という[ナウでヤングでcoolなすごいIoTフレームワーク](https://www.slideshare.net/takasehideki/elixiriotcoolnerves-236780506)を使ってつくったアプリケーションで行っております
       - [Nerves](https://www.nerves-project.org/)の始め方につきましては下記の記事が詳しいです
       - [ElixirでIoT#4.1：Nerves開発環境の準備](https://qiita.com/takasehideki/items/88dda57758051d45fcf9)
+      - Raspberry Pi 2で動いています。
     - [Elixir](https://elixir-lang.org/)には、データを自在に取り扱える[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールがあります
     - [Elixir](https://elixir-lang.org/)をはじめてみようという方は、[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールの習得からはじめるとよいとおもいます
     - [WEB+DB PRESS Vol.127](https://gihyo.jp/magazine/wdpress/archive/2022/vol127) :book: の特集２「Elixirによる高速なWeb開発！ 作って学ぶPhoenix」は、[Elixir](https://elixir-lang.org/)でWebアプリケーション開発を楽しめる[Phoenix](https://www.phoenixframework.org/)の基礎がぎっしりと詰まっていて、**オススメ**です
@@ -114,12 +118,21 @@ defmodule Qiita.Events.QiitaWishNewFaceTheBest202204.MarkdownGenerator do
 
     # 追伸
 
-    新人プログラマさん、[Elixir](https://elixir-lang.org/) というプログラミング言語に興味がありましたら、下記のリンク先にあるようにたくさんの勉強会などが開催されています。
+    新人プログラマさん
+    各種イベントや勉強会、コミュニティなどにはぜひ参加してみてください。
+
+    上記で紹介した、[Elixir](https://elixir-lang.org/) 言語に興味がある方へのお知らせです。
+    朗報です。
+    下記のリンク先にあるように、プログラミング言語[Elixir](https://elixir-lang.org/)では、たくさんの勉強会などが開催されています。
     ぜひ思い切って飛び込んでみてください。
+    [Elixir](https://elixir-lang.org/)のコミュニティはあなた（新人プログラマさんだけに限りません！）の訪れを**熱烈歓迎**します :older_woman::purple_heart:
 
     [Elixirイベントカレンダー](https://elixir-jp-calendar.fly.dev/)
 
     https://elixir-jp-calendar.fly.dev/
+
+
+    https://qiita.com/official-events/30be12dd14c0aad2c1c2
     """
   end
 
