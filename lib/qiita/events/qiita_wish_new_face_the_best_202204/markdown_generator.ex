@@ -1,5 +1,5 @@
 defmodule Qiita.Events.QiitaWishNewFaceTheBest202204.MarkdownGenerator do
-  use Qiita.Events.MarkdownGenerator
+  @behaviour Qiita.Events.MarkdownGenerator
 
   alias Qiita.Events.TableUtils
 
