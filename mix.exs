@@ -23,7 +23,7 @@ defmodule HelloNerves.MixProject do
   def application do
     [
       mod: {HelloNerves.Application, []},
-      extra_applications: [:logger, :runtime_tools, :extwitter]
+      extra_applications: [:logger, :runtime_tools, :extwitter, :eex]
     ]
   end
 
