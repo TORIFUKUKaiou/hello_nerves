@@ -1,5 +1,5 @@
 defmodule Qiita.Events.Qiitadelika202203.MarkdownGenerator do
-  use Qiita.Events.MarkdownGenerator
+  @behaviour Qiita.Events.MarkdownGenerator
 
   alias Qiita.Events.TableUtils
 
