@@ -41,7 +41,7 @@ To start your Nerves app:
   * Install dependencies with `mix deps.get`
   * Download `http://bulk.openweathermap.org/sample/city.list.json.gz` |> Ungz |> Put `rootfs_overlay/usr/local/share/city.list.json`
   * Create firmware with `mix firmware`
-  * Burn to an SD card with `mix firmware.burn`
+  * Burn to an SD card with `mix burn`
 
 ## Learn more
 
