@@ -100,11 +100,11 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"5 20 * * *", {Qiita.Azure.Certification, :run, []}},
     {"10 4 * * *", {Qiita.EngineerFesta, :run, []}},
     {"20 0 * * *", {Qiita.Tenth, :run, []}},
-    {"20 8 * * *", {Qiita.Tenth, :run, []}},
-    {"20 4 * * *", {Qiita.Tenth, :run, []}},
-    {"20 12 * * *", {Qiita.Tenth, :run, []}},
-    {"20 16 * * *", {Qiita.Tenth, :run, []}},
-    {"20 20 * * *", {Qiita.Tenth, :run, []}},
+    {"20 8 * * *", {Qiita.Events.AdventCalendar2022Tag, :run, []}},
+    {"20 4 * * *", {Qiita.Events.AdventCalendar2022Tag, :run, []}},
+    {"20 12 * * *", {Qiita.Events.AdventCalendar2022Tag, :run, []}},
+    {"20 16 * * *", {Qiita.Events.AdventCalendar2022Tag, :run, []}},
+    {"20 20 * * *", {Qiita.Events.AdventCalendar2022Tag, :run, []}},
     {"1 22 * * *", {HelloNerves.TrashDay, :run, []}}
   ]
 
