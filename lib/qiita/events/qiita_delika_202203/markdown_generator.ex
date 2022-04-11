@@ -3,8 +3,6 @@ defmodule Qiita.Events.Qiitadelika202203.MarkdownGenerator do
 
   alias Qiita.Events.TableUtils
 
-  @template_path "lib/qiita/events/qiita_delika_202203/template.md"
-
   @impl true
   def generate(items) do
     items
@@ -29,7 +27,11 @@ defmodule Qiita.Events.Qiitadelika202203.MarkdownGenerator do
   end
 
   defp build_markdown(bindings) when is_list(bindings) do
-    EEx.eval_file(@template_path, bindings)
+    EEx.eval_file(template_path(), bindings)
+  end
+
+  defp template_path do
+    "#{:code.priv_dir(:hello_nerves)}/qiita_delika_202203/template.md"
   end
 
   defp table(items, :a) do
