@@ -26,14 +26,13 @@ config :nerves, source_date_epoch: "1597551838"
 
 config :logger, backends: [RingLogger]
 
-if Mix.target() == :host or Mix.target() == :"" do
+if Mix.target() == :host do
   import_config "host.exs"
 else
   import_config "target.exs"
 end
 
 config :hello_nerves,
-  target: Mix.target(),
   env: Mix.env(),
   nhk_api_key: System.get_env("HELLO_NERVES_NHK_API_KEY"),
   nhk_area: System.get_env("HELLO_NERVES_NHK_AREA"),
