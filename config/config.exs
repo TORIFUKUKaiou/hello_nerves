@@ -33,7 +33,7 @@ else
 end
 
 config :hello_nerves,
-  env: Mix.env(),
+  mix_tasks_upload_hotswap_enabled: Mix.env() == :dev,
   nhk_api_key: System.get_env("HELLO_NERVES_NHK_API_KEY"),
   nhk_area: System.get_env("HELLO_NERVES_NHK_AREA"),
   nhk_favorite_acts: System.get_env("HELLO_NERVES_NHK_FAVORITE_ACTS"),
