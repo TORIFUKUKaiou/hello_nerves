@@ -63,7 +63,7 @@ LGTM数 7以上の意味は、「[Advent Calendar 2022 tag](https://qiita.com/ka
 - [Elixir](https://elixir-lang.org/)には、データを自在に取り扱える[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールがあります
 - [Elixir](https://elixir-lang.org/)をはじめてみようという方は、[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールの習得からはじめるとよいとおもいます
 - [WEB+DB PRESS Vol.127](https://gihyo.jp/magazine/wdpress/archive/2022/vol127) :book: の特集２「Elixirによる高速なWeb開発！ 作って学ぶPhoenix」は、[Elixir](https://elixir-lang.org/)でWebアプリケーション開発を楽しめる[Phoenix](https://www.phoenixframework.org/)の基礎がぎっしりと詰まっていて、**オススメ**です
-- プログラムは、 https://github.com/TORIFUKUKaiou/hello_nerves/blob/master/lib/qiita/events/advent_calendar_2022.ex にあります
+- プログラムは、 https://github.com/TORIFUKUKaiou/hello_nerves/blob/master/lib/qiita/events/advent_calendar_2022_tag.ex にあります
 
-https://github.com/TORIFUKUKaiou/hello_nerves/blob/master/lib/qiita/events/advent_calendar_2022.ex
+https://github.com/TORIFUKUKaiou/hello_nerves/blob/master/lib/qiita/events/advent_calendar_2022_tag.ex
 
