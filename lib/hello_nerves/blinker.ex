@@ -8,7 +8,7 @@ defmodule HelloNerves.Blinker do
   alias Circuits.GPIO
   require Logger
 
-  @output_pin Application.get_env(:hello_nerves, :output_pin, 18)
+  @output_pin Application.compile_env(:hello_nerves, :output_pin, 18)
 
   def start_link(state \\ []) do
     GenServer.start_link(__MODULE__, state, name: __MODULE__)

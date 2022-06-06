@@ -1,5 +1,5 @@
 defmodule Nhk.Api do
-  @apikey Application.get_env(:hello_nerves, :nhk_api_key)
+  @apikey Application.compile_env(:hello_nerves, :nhk_api_key)
 
   def get(area, service, date) do
     case HTTPoison.get(url(area, service, date)) do

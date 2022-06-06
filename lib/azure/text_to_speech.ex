@@ -1,5 +1,5 @@
 defmodule Azure.TextToSpeech do
-  @subscription_key Application.get_env(:hello_nerves, :azure_text_to_speech_subscription_key)
+  @subscription_key Application.compile_env(:hello_nerves, :azure_text_to_speech_subscription_key)
   @locale "ja-JP"
   @gender "Female"
   @voice_type "Neural"
