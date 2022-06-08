@@ -1,3 +1,5 @@
+https://qiita.com/official-campaigns/engineer-festa/2022
+
 https://qiita.com/official-events/0005a02478acfc50dd13
 
 # この記事は
