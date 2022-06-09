@@ -9,10 +9,10 @@ defmodule Qiita.Events.QiitaEngineerFesta2022ClarisFileMaker do
 
     tags = [
       "Elixir",
-      "40代駆け出しエンジニア",
       "AdventCalendar2022",
       "QiitaEngineerFesta_Claris",
-      "ClarisFileMaker"
+      "ClarisFileMaker",
+      "QiitaEngineerFesta2022"
     ]
 
     title = "【毎日自動更新】Claris FileMaker で作った App を JavaScript で拡張したらどうなる？！ LGTMランキング！"

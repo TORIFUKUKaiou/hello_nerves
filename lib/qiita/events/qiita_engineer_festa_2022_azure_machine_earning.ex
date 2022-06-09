@@ -9,10 +9,10 @@ defmodule Qiita.Events.QiitaEngineerFesta2022AzureMachineLearning do
 
     tags = [
       "Elixir",
-      "40代駆け出しエンジニア",
       "AdventCalendar2022",
       "QiitaEngineerFesta_Azure",
-      "AzureMachineLearning"
+      "AzureMachineLearning",
+      "QiitaEngineerFesta2022"
     ]
 
     title = "【毎日自動更新】Azure Machine Learning を使って機械学習に関するナレッジをシェアしよう LGTMランキング！"

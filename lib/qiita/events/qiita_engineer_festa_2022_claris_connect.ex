@@ -9,10 +9,10 @@ defmodule Qiita.Events.QiitaEngineerFesta2022ClarisConnect do
 
     tags = [
       "Elixir",
-      "40代駆け出しエンジニア",
       "AdventCalendar2022",
       "QiitaEngineerFesta_Claris",
-      "ClarisConnect"
+      "ClarisConnect",
+      "QiitaEngineerFesta2022"
     ]
 
     title = "【毎日自動更新】Claris Connect を使った SaaS 連携ユースケースを紹介しよう！ LGTMランキング！"

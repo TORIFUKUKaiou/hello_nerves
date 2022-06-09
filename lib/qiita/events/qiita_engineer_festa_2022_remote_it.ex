@@ -9,10 +9,10 @@ defmodule Qiita.Events.QiitaEngineerFesta2022RemoteIt do
 
     tags = [
       "Elixir",
-      "40代駆け出しエンジニア",
       "AdventCalendar2022",
       "QiitaEngineerFesta_remote.it",
-      "remote.it"
+      "remote.it",
+      "QiitaEngineerFesta2022"
     ]
 
     title = "【毎日自動更新】remote.it を使って○○に接続してみた！ LGTMランキング！"

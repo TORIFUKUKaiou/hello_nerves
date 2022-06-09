@@ -9,10 +9,10 @@ defmodule Qiita.Events.QiitaEngineerFesta2022GitHubActions do
 
     tags = [
       "Elixir",
-      "40代駆け出しエンジニア",
       "AdventCalendar2022",
       "QiitaEngineerFesta_GitHub",
-      "GitHubActions"
+      "GitHubActions",
+      "QiitaEngineerFesta2022"
     ]
 
     title = "【毎日自動更新】GitHub Actionsの自分流の使い方をシェアしよう LGTMランキング！"
