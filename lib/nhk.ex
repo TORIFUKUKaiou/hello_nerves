@@ -1,7 +1,7 @@
 defmodule Nhk do
-  @area Application.get_env(:hello_nerves, :nhk_area)
-  @favorite_acts Application.get_env(:hello_nerves, :nhk_favorite_acts)
-  @favorite_titles Application.get_env(:hello_nerves, :nhk_favorite_titles)
+  @area Application.compile_env(:hello_nerves, :nhk_area)
+  @favorite_acts Application.compile_env(:hello_nerves, :nhk_favorite_acts)
+  @favorite_titles Application.compile_env(:hello_nerves, :nhk_favorite_titles)
 
   def run do
     first = DateTime.utc_now() |> DateTime.add(9 * 60 * 60, :second)

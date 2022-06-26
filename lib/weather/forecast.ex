@@ -1,5 +1,5 @@
 defmodule Weather.Forecast do
-  @api_key Application.get_env(:hello_nerves, :open_weather_api_key)
+  @api_key Application.compile_env(:hello_nerves, :open_weather_api_key)
   @city_list_json "/usr/local/share/city.list.json"
 
   def run(%{"coord" => %{"lat" => lat, "lon" => lon}, "id" => city_id}) do

@@ -2,11 +2,11 @@ defmodule TwitterSearch.Worker do
   use GenServer
 
   @one_minute 60 * 1000
-  @interval Application.get_env(:hello_nerves, :twitter_search_interval)
-  @query Application.get_env(:hello_nerves, :twitter_query)
-  @last_created_at Application.get_env(:hello_nerves, :twitter_last_created_at)
-  @incoming_webhook_url Application.get_env(:hello_nerves, :slack_incoming_webhook_url)
-  @channel Application.get_env(:hello_nerves, :slack_channel)
+  @interval Application.compile_env(:hello_nerves, :twitter_search_interval)
+  @query Application.compile_env(:hello_nerves, :twitter_query)
+  @last_created_at Application.compile_env(:hello_nerves, :twitter_last_created_at)
+  @incoming_webhook_url Application.compile_env(:hello_nerves, :slack_incoming_webhook_url)
+  @channel Application.compile_env(:hello_nerves, :slack_channel)
 
   def start_link(state \\ %{}) do
     GenServer.start_link(__MODULE__, state, name: __MODULE__)
