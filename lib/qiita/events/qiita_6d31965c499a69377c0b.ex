@@ -3,7 +3,7 @@ defmodule Qiita.Events.Qiita6d31965c499a69377c0b do
   alias Qiita.Events.Repo
 
   def run do
-    query = "tag:個人開発 tag:読書感想文"
+    query = "tag:個人開発 or tag:読書感想文"
     start_time = DateTime.new(~D[2022-08-14], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
     end_time = DateTime.new(~D[2022-09-16], ~T[15:00:00.000], "Etc/UTC") |> elem(1)
     tags = ["Elixir", "個人開発", "読書感想文", "40代駆け出しエンジニア", "AdventCalendar2022"]
