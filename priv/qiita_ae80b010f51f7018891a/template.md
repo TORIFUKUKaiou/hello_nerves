@@ -2,10 +2,10 @@ https://qiita.com/official-events/ae80b010f51f7018891a
 
 # この記事は
 
-「[https://qiita.com/official-events/ae80b010f51f7018891a](https://qiita.com/official-events/ae80b010f51f7018891a)」
+「[Go強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/ae80b010f51f7018891a)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[https://qiita.com/official-events/ae80b010f51f7018891a](https://qiita.com/official-events/ae80b010f51f7018891a)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Go強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/ae80b010f51f7018891a)」に参加しているとおもわれる記事を収拾します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます
@@ -16,7 +16,7 @@ https://qiita.com/official-events/ae80b010f51f7018891a
 
 「参加ボタン」を押すのをお忘れなく!!!
 
-「[https://qiita.com/official-events/ae80b010f51f7018891a](https://qiita.com/official-events/ae80b010f51f7018891a)」を微力でなおかつ僭越ながら盛り上げたいとおもっています:rocket::rocket::rocket:
+「[Go強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/ae80b010f51f7018891a)」を微力でなおかつ僭越ながら盛り上げたいとおもっています:rocket::rocket::rocket:
 
 ---
 
@@ -42,7 +42,7 @@ https://qiita.com/official-events/ae80b010f51f7018891a
 
 # Wrapping up :lgtm: :qiitan: :lgtm:
 
-この記事は、「[https://qiita.com/official-events/ae80b010f51f7018891a](https://qiita.com/official-events/ae80b010f51f7018891a)」の応援記事です。
+この記事は、「[Go強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/ae80b010f51f7018891a)」の応援記事です。
 
 
 
