@@ -8,11 +8,11 @@ https://qiita.com/official-events/8e3542610897d988e66d
 [Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[PHP強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/8e3542610897d988e66d)」に参加しているとおもわれる記事を収拾します。
 あつまった記事群（データ）にあれこれしてみます。
 
-- LGTM数順に記事を並べます
+- いいね数順に記事を並べます
 - 投稿者ごとの記事数を集計します
-- 投稿者ごとのLGTM数を集計します
+- 投稿者ごとのいいね数を集計します
 - tagごとの記事数を集計します
-- tagごとのLGTM数を集計します
+- tagごとのいいね数を集計します
 
 「参加ボタン」を押すのをお忘れなく!!!
 
@@ -23,19 +23,19 @@ https://qiita.com/official-events/8e3542610897d988e66d
 # 総件数
 <%= item_count %>件 :tada::tada::tada:
 
-# LGTM数 :confetti_ball::military_medal::confetti_ball:
+# いいね数 :confetti_ball::military_medal::confetti_ball:
 <%= table_a %>
 
-# 投稿者ごとの記事数とLGTM数
+# 投稿者ごとの記事数といいね数
 <%= table_b %>
 
-# 投稿者ごとのLGTM数と記事数
+# 投稿者ごとのいいね数と記事数
 <%= table_c %>
 
-# タグごとの記事数とLGTM数
+# タグごとの記事数といいね数
 <%= table_d %>
 
-# タグごとのLGTM数と記事数
+# タグごとのいいね数と記事数
 <%= table_e %>
 
 ---
