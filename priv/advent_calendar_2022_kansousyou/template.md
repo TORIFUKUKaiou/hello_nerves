@@ -57,7 +57,7 @@ docker run --rm -v $PWD:/app hexpm/elixir:1.14.2-erlang-25.1.2-alpine-3.16.2 sh 
 <%= result %>
 ```
 
-記事の数が25を超えてくると、[完走賞](https://qiita.com/advent-calendar/2022/present-calendar)の候補です。
+記事の数が25を超えていると、[完走賞](https://qiita.com/advent-calendar/2022/present-calendar)の候補です。
 現状、<%= count %>名が候補です。
 
 # ワンポイントレッスン
@@ -72,7 +72,7 @@ https://qiita.com/zacky1972/items/2dc7c4930f6ab8a4688a
 
 # 今日の<font color="#d00080">闘魂</font>
 
-今日は、『西郷翁遺訓』から言葉を引きます。
+今日は、『南洲翁遺訓』から言葉を引きます。
 
 ---
 
