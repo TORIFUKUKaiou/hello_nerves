@@ -22,17 +22,20 @@ https://qiita.com/advent-calendar/2022/elixir
 闘魂Elixirを一通り学んだあとはより理解が進むでしょうし、なにかしらプログラミングの経験があればなんとなくご理解いただけるものとおもっております。
 
 ```elixir:sample.exs
-Mix.install([:req])
+Mix.install [{:req, "~> 0.3.0"}, {:floki, "~> 0.34.0"}]
 
-"https://qiita.com/advent-calendar/2022/elixir"
-|> Req.get!()
-|> Map.get(:body)
-|> String.split("encryptedId")
-|> Enum.map(fn s -> Regex.named_captures(~r/"user":{"urlName":"(?<user>.*?)",/, s) end)
-|> Enum.slice(2..-1//1)
-|> Enum.map(fn %{"user" => user} -> user end)
-|> Enum.frequencies()
-|> Enum.sort_by(fn {_user, cnt} -> cnt end, :desc)
+with %{status: 200, body: html} <- Req.get!("https://qiita.com/advent-calendar/2022/elixir"),
+    {:ok, parsed_doc} <- Floki.parse_document(html),
+    [{_tag, _attrs, json} | _] <- Floki.find(parsed_doc, "[data-js-react-on-rails-store=AppStoreWithReactOnRails]"),
+    {:ok, decoded} <- Jason.decode(json),
+    [table_advent_calendars | _] <- get_in(decoded, ["adventCalendars", "tableAdventCalendars"]) do
+  table_advent_calendars
+  |> Map.fetch!("items")
+  |> Enum.frequencies_by(&get_in(&1, ["user", "urlName"]))
+  |> Enum.sort_by(fn {_user, cnt} -> cnt end, :desc)
+else 
+  _ -> :error
+end
 |> IO.inspect()
 ```
 
@@ -63,7 +66,8 @@ docker run --rm -v $PWD:/app hexpm/elixir:1.14.2-erlang-25.1.2-alpine-3.16.2 sh 
 # ワンポイントレッスン
 
 `sample.exs`中、`"https://qiita.com/advent-calendar/2022/elixir"`をお好みのカレンダーのURLに変えると、ユーザー毎の記事数がわかります。
-ただし、無理やりなところがあるので、すべてのカレンダーで動くとは限りません。なんとなく、カレンダーのシリーズが複数あるカレンダーでは動作するようにおもいます。無理やりなところというのは、特に`String.split("encryptedId")`の部分です。
+~~ただし、無理やりなところがあるので、すべてのカレンダーで動くとは限りません。なんとなく、カレンダーのシリーズが複数あるカレンダーでは動作するようにおもいます。無理やりなところというのは、特に`String.split("encryptedId")`の部分です。~~
+↑↑↑@mnishiguchi さんのスペシャルサンクスにより改善しました！↑↑↑
 
 [|>](https://hexdocs.pm/elixir/Kernel.html#%7C%3E/2)は、パイプ演算子と呼ばれます。
 

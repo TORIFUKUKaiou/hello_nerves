@@ -2,6 +2,9 @@ defmodule Qiita.Events.AdventCalendar2022Kansousyou.MarkdownGenerator do
   @behaviour Qiita.Events.MarkdownGenerator
 
   @impl true
+  def generate(:error), do: nil
+
+  @impl true
   def generate(list) do
     list
     |> build_bindings()
