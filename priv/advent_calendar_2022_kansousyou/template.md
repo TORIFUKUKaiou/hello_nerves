@@ -14,6 +14,8 @@ https://qiita.com/advent-calendar/2022/elixir
 題材は、一つのカレンダーに各人が何件投稿したのかを調べるプログラムを[Elixir](https://elixir-lang.org/)で作ることを楽しみます。
 つまり、[完走賞](https://qiita.com/advent-calendar/2022/present-calendar)の応援記事です。
 
+![スクリーンショット 2022-11-23 11.55.52.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/131808/df5f4394-e423-36e7-c253-c462e00c3c85.png)
+
 **この記事は定期的に実行結果を自動更新しています。**
 
 # [Elixir](https://elixir-lang.org/)のプログラム
@@ -49,6 +51,8 @@ docker pull hexpm/elixir:1.14.2-erlang-25.1.2-alpine-3.16.2
 
 docker run --rm -v $PWD:/app hexpm/elixir:1.14.2-erlang-25.1.2-alpine-3.16.2 sh -c "mix local.hex --force && mix local.rebar --force && cd /app && elixir sample.exs"
 ```
+
+2日目の「[闘魂Elixir ── 02. インストール](https://qiita.com/torifukukaiou/items/42bc08509fa97fa970ae)」を参考に、[Elixir](https://elixir-lang.org/)をインストールしてくださった方は、[IEx](https://hexdocs.pm/iex/IEx.html)を起動して動かしてみてください。
 
 # 実行結果 (<%= now %>現在)
 
