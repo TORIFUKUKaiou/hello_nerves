@@ -42,7 +42,7 @@ end
 # 実行
 
 Dockerで実行します。
-`sample.exs`を作ったフォルダで`docker run`してください。
+`sample.exs`を作ったディレクトリで`docker run`してください。
 
 ```bash:CMD
 docker pull hexpm/elixir:1.14.2-erlang-25.1.2-alpine-3.16.2
