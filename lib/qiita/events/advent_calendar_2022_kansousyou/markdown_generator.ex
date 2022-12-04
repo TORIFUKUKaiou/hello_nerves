@@ -31,7 +31,7 @@ defmodule Qiita.Events.AdventCalendar2022Kansousyou.MarkdownGenerator do
   defp alchemists(list) do
     list
     |> Enum.reject(fn {_user, cnt} -> cnt >= 25 end)
-    |> Enum.map(fn {user, _cnt} -> "@#{user}さん" end)
+    |> Enum.map(fn {user, cnt} -> "@#{user}さん（あと#{25 - cnt}記事）" end)
     |> Enum.join(", ")
   end
 end
