@@ -67,6 +67,13 @@ docker run --rm -v $PWD:/app hexpm/elixir:1.14.2-erlang-25.1.2-alpine-3.16.2 sh 
 記事の数が25を超えていると、[完走賞](https://qiita.com/advent-calendar/2022/present-calendar)の候補です。
 現状、<%= count %>名が候補です。
 
+<%= alchemists %>
+がんばってください！
+<font color="red">$\huge{闘魂}$</font>
+<font color="red">$\huge{元氣があればなんでもできる！}$</font>
+
+**We Are The Alchemists, my friends!**
+
 # ワンポイントレッスン
 
 `sample.exs`中、`"https://qiita.com/advent-calendar/2022/elixir"`をお好みのカレンダーのURLに変えると、ユーザー毎の記事数がわかります。
