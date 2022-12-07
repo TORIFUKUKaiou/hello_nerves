@@ -140,3 +140,10 @@ https://www.youtube.com/watch?v=FSz7N5hCltw
 ---
 
 https://qiita.com/torifukukaiou/items/5e96f4e9f12ec3c4b3f4
+
+
+---
+
+# Twitter
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Elixir Advent Calendar 3の3日目は、みたび <a href="https://twitter.com/torifukukaiou?ref_src=twsrc%5Etfw">@torifukukaiou</a> さんで、Qiita Advent Calendar完走賞についての解説と、各執筆者が完走賞をクリアしているかをチェックするElixirコードを紹介してます😌<a href="https://t.co/ClQm0el4Hy">https://t.co/ClQm0el4Hy</a><br><br>Elixir Advent Calendarは1カレンダーでどうやら5名の完走賞がいる模様😆</p>&mdash; piacere (love Elixir, Gravity and VR/AR/Metaverse) (@piacere_ex) <a href="https://twitter.com/piacere_ex/status/1598956616917086209?ref_src=twsrc%5Etfw">December 3, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
