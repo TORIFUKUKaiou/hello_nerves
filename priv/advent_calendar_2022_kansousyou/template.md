@@ -122,7 +122,20 @@ https://qiita.com/zacky1972/items/2dc7c4930f6ab8a4688a
 題材は、一つのカレンダーに各人が何件投稿したのかを調べるプログラムを[Elixir](https://elixir-lang.org/)で作ることを楽しみました。
 つまり、[完走賞](https://qiita.com/advent-calendar/2022/present-calendar)の応援記事でもあるわけです。
 
-闘魂の意味は、 **「己に打ち克ち、闘いを通じて己の魂を磨いていくことである」** との猪木さんの言葉をそのまま胸に刻み込んでいます。
+あわせて、 @RyoWakabayashi さんの記事もお楽しみください。
+
+https://qiita.com/RyoWakabayashi/items/7729f0e35bfec62e53b0
+
+奇しくも、猪木さんの引退試合のときに古舘伊知郎さんがおっしゃったように、「**闘魂は連鎖する！**」のです。
+
+<font color="red">$\huge{闘魂は連鎖する！}$</font>
+
+[1998年4月4日 東京ドーム 燃える闘魂アントニオ猪木引退試合 アントニオ猪木 VS ドン・フライ](https://njpwworld.com/p/s_series_00151_1_01)
+
+試合後の05:45から、古舘伊知郎さんのナレーションが始まります。
+ぜひお聞きになってください。
+
+**闘魂** の意味は、 **「己に打ち克ち、闘いを通じて己の魂を磨いていくことである」** との猪木さんの言葉をそのまま胸に刻み込んでいます。
 知っているだけで終わらせることなく、実行する、断行する、一歩を踏み出すことを自らの行動で示していきたいとおもいます。
 
 <font color="red">$\huge{１、２、３ ぁっダー！}$</font>
@@ -142,3 +155,7 @@ https://qiita.com/torifukukaiou/items/5e96f4e9f12ec3c4b3f4
 # Twitter
 
 <blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Elixir Advent Calendar 3の3日目は、みたび <a href="https://twitter.com/torifukukaiou?ref_src=twsrc%5Etfw">@torifukukaiou</a> さんで、Qiita Advent Calendar完走賞についての解説と、各執筆者が完走賞をクリアしているかをチェックするElixirコードを紹介してます😌<a href="https://t.co/ClQm0el4Hy">https://t.co/ClQm0el4Hy</a><br><br>Elixir Advent Calendarは1カレンダーでどうやら5名の完走賞がいる模様😆</p>&mdash; piacere (love Elixir, Gravity and VR/AR/Metaverse) (@piacere_ex) <a href="https://twitter.com/piacere_ex/status/1598956616917086209?ref_src=twsrc%5Etfw">December 3, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+---
+
+<b><font color="red">$\huge{元氣があればなんでもできる！}$</font></b>
