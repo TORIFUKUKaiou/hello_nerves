@@ -66,7 +66,8 @@ defmodule HelloNerves.MixProject do
       {:mix_tasks_upload_hotswap, "~> 0.1.2", only: :dev},
       {:httpoison, "~> 1.8"},
       {:jason, "~> 1.2"},
-      {:number, "~> 1.0.1"}
+      {:number, "~> 1.0.1"},
+      {:req, "~> 0.3.2"}
     ]
   end
 
