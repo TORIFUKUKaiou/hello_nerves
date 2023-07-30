@@ -56,7 +56,6 @@ defmodule Nhk do
 
   defp post(list) do
     list
-    |> Enum.each(&HelloNerves.update/1)
   end
 
   defp i_use_nerves do

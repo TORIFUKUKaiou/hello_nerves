@@ -16,13 +16,9 @@ defmodule HelloNerves do
     :world
   end
 
-  def update(status) do
-    ExTwitter.update(status)
-  end
-
   def update do
     try do
-      Weather.Forecast.run() |> update()
+      Weather.Forecast.run()
     rescue
       _e in Weather.Error ->
         Process.sleep(150_000)
@@ -35,7 +31,6 @@ defmodule HelloNerves do
     |> Enum.map(fn {place, %{title: title}} ->
       "#{greet()}\n本日は#{place}オートで、#{title}が開催されます。\n\n#autorace #オートレース ##{place}オート"
     end)
-    |> Enum.each(&update/1)
   end
 
   def sound_forecast(city, cnt \\ 1) do
@@ -55,8 +50,8 @@ defmodule HelloNerves do
 
     {path, play_cmd} =
       if Application.get_env(:hello_nerves, :target) != :host,
-        do: {"/tmp/output.wav", 'aplay -q /tmp/output.wav'},
-        else: {"output.wav", 'afplay output.wav'}
+        do: {"/tmp/output.wav", ~c"aplay -q /tmp/output.wav"},
+        else: {"output.wav", ~c"afplay output.wav"}
 
     File.write(path, content)
     1..cnt |> Enum.each(fn _ -> :os.cmd(play_cmd) end)

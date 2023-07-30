@@ -31,7 +31,7 @@ defmodule HelloNerves.Autorace do
   end
 
   defp _get(url, date) do
-    HTTPoison.get!(url, [], ssl: [{:ciphers, ['AES256-SHA256']}])
+    HTTPoison.get!(url, [], ssl: [{:ciphers, [~c"AES256-SHA256"]}])
     |> Map.get(:body)
     |> Floki.parse_fragment!()
     |> Floki.find("h3.h3_ttl")
