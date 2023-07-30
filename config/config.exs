@@ -41,7 +41,12 @@ config :hello_nerves,
 
 config :hello_nerves, HelloNerves.Scheduler,
   jobs: [
-    # Every minute
+    {"59 21 * * *",
+     {HelloNerves, :sound_forecast,
+      [%{"coord" => %{"lat" => 33.633331, "lon" => 130.683334}, "id" => 1_861_835}, 3]}},
+    {"30 22 * * *",
+     {HelloNerves, :sound_forecast,
+      [%{"coord" => %{"lat" => 33.633331, "lon" => 130.683334}, "id" => 1_861_835}, 3]}},
     {"0 0 * * *", {Qiita, :run, [false]}},
     {"0 12 * * *", {Qiita, :run, [false]}},
     {"0 16 * * *", {Qiita, :run, [false]}},

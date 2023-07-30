@@ -50,8 +50,8 @@ defmodule HelloNerves do
 
     {path, play_cmd} =
       if Application.get_env(:hello_nerves, :target) != :host,
-        do: {"/tmp/output.wav", 'aplay -q /tmp/output.wav'},
-        else: {"output.wav", 'afplay output.wav'}
+        do: {"/tmp/output.wav", ~c"aplay -q /tmp/output.wav"},
+        else: {"output.wav", ~c"afplay output.wav"}
 
     File.write(path, content)
     1..cnt |> Enum.each(fn _ -> :os.cmd(play_cmd) end)
