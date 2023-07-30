@@ -20,12 +20,6 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 
 config :nerves, source_date_epoch: "1597551838"
 
-# Use Ringlogger as the logger backend and remove :console.
-# See https://hexdocs.pm/ring_logger/readme.html for more information on
-# configuring ring_logger.
-
-config :logger, backends: [RingLogger]
-
 if Mix.target() == :host do
   import_config "host.exs"
 else
@@ -39,11 +33,6 @@ config :hello_nerves,
   nhk_area: System.get_env("HELLO_NERVES_NHK_AREA"),
   nhk_favorite_acts: System.get_env("HELLO_NERVES_NHK_FAVORITE_ACTS"),
   nhk_favorite_titles: System.get_env("HELLO_NERVES_NHK_FAVORITE_TITLES"),
-  twitter_query: System.get_env("HELLO_NERVES_TWITTER_QUERY"),
-  twitter_last_created_at:
-    System.get_env("HELLO_NERVES_TWITTER_LAST_CREATED_AT", "0") |> String.to_integer(),
-  twitter_search_interval:
-    System.get_env("HELLO_NERVES_TWITTER_SEARCH_INTERVAL", "300000") |> String.to_integer(),
   slack_incoming_webhook_url: System.get_env("HELLO_NERVES_SLACK_INCOMING_WEBHOOK_URL"),
   slack_channel: System.get_env("HELLO_NERVES_SLACK_CHANNEL"),
   open_weather_api_key: System.get_env("HELLO_NERVES_OPEN_WEATHER_API_KEY"),
@@ -53,16 +42,6 @@ config :hello_nerves,
 config :hello_nerves, HelloNerves.Scheduler,
   jobs: [
     # Every minute
-    {"0 22 * * *", {HelloNerves, :update, []}},
-    {"0 14 * * *", {HelloNerves, :update, []}},
-    {"5 22 * * *", {HelloNerves, :tweet_autorace, []}},
-    {"59 21 * * *",
-     {HelloNerves, :sound_forecast,
-      [%{"coord" => %{"lat" => 33.633331, "lon" => 130.683334}, "id" => 1_861_835}, 3]}},
-    {"30 22 * * *",
-     {HelloNerves, :sound_forecast,
-      [%{"coord" => %{"lat" => 33.633331, "lon" => 130.683334}, "id" => 1_861_835}, 3]}},
-    {"0 20 * * *", {Nhk, :run, []}},
     {"0 0 * * *", {Qiita, :run, [false]}},
     {"0 12 * * *", {Qiita, :run, [false]}},
     {"0 16 * * *", {Qiita, :run, [false]}},
@@ -96,9 +75,3 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"20 20 * * *", {Qiita.Events.Qiita668cbcb3b0f037d55e27, :run, []}},
     {"1 22 * * *", {HelloNerves.TrashDay, :run, []}}
   ]
-
-config :extwitter, :oauth,
-  consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
-  consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET"),
-  access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
-  access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")

@@ -16,13 +16,9 @@ defmodule HelloNerves do
     :world
   end
 
-  def update(status) do
-    ExTwitter.update(status)
-  end
-
   def update do
     try do
-      Weather.Forecast.run() |> update()
+      Weather.Forecast.run()
     rescue
       _e in Weather.Error ->
         Process.sleep(150_000)
@@ -35,7 +31,6 @@ defmodule HelloNerves do
     |> Enum.map(fn {place, %{title: title}} ->
       "#{greet()}\n本日は#{place}オートで、#{title}が開催されます。\n\n#autorace #オートレース ##{place}オート"
     end)
-    |> Enum.each(&update/1)
   end
 
   def sound_forecast(city, cnt \\ 1) do

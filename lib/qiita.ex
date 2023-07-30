@@ -12,14 +12,7 @@ defmodule Qiita do
     )
 
     if post do
-      ExTwitter.update("""
-      Automatic Updates
-      https://qiita.com/torifukukaiou/items/1edb3e961acf002478fd
-
-      I use Nerves. I like it!
-      #myelixirstatus #NervesJP
-      #{Timex.now() |> Timex.to_datetime() |> DateTime.to_string()}
-      """)
+      # do nothing
     end
   end
 

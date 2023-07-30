@@ -1,7 +1,6 @@
 # HelloNerves
 
 - Weather.Forecast.run means getting "http://api.openweathermap.org/data/2.5/weather?id=#{city}&lang=ja&units=metric&appid=#{appid}".
-- HelloNerves.update means ExTwitter.update.
 
 ## Targets
 
