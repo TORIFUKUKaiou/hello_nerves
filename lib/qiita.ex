@@ -110,10 +110,8 @@ defmodule Qiita do
 
       # アドベントカレンダー :santa: :santa_tone1: :santa_tone2: :santa_tone3: :santa_tone4: :santa_tone5:
       - ぜひご参加ください！
-      - [Elixir Advent Calendar 2020](https://qiita.com/advent-calendar/2020/elixir)
-      - [Elixir その2 Advent Calendar 2020](https://qiita.com/advent-calendar/2020/elixir2)
-      - [fukuoka.ex Elixir／Phoenix Advent Calendar 2020](https://qiita.com/advent-calendar/2020/fukuokaex)
-      - [#NervesJP Advent Calendar 2020](https://qiita.com/advent-calendar/2020/nervesjp)
+      - [Elixir Advent Calendar #{Timex.now().year}](https://qiita.com/advent-calendar/#{Timex.now().year}/elixir)
+      - [#NervesJP Advent Calendar #{Timex.now().year}](https://qiita.com/advent-calendar/#{Timex.now().year}/nervesjp)
       """
     end
   end
@@ -122,11 +120,38 @@ defmodule Qiita do
     if HelloNerves.is_xmas?() do
       year = Timex.now().year
 
-      filter(items, Timex.beginning_of_month(year, 12) |> Timex.to_datetime(), "updated_at", 1000)
+      advent_calendar_urls =
+        [
+          "https://qiita.com/advent-calendar/#{year}/elixir",
+          "https://qiita.com/advent-calendar/#{year}/nervesjp"
+        ]
+        |> Enum.reduce([], fn calendar_url, acc ->
+          acc ++ get_advent_calendar_urls(calendar_url)
+        end)
+
+      items
+      |> Enum.filter(fn item -> item["url"] in advent_calendar_urls end)
+      |> Enum.sort_by(fn %{"likes_count" => likes_count} -> likes_count end, :desc)
       |> build_table("updated_at")
-      |> Kernel.<>(
-        "\nupdated_atが#{year}/12/01より大きい記事を並べています。アドベントカレンダーだけ取得するようないい方法があればお知らせください！"
-      )
+    end
+  end
+
+  defp get_advent_calendar_urls(calendar_url) do
+    with %{status: 200, body: html} <-
+           Req.get!(calendar_url, pool_timeout: 50000, receive_timeout: 50000),
+         {:ok, parsed_doc} <- Floki.parse_document(html),
+         [{_tag, _attrs, json} | _] <-
+           Floki.find(parsed_doc, "[data-js-react-on-rails-store=AppStoreWithReactOnRails]"),
+         {:ok, decoded} <- Jason.decode(json),
+         [table_advent_calendars | _] <-
+           get_in(decoded, ["adventCalendars", "tableAdventCalendars"]) do
+      table_advent_calendars
+      |> Map.fetch!("items")
+      |> Enum.map(&get_in(&1, ["article", "linkUrl"]))
+      |> Enum.filter(& &1)
+      |> Enum.reject(&String.contains?(&1, "private"))
+    else
+      _ -> []
     end
   end
 end
