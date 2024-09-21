@@ -1,6 +1,6 @@
 defmodule HelloNerves do
   @moduledoc """
-  Documentation for HelloNerves.
+  Documentation for `HelloNerves`.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule HelloNerves do
 
   ## Examples
 
-      iex> HelloNerves.hello
+      iex> HelloNerves.hello()
       :world
 
   """
