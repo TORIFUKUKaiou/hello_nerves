@@ -1,6 +1,7 @@
 # HelloNerves
 
 - Weather.Forecast.run means getting "http://api.openweathermap.org/data/2.5/weather?id=#{city}&lang=ja&units=metric&appid=#{appid}".
+**TODO: Add description**
 
 ## Targets
 
@@ -12,13 +13,13 @@ a short name like `rpi3` that maps to a Nerves system image for that platform.
 All of this logic is in the generated `mix.exs` and may be customized. For more
 information about targets see:
 
-https://hexdocs.pm/nerves/targets.html#content
+https://hexdocs.pm/nerves/supported-targets.html
 
 ## Getting Started
 
 To start your Nerves app:
   * `export MIX_TARGET=my_target` or prefix every command with
-    `MIX_TARGET=my_target`. For example, `MIX_TARGET=rpi3`.
+    `MIX_TARGET=my_target`. For example, `MIX_TARGET=rpi3`
     I use `MIX_TARGET=rpi2`
   * `export NERVES_NETWORK_SSID=ssid`
   * `export NERVES_NETWORK_PSK=secret`
@@ -47,5 +48,6 @@ To start your Nerves app:
   * Official docs: https://hexdocs.pm/nerves/getting-started.html
   * Official website: https://nerves-project.org/
   * Forum: https://elixirforum.com/c/nerves-forum
-  * Discussion Slack elixir-lang #nerves ([Invite](https://elixir-slackin.herokuapp.com/))
+  * Elixir Slack #nerves channel: https://elixir-slack.community/
+  * Elixir Discord #nerves channel: https://discord.gg/elixir
   * Source: https://github.com/nerves-project/nerves

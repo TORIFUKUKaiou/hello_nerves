@@ -25,12 +25,9 @@ config :nerves, :erlinit, update_clock: true
 # * See https://hexdocs.pm/ssh_subsystem_fwup/readme.html for firmware updates
 
 keys =
-  [
-    Path.join([System.user_home!(), ".ssh", "id_rsa.pub"]),
-    Path.join([System.user_home!(), ".ssh", "id_ecdsa.pub"]),
-    Path.join([System.user_home!(), ".ssh", "id_ed25519.pub"])
-  ]
-  |> Enum.filter(&File.exists?/1)
+  System.user_home!()
+  |> Path.join(".ssh/id_{rsa,ecdsa,ed25519}.pub")
+  |> Path.wildcard()
 
 if keys == [],
   do:
@@ -44,9 +41,12 @@ config :nerves_ssh,
   authorized_keys: Enum.map(keys, &File.read!/1)
 
 # Configure the network using vintage_net
+#
+# Update regulatory_domain to your 2-letter country code E.g., "US"
+#
 # See https://github.com/nerves-networking/vintage_net for more information
 config :vintage_net,
-  regulatory_domain: "US",
+  regulatory_domain: "JP",
   config: [
     {"usb0", %{type: VintageNetDirect}},
     {"eth0",
