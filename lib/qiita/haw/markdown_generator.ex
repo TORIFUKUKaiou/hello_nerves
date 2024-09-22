@@ -14,7 +14,9 @@ defmodule Qiita.Haw.MarkdownGenerator do
     [
       item_count: Enum.count(items),
       table_a: table(items, :a),
-      table_b: table(items, :b)
+      table_b: table(items, :b),
+      table_c: table(items, :c),
+      table_d: table(items, :d)
     ]
   end
 
@@ -36,5 +38,22 @@ defmodule Qiita.Haw.MarkdownGenerator do
     items
     |> Enum.sort_by(fn %{"created_at" => created_at} -> created_at end, {:desc, DateTime})
     |> TableUtils.build_table()
+  end
+
+  defp table(items, :c) do
+    items
+    |> TableUtils.build_table_for_util()
+  end
+
+  defp table(items, :d) do
+    items
+    |> TableUtils.build_table_for_util(
+      &TableUtils.aggregate_by_tag/1,
+      fn {_, {cnt, _}} -> cnt end,
+      "|No|tag|count|LGTM|",
+      false,
+      0,
+      1
+    )
   end
 end

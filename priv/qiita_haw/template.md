@@ -4,7 +4,8 @@
 
 https://qiita.com/organizations/haw
 
-自分たちの組織が書いた記事をLGTM数順と新着順に並べてみたくなりました。
+自分たちの組織が書いた記事の一覧が欲しくなりました。
+LGTM数順と新着順、投稿数順、使用したタグ数順に並べてみたくなりました。
 
 [Qiita API v2](https://qiita.com/api/v2/docs)には、Organizationを指定して記事を取得するAPIは無いように見えました。
 （本当はあったらごめんなさい :pray: :pray_tone1: :pray_tone2: :pray_tone3: :pray_tone4: :pray_tone5:）
@@ -31,6 +32,14 @@ https://qiita.com/organizations/haw
 
 <%= table_b %>
 
+# 投稿数順
+
+<%= table_c %>
+
+# 使用したタグ数順
+
+<%= table_d %>
+
 ---
 
 # さいごに
@@ -50,7 +59,6 @@ https://qiita.com/organizations/haw
   - 私の家に設置しているRaspberry Pi 2で動かしています
 - [Elixir](https://elixir-lang.org/)には、データを自在に取り扱える[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールがあります
 - [Elixir](https://elixir-lang.org/)をはじめてみようという方は、[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールの習得からはじめるとよいとおもいます
-
 - プログラムは、 https://github.com/TORIFUKUKaiou/hello_nerves にあります
 - プログラムのポイントは、「[闘魂Elixir ── 所属するQiita Organizationに投稿された記事をQiita APIを利用して取得することを楽しむ](https://qiita.com/torifukukaiou/items/9ea1d1652d08d330a2ce)」で解説しています
 
