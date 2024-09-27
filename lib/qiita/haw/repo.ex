@@ -1,5 +1,5 @@
 defmodule Qiita.Haw.Repo do
-  @users ~w(sgtakeru tsuruoka91 mnishiguchi torifukukaiou t_kamiya78 haw_ohnuma Erga-mion)
+  @users ~w(sgtakeru tsuruoka91 mnishiguchi torifukukaiou t_kamiya78 haw_ohnuma Erga-mion r-nakashio)
   @organization_url_name "haw"
 
   def post_markdown(markdown, tags, title, id) do
