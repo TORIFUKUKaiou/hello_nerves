@@ -26,7 +26,7 @@ defmodule Qiita.Events.TableUtils do
   def build_table_for_util(
         items,
         aggregate \\ &aggregate_by_author/1,
-        mapper \\ fn {_, {cnt, _}} -> cnt end,
+        mapper \\ fn {_, {cnt, likes_count}} -> {cnt, likes_count} end,
         header \\ "|No|user|count|LGTM|",
         is_user_id? \\ true,
         first_value_index \\ 0,
