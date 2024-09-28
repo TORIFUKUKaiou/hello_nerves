@@ -49,7 +49,7 @@ defmodule Qiita.Haw.MarkdownGenerator do
     items
     |> TableUtils.build_table_for_util(
       &TableUtils.aggregate_by_tag/1,
-      fn {_, {cnt, _}} -> cnt end,
+      fn {_, {cnt, likes_count}} -> {cnt, likes_count} end,
       "|No|tag|count|LGTM|",
       false,
       0,
