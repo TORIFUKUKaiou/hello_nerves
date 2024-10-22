@@ -16,16 +16,6 @@ defmodule HelloNerves do
     :world
   end
 
-  def update do
-    try do
-      Weather.Forecast.run()
-    rescue
-      _e in Weather.Error ->
-        Process.sleep(150_000)
-        update()
-    end
-  end
-
   def tweet_autorace do
     HelloNerves.Autorace.today()
     |> Enum.map(fn {place, %{title: title}} ->
