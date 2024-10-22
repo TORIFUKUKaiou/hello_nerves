@@ -1,14 +1,8 @@
 defmodule Weather.Forecast do
   @api_key Application.compile_env(:hello_nerves, :open_weather_api_key)
 
-  def run(%{"coord" => %{"lat" => lat, "lon" => lon}, "id" => city_id}) do
-    %{
-      "name" => name
-    } =
-      current(city_id)
-      |> HTTPoison.get!()
-      |> Map.get(:body)
-      |> Jason.decode!()
+  def run(%{"coord" => %{"lat" => lat, "lon" => lon}}) do
+    name = "飯塚"
 
     %{"daily" => dailies} =
       onecall(lat, lon)
@@ -25,12 +19,8 @@ defmodule Weather.Forecast do
     "#{name}の天気は、#{description}です。\n最高気温は#{temp_max}度です。最低気温は#{temp_min}度です。\n\n#{i_use_nerves()}"
   end
 
-  defp current(city_id) do
-    "http://api.openweathermap.org/data/2.5/weather?id=#{city_id}&lang=ja&units=metric&appid=#{@api_key}"
-  end
-
   defp onecall(lat, lon) do
-    "https://api.openweathermap.org/data/2.5/onecall?lat=#{lat}&lon=#{lon}&lang=ja&units=metric&exclude=current,minutely,hourly&appid=#{@api_key}"
+    "https://api.openweathermap.org/data/3.0/onecall?lat=#{lat}&lon=#{lon}&lang=ja&units=metric&exclude=current,minutely,hourly&appid=#{@api_key}"
   end
 
   defp i_use_nerves do
