@@ -1,4 +1,4 @@
-defmodule HelloNerves.Autorace do
+defmodule AwesomeNerves.Autorace do
   def today do
     DateTime.utc_now()
     |> DateTime.add(9 * 60 * 60)

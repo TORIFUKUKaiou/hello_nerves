@@ -16,7 +16,7 @@ config :nerves, :firmware, rootfs_overlay: "rootfs_overlay"
 # Set the SOURCE_DATE_EPOCH date for reproducible builds.
 # See https://reproducible-builds.org/docs/source-date-epoch/ for more information
 
-config :nerves, source_date_epoch: "1597551838"
+config :nerves, source_date_epoch: "1746277397"
 
 if Mix.target() == :host do
   import_config "host.exs"
@@ -24,7 +24,7 @@ else
   import_config "target.exs"
 end
 
-config :hello_nerves,
+config :awesome_nerves,
   target: Mix.target(),
   mix_tasks_upload_hotswap_enabled: Mix.env() == :dev,
   nhk_api_key: System.get_env("HELLO_NERVES_NHK_API_KEY"),
@@ -37,12 +37,14 @@ config :hello_nerves,
   azure_text_to_speech_subscription_key:
     System.get_env("HELLO_NERVES_AZURE_TEXT_TO_SPEECH_SUBSCRIPTION_KEY")
 
-config :hello_nerves, HelloNerves.Scheduler,
+config :awesome_nerves, AwesomeNerves.Scheduler,
   jobs: [
     {"59 21 * * *",
-     {HelloNerves, :sound_forecast, [%{"coord" => %{"lat" => 33.633331, "lon" => 130.683334}}, 3]}},
+     {AwesomeNerves, :sound_forecast,
+      [%{"coord" => %{"lat" => 33.633331, "lon" => 130.683334}}, 3]}},
     {"30 22 * * *",
-     {HelloNerves, :sound_forecast, [%{"coord" => %{"lat" => 33.633331, "lon" => 130.683334}}, 3]}},
+     {AwesomeNerves, :sound_forecast,
+      [%{"coord" => %{"lat" => 33.633331, "lon" => 130.683334}}, 3]}},
     {"0 0 * * *", {Qiita, :run, [false]}},
     {"0 12 * * *", {Qiita.Haw, :run, []}},
     {"0 16 * * *", {Qiita, :run, [false]}},
@@ -74,5 +76,5 @@ config :hello_nerves, HelloNerves.Scheduler,
     {"20 12 * * *", {Qiita.Events.Qiita5fdc281997d5754d8ac9, :run, []}},
     {"20 16 * * *", {Qiita.Events.Qiita8e3542610897d988e66d, :run, []}},
     {"20 20 * * *", {Qiita.Events.Qiita668cbcb3b0f037d55e27, :run, []}},
-    {"1 22 * * *", {HelloNerves.TrashDay, :run, []}}
+    {"1 22 * * *", {AwesomeNerves.TrashDay, :run, []}}
   ]

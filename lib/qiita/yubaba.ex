@@ -20,7 +20,7 @@ defmodule Qiita.Yubaba do
       Enum.sort_by(items, fn %{"likes_count" => likes_count} -> likes_count end, :desc)
 
     """
-    # この記事は #{if HelloNerves.is_xmas?(),
+    # この記事は #{if AwesomeNerves.is_xmas?(),
       do: ":christmas_tree::santa::santa_tone1::santa_tone2::santa_tone3::santa_tone4::santa_tone5::christmas_tree:",
       else: ""}
     - @Nemesis さんの[Javaで湯婆婆を実装してみる](https://qiita.com/Nemesis/items/c7192a7c510788d2cba2)よりはじまった「湯婆婆」関連記事のリンク集です

@@ -1,4 +1,4 @@
-defmodule HelloNerves.Led.Lighter do
+defmodule AwesomeNerves.Led.Lighter do
   use GenServer
 
   require Logger
@@ -14,7 +14,7 @@ defmodule HelloNerves.Led.Lighter do
 
   @impl true
   def handle_cast(:start_random, state) do
-    pid = spawn(fn -> HelloNerves.Led.SevenSeg.random_forever() end)
+    pid = spawn(fn -> AwesomeNerves.Led.SevenSeg.random_forever() end)
 
     {:noreply, state ++ [pid]}
   end
@@ -42,6 +42,6 @@ defmodule HelloNerves.Led.Lighter do
   defp stop_random(_pid), do: nil
 
   defp dice do
-    HelloNerves.Led.SevenSeg.show()
+    AwesomeNerves.Led.SevenSeg.show()
   end
 end

@@ -1,5 +1,5 @@
-defmodule HelloNerves.Led do
-  def run, do: spawn(HelloNerves.Led, :blink, [])
+defmodule AwesomeNerves.Led do
+  def run, do: spawn(AwesomeNerves.Led, :blink, [])
 
   def blink do
     turn_on()

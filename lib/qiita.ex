@@ -24,7 +24,7 @@ defmodule Qiita do
 
     #{adventcalendar_table(items)}
 
-    # 総件数 #{if HelloNerves.is_xmas?(),
+    # 総件数 #{if AwesomeNerves.is_xmas?(),
       do: ":christmas_tree::santa::santa_tone1::santa_tone2::santa_tone3::santa_tone4::santa_tone5::christmas_tree:",
       else: ""}
     #{Enum.count(items)}件 :tada::tada::tada:
@@ -101,7 +101,7 @@ defmodule Qiita do
   end
 
   defp maybe_write_advent_calendar do
-    if HelloNerves.is_xmas?() do
+    if AwesomeNerves.is_xmas?() do
       """
       # メリークリスマス！ :santa: :santa_tone1: :santa_tone2: :santa_tone3: :santa_tone4: :santa_tone5:
       - [クリスマスエディション](https://github.com/TORIFUKUKaiou/hello_nerves/pull/54)
@@ -117,7 +117,7 @@ defmodule Qiita do
   end
 
   defp adventcalendar_table(items) do
-    if HelloNerves.is_xmas?() do
+    if AwesomeNerves.is_xmas?() do
       year = Timex.now().year
 
       advent_calendar_urls =

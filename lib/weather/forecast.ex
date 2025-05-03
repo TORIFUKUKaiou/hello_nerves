@@ -1,5 +1,5 @@
 defmodule Weather.Forecast do
-  @api_key Application.compile_env(:hello_nerves, :open_weather_api_key)
+  @api_key Application.compile_env(:awesome_nerves, :open_weather_api_key)
 
   def run(%{"coord" => %{"lat" => lat, "lon" => lon}}) do
     name = "飯塚"
@@ -24,7 +24,7 @@ defmodule Weather.Forecast do
   end
 
   defp i_use_nerves do
-    if Application.get_env(:hello_nerves, :target) != :host do
+    if Application.get_env(:awesome_nerves, :target) != :host do
       "I use Nerves. I like it!"
     else
       ""

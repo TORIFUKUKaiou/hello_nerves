@@ -1,10 +1,10 @@
-defmodule HelloNerves.Observer do
+defmodule AwesomeNerves.Observer do
   use GenServer
 
   require Logger
 
-  @input_pin HelloNerves.Util.input_pin()
-  @weather_input_pin HelloNerves.Util.weather_input_pin()
+  @input_pin AwesomeNerves.Util.input_pin()
+  @weather_input_pin AwesomeNerves.Util.weather_input_pin()
 
   def start_link(state \\ %{}) do
     GenServer.start_link(__MODULE__, state, name: __MODULE__)
@@ -18,14 +18,14 @@ defmodule HelloNerves.Observer do
   @impl true
   def handle_info({:circuits_gpio, @input_pin, _timestamp, 1}, state) do
     Logger.debug("Received rising event on pin #{@input_pin}")
-    HelloNerves.Led.Lighter.start_random()
+    AwesomeNerves.Led.Lighter.start_random()
     {:noreply, state}
   end
 
   @impl true
   def handle_info({:circuits_gpio, @input_pin, _timestamp, 0}, state) do
     Logger.debug("Received falling event on pin #{@input_pin}")
-    HelloNerves.Led.Lighter.stop_random()
+    AwesomeNerves.Led.Lighter.stop_random()
     {:noreply, state}
   end
 
@@ -45,7 +45,7 @@ defmodule HelloNerves.Observer do
     now = Time.utc_now()
 
     if List.last(button_history) == 1 && Time.diff(now, last_time) > 15 do
-      spawn(HelloNerves, :sound_forecast, [400_030])
+      spawn(AwesomeNerves, :sound_forecast, [])
       {:noreply, Map.merge(state, %{@weather_input_pin => button_history ++ [0], last_time: now})}
     else
       {:noreply, Map.merge(state, %{@weather_input_pin => button_history ++ [0]})}
