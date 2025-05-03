@@ -1,11 +1,11 @@
 defmodule AwesomeNerves.Led.SevenSeg do
-  @a_led_pin Application.compile_env(:awesome_nerves, :a_led_pin, 26)
-  @b_led_pin Application.compile_env(:awesome_nerves, :b_led_pin, 6)
-  @c_led_pin Application.compile_env(:awesome_nerves, :c_led_pin, 5)
-  @d_led_pin Application.compile_env(:awesome_nerves, :d_led_pin, 16)
-  @e_led_pin Application.compile_env(:awesome_nerves, :e_led_pin, 23)
-  @f_led_pin Application.compile_env(:awesome_nerves, :f_led_pin, 25)
-  @g_led_pin Application.compile_env(:awesome_nerves, :g_led_pin, 22)
+  @a_led_pin Application.compile_env(:hello_nerves, :a_led_pin, 26)
+  @b_led_pin Application.compile_env(:hello_nerves, :b_led_pin, 6)
+  @c_led_pin Application.compile_env(:hello_nerves, :c_led_pin, 5)
+  @d_led_pin Application.compile_env(:hello_nerves, :d_led_pin, 16)
+  @e_led_pin Application.compile_env(:hello_nerves, :e_led_pin, 23)
+  @f_led_pin Application.compile_env(:hello_nerves, :f_led_pin, 25)
+  @g_led_pin Application.compile_env(:hello_nerves, :g_led_pin, 22)
 
   alias Circuits.GPIO
 
