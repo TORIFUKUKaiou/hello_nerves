@@ -34,7 +34,7 @@ defmodule HelloNerves.Application do
     end
   else
     defp target_children() do
-      if Application.get_env(:hello_nerves, :mix_tasks_upload_hotswap_enabled) do
+      if Application.get_env(:awesome_nerves, :mix_tasks_upload_hotswap_enabled) do
         System.cmd("epmd", ["-daemon"])
         Node.start(:"pi@nerves-rpi2.local")
         Node.set_cookie(Application.get_env(:mix_tasks_upload_hotswap, :cookie))

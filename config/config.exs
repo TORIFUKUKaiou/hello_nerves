@@ -24,7 +24,7 @@ else
   import_config "target.exs"
 end
 
-config :hello_nerves,
+config :awesome_nerves,
   target: Mix.target(),
   mix_tasks_upload_hotswap_enabled: Mix.env() == :dev,
   nhk_api_key: System.get_env("HELLO_NERVES_NHK_API_KEY"),
@@ -37,7 +37,7 @@ config :hello_nerves,
   azure_text_to_speech_subscription_key:
     System.get_env("HELLO_NERVES_AZURE_TEXT_TO_SPEECH_SUBSCRIPTION_KEY")
 
-config :hello_nerves, AwesomeNerves.Scheduler,
+config :awesome_nerves, AwesomeNerves.Scheduler,
   jobs: [
     {"59 21 * * *",
      {AwesomeNerves, :sound_forecast,

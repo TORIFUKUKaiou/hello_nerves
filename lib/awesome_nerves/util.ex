@@ -1,8 +1,8 @@
 defmodule AwesomeNerves.Util do
   alias Circuits.GPIO
 
-  @input_pin Application.compile_env(:hello_nerves, :input_pin, 24)
-  @weather_input_pin Application.compile_env(:hello_nerves, :input_pin, 21)
+  @input_pin Application.compile_env(:awesome_nerves, :input_pin, 24)
+  @weather_input_pin Application.compile_env(:awesome_nerves, :input_pin, 21)
 
   def input_gpio do
     {:ok, input_gpio} = GPIO.open(@input_pin, :input)

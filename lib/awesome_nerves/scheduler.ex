@@ -1,3 +1,3 @@
 defmodule AwesomeNerves.Scheduler do
-  use Quantum, otp_app: :hello_nerves
+  use Quantum, otp_app: :awesome_nerves
 end

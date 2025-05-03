@@ -22,7 +22,7 @@ defmodule AwesomeNerves do
     content = Weather.Forecast.run(city) |> Azure.TextToSpeech.run!()
 
     {path, play_cmd} =
-      if Application.get_env(:hello_nerves, :target) != :host,
+      if Application.get_env(:awesome_nerves, :target) != :host,
         do: {"/tmp/output.wav", ~c"aplay -q /tmp/output.wav"},
         else: {"output.wav", ~c"afplay output.wav"}
 
