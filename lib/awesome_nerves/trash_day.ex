@@ -1,4 +1,4 @@
-defmodule HelloNerves.TrashDay do
+defmodule AwesomeNerves.TrashDay do
   def run do
     now = Timex.now() |> Timex.shift(hours: 9)
     day_of_week = Date.day_of_week(now)
@@ -26,5 +26,5 @@ defmodule HelloNerves.TrashDay do
 
   defp msg(trash), do: "#{trash}の日です。忘れずに捨てましょう！"
 
-  defp post(msg), do: HelloNerves.LineNotify.post(msg)
+  defp post(msg), do: AwesomeNerves.LineNotify.post(msg)
 end

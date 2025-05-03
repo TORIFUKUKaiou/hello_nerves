@@ -1,4 +1,4 @@
-defmodule HelloNerves.LineNotify do
+defmodule AwesomeNerves.LineNotify do
   @url "https://notify-api.line.me/api/notify"
   @token System.get_env("HELLO_NERVES_LINE_NOTIFY_TOKEN")
   @headers [Authorization: "Bearer #{@token}"]

@@ -29,7 +29,7 @@ defmodule HelloNerves.Application do
         #
         # Starts a worker by calling: Host.Worker.start_link(arg)
         # {Host.Worker, arg},
-        HelloNerves.Scheduler
+        AwesomeNerves.Scheduler
       ]
     end
   else
@@ -44,11 +44,11 @@ defmodule HelloNerves.Application do
         # Children for all targets except host
         # Starts a worker by calling: Target.Worker.start_link(arg)
         # {Target.Worker, arg},
-        {HelloNerves.Blinker, name: HelloNerves.Blinker},
-        {HelloNerves.Observer, name: HelloNerves.Observer},
-        {HelloNerves.SetInterrupter, name: HelloNerves.SetInterrupter},
-        {HelloNerves.Led.Lighter, name: HelloNerves.Led.Lighter},
-        HelloNerves.Scheduler
+        {AwesomeNerves.Blinker, name: AwesomeNerves.Blinker},
+        {AwesomeNerves.Observer, name: AwesomeNerves.Observer},
+        {AwesomeNerves.SetInterrupter, name: AwesomeNerves.SetInterrupter},
+        {AwesomeNerves.Led.Lighter, name: AwesomeNerves.Led.Lighter},
+        AwesomeNerves.Scheduler
       ]
     end
   end

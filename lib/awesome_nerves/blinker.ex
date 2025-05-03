@@ -1,4 +1,4 @@
-defmodule HelloNerves.Blinker do
+defmodule AwesomeNerves.Blinker do
   use GenServer
 
   @moduledoc """
