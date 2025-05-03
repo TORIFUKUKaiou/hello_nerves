@@ -29,14 +29,26 @@ defmodule HelloNerves.Application do
         #
         # Starts a worker by calling: Host.Worker.start_link(arg)
         # {Host.Worker, arg},
+        HelloNerves.Scheduler
       ]
     end
   else
     defp target_children() do
+      if Application.get_env(:hello_nerves, :mix_tasks_upload_hotswap_enabled) do
+        System.cmd("epmd", ["-daemon"])
+        Node.start(:"pi@nerves-rpi2.local")
+        Node.set_cookie(Application.get_env(:mix_tasks_upload_hotswap, :cookie))
+      end
+
       [
         # Children for all targets except host
         # Starts a worker by calling: Target.Worker.start_link(arg)
         # {Target.Worker, arg},
+        {HelloNerves.Blinker, name: HelloNerves.Blinker},
+        {HelloNerves.Observer, name: HelloNerves.Observer},
+        {HelloNerves.SetInterrupter, name: HelloNerves.SetInterrupter},
+        {HelloNerves.Led.Lighter, name: HelloNerves.Led.Lighter},
+        HelloNerves.Scheduler
       ]
     end
   end
