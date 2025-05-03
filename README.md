@@ -37,6 +37,9 @@ To start your Nerves app:
   * `export HELLO_NERVES_SLACK_INCOMING_WEBHOOK_URL="https://hooks.slack.com/services/secret/secret/secret"`
   * `export HELLO_NERVES_SLACK_CHANNEL="notification-awesome"`
   * `export HELLO_NERVES_OPEN_WEATHER_API_KEY="secret"`
+  * `export HELLO_NERVES_QIITA_READ_WRITE_TOKEN="secret"`
+  * `export HELLO_NERVES_QIITA_ITEM_ID="secret"`
+  * `export HELLO_NERVES_LINE_NOTIFY_TOKEN="secret"`
   * Install dependencies with `mix deps.get`
   * Download `http://bulk.openweathermap.org/sample/city.list.json.gz` |> Ungz |> Put `rootfs_overlay/usr/local/share/city.list.json`
   * Create firmware with `mix firmware`
