@@ -46,7 +46,7 @@ config :nerves_ssh,
 #
 # See https://github.com/nerves-networking/vintage_net for more information
 config :vintage_net,
-  regulatory_domain: "00",
+  regulatory_domain: "JP",
   config: [
     {"usb0", %{type: VintageNetDirect}},
     {"eth0",
@@ -54,7 +54,20 @@ config :vintage_net,
        type: VintageNetEthernet,
        ipv4: %{method: :dhcp}
      }},
-    {"wlan0", %{type: VintageNetWiFi}}
+    {"wlan0",
+     %{
+       type: VintageNetWiFi,
+       vintage_net_wifi: %{
+         networks: [
+           %{
+             key_mgmt: :wpa_psk,
+             ssid: System.get_env("NERVES_NETWORK_SSID"),
+             psk: System.get_env("NERVES_NETWORK_PSK")
+           }
+         ]
+       },
+       ipv4: %{method: :dhcp}
+     }}
   ]
 
 config :mdns_lite,
@@ -66,7 +79,7 @@ config :mdns_lite,
   # because otherwise any of the devices may respond to nerves.local leading to
   # unpredictable behavior.
 
-  hosts: [:hostname, "nerves"],
+  hosts: [:hostname, "nerves-rpi2"],
   ttl: 120,
 
   # Advertise the following services over mDNS.
@@ -93,3 +106,10 @@ config :mdns_lite,
 # Uncomment to use target specific configurations
 
 # import_config "#{Mix.target()}.exs"
+
+config :tzdata, :data_dir, "/data/tzdata"
+
+config :mix_tasks_upload_hotswap,
+  app_name: :hello_nerves,
+  nodes: [:"pi@nerves-rpi2.local"],
+  cookie: System.get_env("HELLO_NERVES_COOKIE") |> String.to_atom()
