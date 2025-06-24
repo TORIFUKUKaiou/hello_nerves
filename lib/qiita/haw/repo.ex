@@ -1,5 +1,4 @@
 defmodule Qiita.Haw.Repo do
-
   def post_markdown(markdown, tags, title, id) do
     Qiita.Api.patch_item(
       markdown,
