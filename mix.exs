@@ -4,26 +4,27 @@ defmodule HelloNerves.MixProject do
   @app :hello_nerves
   @version "0.1.0"
   @all_targets [
+    :bbb,
+    :grisp2,
+    :osd32mp1,
+    :mangopi_mq_pro,
+    :qemu_aarch64,
     :rpi,
     :rpi0,
+    :rpi0_2,
     :rpi2,
     :rpi3,
-    :rpi3a,
     :rpi4,
     :rpi5,
-    :bbb,
-    :osd32mp1,
-    :x86_64,
-    :grisp2,
-    :mangopi_mq_pro
+    :x86_64
   ]
 
   def project do
     [
       app: @app,
       version: @version,
-      elixir: "~> 1.17",
-      archives: [nerves_bootstrap: "~> 1.13"],
+      elixir: "~> 1.19",
+      archives: [nerves_bootstrap: "~> 1.14"],
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       releases: [{@app, release()}],
@@ -60,18 +61,19 @@ defmodule HelloNerves.MixProject do
       # bumps to Nerves systems. Since these include Linux kernel and Erlang
       # version updates, please review their release notes in case
       # changes to your application are needed.
+      {:nerves_system_bbb, "~> 2.19", runtime: false, targets: :bbb},
+      {:nerves_system_grisp2, "~> 0.8", runtime: false, targets: :grisp2},
+      {:nerves_system_osd32mp1, "~> 0.15", runtime: false, targets: :osd32mp1},
+      {:nerves_system_mangopi_mq_pro, "~> 0.6", runtime: false, targets: :mangopi_mq_pro},
+      {:nerves_system_qemu_aarch64, "~> 0.1", runtime: false, targets: :qemu_aarch64},
       {:nerves_system_rpi, "~> 1.24", runtime: false, targets: :rpi},
       {:nerves_system_rpi0, "~> 1.24", runtime: false, targets: :rpi0},
+      {:nerves_system_rpi0_2, "~> 1.31", runtime: false, targets: :rpi0_2},
       {:nerves_system_rpi2, "~> 1.24", runtime: false, targets: :rpi2},
       {:nerves_system_rpi3, "~> 1.24", runtime: false, targets: :rpi3},
-      {:nerves_system_rpi3a, "~> 1.24", runtime: false, targets: :rpi3a},
       {:nerves_system_rpi4, "~> 1.24", runtime: false, targets: :rpi4},
       {:nerves_system_rpi5, "~> 0.2", runtime: false, targets: :rpi5},
-      {:nerves_system_bbb, "~> 2.19", runtime: false, targets: :bbb},
-      {:nerves_system_osd32mp1, "~> 0.15", runtime: false, targets: :osd32mp1},
       {:nerves_system_x86_64, "~> 1.24", runtime: false, targets: :x86_64},
-      {:nerves_system_grisp2, "~> 0.8", runtime: false, targets: :grisp2},
-      {:nerves_system_mangopi_mq_pro, "~> 0.6", runtime: false, targets: :mangopi_mq_pro},
       {:oauther, "~> 1.3"},
       {:circuits_gpio, "~> 2.1"},
       {:floki, "~> 0.36"},
