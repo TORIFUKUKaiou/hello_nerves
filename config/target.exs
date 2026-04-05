@@ -12,11 +12,18 @@ config :logger, backends: [RingLogger]
 
 config :shoehorn, init: [:nerves_runtime, :nerves_pack]
 
+# Enable the system startup guard to check that all OTP applications
+# started. If they didn't and you're on a Nerves system that supports
+# test runs of new firmware, the firmware will automatically roll
+# back to the previous version. Delete this if implementing your own
+# way of validating that firmware is good.
+config :nerves_runtime, startup_guard_enabled: true
+
 # Erlinit can be configured without a rootfs_overlay. See
 # https://github.com/nerves-project/erlinit/ for more information on
 # configuring erlinit.
 
-# Advance the system clock on devices without real-time clocks.
+# Advance the system clock on devices without a real-time clock.
 config :nerves, :erlinit, update_clock: true
 
 # Configure the device for SSH IEx prompt access and firmware updates
