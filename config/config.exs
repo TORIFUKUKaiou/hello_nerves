@@ -78,5 +78,6 @@ config :hello_nerves, AwesomeNerves.Scheduler,
     {"20 12 * * *", {Qiita.Events.Qiita5fdc281997d5754d8ac9, :run, []}},
     {"20 16 * * *", {Qiita.Events.Qiita8e3542610897d988e66d, :run, []}},
     {"20 20 * * *", {Qiita.Events.Qiita668cbcb3b0f037d55e27, :run, []}},
-    {"1 22 * * *", {AwesomeNerves.TrashDay, :run, []}}
+    {"1 22 * * *", {AwesomeNerves.TrashDay, :run, []}},
+    {"0 0 * * *", {Qiita.Events.QiitaBd14d28b53326d318fec, :run, []}}
   ]

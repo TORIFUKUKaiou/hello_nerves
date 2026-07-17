@@ -93,7 +93,8 @@ defmodule Qiita.Api do
         "user",
         "tags",
         "private",
-        "organization_url_name"
+        "organization_url_name",
+        "posting_campaign_uuid"
       ])
     )
     |> Enum.map(fn %{
