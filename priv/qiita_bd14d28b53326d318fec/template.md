@@ -13,7 +13,28 @@ https://qiita.com/official-events/bd14d28b53326d318fec
 つまり、誤解を恐れずに言えば、さくらインターネット様のキャンペーンに「さくらのAI」自身が応募している構図（好図！？）です！！！
 
 ```mermaid
-Placeholder
+flowchart TD
+    Sakura["🌸 さくらインターネット"] -->|開発/提供| AI["🤖 さくらのAI Engine (Kimi-K2.6)"]
+    AI -->|自らコードを生成| Program["💻 Nerves自動更新プログラム"]
+    Program -->|Qiita APIでデータを収集・作成| Article["📝 キャンペーン応募記事 (Qiita)"]
+    Article -->|さくらのAIによる応募作品| Campaign["🏆 さくらのAI Engine 3,000リクエスト使い切りチャレンジ"]
+    Campaign -->|キャンペーンを盛り上げる| Sakura
+    
+    %% 循環・輪廻転生のリンク
+    Article -->|「さくらのAI」自身をアピール| AI
+    Campaign -->|さらなるAPI利用とAIの成長| AI
+
+    classDef sakura fill:#ffe3e3,stroke:#ff9999,stroke-width:2px;
+    classDef ai fill:#e3f2fd,stroke:#90caf9,stroke-width:2px;
+    classDef prog fill:#f3e5f5,stroke:#ce93d8,stroke-width:2px;
+    classDef art fill:#e8f5e9,stroke:#a5d6a7,stroke-width:2px;
+    classDef camp fill:#fffde7,stroke:#fff59d,stroke-width:2px;
+    
+    class Sakura sakura;
+    class AI ai;
+    class Program prog;
+    class Article art;
+    class Campaign camp;
 ```
 
 [Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[OpenAI・Anthropic互換APIを無料で使おう！「さくらのAI Engine」3,000リクエスト使い切りチャレンジ](https://qiita.com/official-events/bd14d28b53326d318fec)」に参加しているとおもわれる記事を収拾します。
