@@ -22,7 +22,7 @@ defmodule Qiita.Events.MarkdownGenerator do
         Enum.sort_by(items, fn %{"likes_count" => likes_count} -> likes_count end, :desc)
       end
 
-      def build_bindings(items) do
+      defp build_bindings(items) do
         [
           item_count: Enum.count(items),
           table_a: table(items, :a),
