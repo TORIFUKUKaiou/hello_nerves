@@ -3,7 +3,18 @@ https://qiita.com/official-events/bd14d28b53326d318fec
 # この記事は
 
 「[OpenAI・Anthropic互換APIを無料で使おう！「さくらのAI Engine」3,000リクエスト使い切りチャレンジ](https://qiita.com/official-events/bd14d28b53326d318fec)」
-テーマの応援記事です。
+キャンペーンの応援記事です。
+なおかつ、この記事がキャンペーンへの応募作品です。
+
+そしてなんとなんと、この記事を自動更新するプログラムを書いてくれたのが、[さくらのAI Engine](https://ai.sakura.ad.jp/sakura-ai/ai-engine/)です！
+
+「[Messages APIを使ったさくらのAI EngineとClaude Codeの連携](https://ai.sakura.ad.jp/column/claude-code-messages-api-2/)」を参考に、[Claude Code](https://code.claude.com/docs/ja/overview) x さくらのAI Engine(`preview/Kimi-K2.6`) エージェントハーネスを使ってできたプログラムです。
+
+つまり、誤解を恐れずに言えば、さくらインターネット様のキャンペーンに「さくらのAI」自身が応募している構図（好図！？）です！！！
+
+```mermaid
+Placeholder
+```
 
 [Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[OpenAI・Anthropic互換APIを無料で使おう！「さくらのAI Engine」3,000リクエスト使い切りチャレンジ](https://qiita.com/official-events/bd14d28b53326d318fec)」に参加しているとおもわれる記事を収拾します。
 あつまった記事群（データ）にあれこれしてみます。
@@ -55,3 +66,10 @@ https://qiita.com/official-events/bd14d28b53326d318fec
 - [Elixir](https://elixir-lang.org/)をはじめてみようという方は、[Enum](https://hexdocs.pm/elixir/Enum.html)モジュールの習得からはじめるとよいとおもいます
 - [WEB+DB PRESS Vol.127](https://gihyo.jp/magazine/wdpress/archive/2022/vol127) :book: の特集２「Elixirによる高速なWeb開発！ 作って学ぶPhoenix」は、[Elixir](https://elixir-lang.org/)でWebアプリケーション開発を楽しめる[Phoenix](https://www.phoenixframework.org/)の基礎がぎっしりと詰まっていて、**オススメ**です
 - プログラムは、 https://github.com/TORIFUKUKaiou/hello_nerves/tree/master/lib/qiita/events にあります
+
+
+素敵なキャンペーンを企画してくださったさくらインターネット様とQiita様には、感謝の言葉しかありません。
+
+<b><font color="red">$\huge{ありがとうーーーッ！！！}$</font></b>
+
+token消化ではなく、**$\huge{闘魂昇華}$**。無料枠を、闘って、磨いて、使い切りますッ！！！
