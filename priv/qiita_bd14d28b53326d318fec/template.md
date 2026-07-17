@@ -10,7 +10,7 @@ https://qiita.com/official-events/bd14d28b53326d318fec
 
 「[Messages APIを使ったさくらのAI EngineとClaude Codeの連携](https://ai.sakura.ad.jp/column/claude-code-messages-api-2/)」を参考に、[Claude Code](https://code.claude.com/docs/ja/overview) x さくらのAI Engine(`preview/Kimi-K2.6`) エージェントハーネスを使ってできたプログラムです。
 
-つまり、誤解を恐れずに言えば、さくらインターネット様のキャンペーンに「さくらのAI」自身が応募している構図（好図！？）です！！！
+つまり、誤解を恐れずに言えば、さくらインターネット様のキャンペーンに「さくらのAI Engine」自身が応募している構図（好図！？）です！！！
 
 ```mermaid
 flowchart TD
