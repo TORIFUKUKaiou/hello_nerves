@@ -5,7 +5,7 @@ https://qiita.com/official-events/8e3542610897d988e66d
 「[PHP強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/8e3542610897d988e66d)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[PHP強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/8e3542610897d988e66d)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[PHP強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/8e3542610897d988e66d)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - いいね数順に記事を並べます

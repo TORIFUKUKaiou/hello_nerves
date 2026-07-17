@@ -37,7 +37,7 @@ flowchart TD
     class Campaign camp;
 ```
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[OpenAI・Anthropic互換APIを無料で使おう！「さくらのAI Engine」3,000リクエスト使い切りチャレンジ](https://qiita.com/official-events/bd14d28b53326d318fec)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[OpenAI・Anthropic互換APIを無料で使おう！「さくらのAI Engine」3,000リクエスト使い切りチャレンジ](https://qiita.com/official-events/bd14d28b53326d318fec)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - いいね数順に記事を並べます
@@ -45,6 +45,8 @@ flowchart TD
 - 投稿者ごとのいいね数を集計します
 - tagごとの記事数を集計します
 - tagごとのいいね数を集計します
+
+**この記事の順位も、この記事自身が毎日監視しています。**
 
 「参加ボタン」を押すのをお忘れなく!!!
 

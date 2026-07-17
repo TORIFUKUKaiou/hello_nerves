@@ -7,7 +7,7 @@ https://qiita.com/official-events/eeadea1de45a11be944e
 「[Claris Connect を使った SaaS 連携ユースケースを紹介しよう！](https://qiita.com/official-events/eeadea1de45a11be944e)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Claris Connect を使った SaaS 連携ユースケースを紹介しよう！](https://qiita.com/official-events/eeadea1de45a11be944e)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Claris Connect を使った SaaS 連携ユースケースを紹介しよう！](https://qiita.com/official-events/eeadea1de45a11be944e)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

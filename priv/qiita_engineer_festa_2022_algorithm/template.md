@@ -7,7 +7,7 @@ https://qiita.com/official-events/55631b864217a4df857a
 「[アルゴリズム強化月間 - 楽しいアルゴリズムの世界を紹介しよう -](https://qiita.com/official-events/55631b864217a4df857a)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[アルゴリズム強化月間 - 楽しいアルゴリズムの世界を紹介しよう -](https://qiita.com/official-events/55631b864217a4df857a)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[アルゴリズム強化月間 - 楽しいアルゴリズムの世界を紹介しよう -](https://qiita.com/official-events/55631b864217a4df857a)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

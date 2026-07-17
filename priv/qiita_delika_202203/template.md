@@ -6,7 +6,7 @@ https://qiita.com/official-events/30be12dd14c0aad2c1c2
 キャンペーンの参加記事です。
 テーマ2『データに関する記事を書こう！』に参加しています。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[データに関する記事を書こう！](https://qiita.com/official-events/30be12dd14c0aad2c1c2)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[データに関する記事を書こう！](https://qiita.com/official-events/30be12dd14c0aad2c1c2)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

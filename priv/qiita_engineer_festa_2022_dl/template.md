@@ -7,7 +7,7 @@ https://qiita.com/official-events/97ae2edf9e1a01bde1fe
 「[深層学習の論文について解説してみた](https://qiita.com/official-events/97ae2edf9e1a01bde1fe)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[深層学習の論文について解説してみた](https://qiita.com/official-events/97ae2edf9e1a01bde1fe)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[深層学習の論文について解説してみた](https://qiita.com/official-events/97ae2edf9e1a01bde1fe)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

@@ -7,7 +7,7 @@ https://qiita.com/official-events/6677e0827fec55a3b95f
 「[React 18、あなたならどう使いこなす？](https://qiita.com/official-events/6677e0827fec55a3b95f)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[React 18、あなたならどう使いこなす？](https://qiita.com/official-events/6677e0827fec55a3b95f)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[React 18、あなたならどう使いこなす？](https://qiita.com/official-events/6677e0827fec55a3b95f)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

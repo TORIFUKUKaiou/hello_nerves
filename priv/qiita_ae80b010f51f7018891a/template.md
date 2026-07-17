@@ -5,7 +5,7 @@ https://qiita.com/official-events/ae80b010f51f7018891a
 「[Go強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/ae80b010f51f7018891a)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Go強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/ae80b010f51f7018891a)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Go強化月間～開発する上で知っておくべき知見を共有しよう～](https://qiita.com/official-events/ae80b010f51f7018891a)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

@@ -5,7 +5,7 @@ https://qiita.com/official-events/668cbcb3b0f037d55e27
 「[機械学習を発展させるための知識を発信しよう！](https://qiita.com/official-events/668cbcb3b0f037d55e27)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[機械学習を発展させるための知識を発信しよう！](https://qiita.com/official-events/668cbcb3b0f037d55e27)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[機械学習を発展させるための知識を発信しよう！](https://qiita.com/official-events/668cbcb3b0f037d55e27)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - いいね数順に記事を並べます

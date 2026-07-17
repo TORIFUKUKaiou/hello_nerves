@@ -7,7 +7,7 @@ https://qiita.com/official-events/786b978e4a1a28fad312
 「[Snykを使って開発者セキュリティに関する記事を投稿しよう！](https://qiita.com/official-events/786b978e4a1a28fad312)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Snykを使って開発者セキュリティに関する記事を投稿しよう！](https://qiita.com/official-events/786b978e4a1a28fad312)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Snykを使って開発者セキュリティに関する記事を投稿しよう！](https://qiita.com/official-events/786b978e4a1a28fad312)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

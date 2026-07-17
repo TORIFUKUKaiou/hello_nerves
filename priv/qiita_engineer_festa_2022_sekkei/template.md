@@ -7,7 +7,7 @@ https://qiita.com/official-events/535fdbb5cb67791998f8
 「[悪いコードを改善した時の体験や知見を共有しよう](https://qiita.com/official-events/535fdbb5cb67791998f8)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[悪いコードを改善した時の体験や知見を共有しよう](https://qiita.com/official-events/535fdbb5cb67791998f8)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[悪いコードを改善した時の体験や知見を共有しよう](https://qiita.com/official-events/535fdbb5cb67791998f8)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

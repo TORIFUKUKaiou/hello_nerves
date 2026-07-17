@@ -7,7 +7,7 @@ https://qiita.com/official-events/602a6d1bb63c59538170
 「[Azure Machine Learning を使って機械学習に関するナレッジをシェアしよう](https://qiita.com/official-events/602a6d1bb63c59538170)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Azure Machine Learning を使って機械学習に関するナレッジをシェアしよう](https://qiita.com/official-events/602a6d1bb63c59538170)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Azure Machine Learning を使って機械学習に関するナレッジをシェアしよう](https://qiita.com/official-events/602a6d1bb63c59538170)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

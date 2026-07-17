@@ -7,7 +7,7 @@ https://qiita.com/official-events/14b94a693d6153857db4
 「[GitHub Actionsの自分流の使い方をシェアしよう](https://qiita.com/official-events/14b94a693d6153857db4)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[GitHub Actionsの自分流の使い方をシェアしよう](https://qiita.com/official-events/14b94a693d6153857db4)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[GitHub Actionsの自分流の使い方をシェアしよう](https://qiita.com/official-events/14b94a693d6153857db4)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

@@ -5,7 +5,7 @@ https://qiita.com/official-events/6d31965c499a69377c0b
 「[エンジニア夏休み企画！～自由研究や読書感想文を発表しよう～](https://qiita.com/official-events/6d31965c499a69377c0b)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[エンジニア夏休み企画！～自由研究や読書感想文を発表しよう～](https://qiita.com/official-events/6d31965c499a69377c0b)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[エンジニア夏休み企画！～自由研究や読書感想文を発表しよう～](https://qiita.com/official-events/6d31965c499a69377c0b)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

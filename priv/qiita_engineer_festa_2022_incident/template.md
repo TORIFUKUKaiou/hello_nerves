@@ -7,7 +7,7 @@ https://qiita.com/official-events/5d9db98800d6f7763fed
 「[私が体験した1番ゾッとするインシデントの話](https://qiita.com/official-events/5d9db98800d6f7763fed)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[私が体験した1番ゾッとするインシデントの話](https://qiita.com/official-events/5d9db98800d6f7763fed)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[私が体験した1番ゾッとするインシデントの話](https://qiita.com/official-events/5d9db98800d6f7763fed)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

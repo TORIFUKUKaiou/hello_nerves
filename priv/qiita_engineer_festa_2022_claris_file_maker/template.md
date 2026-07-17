@@ -7,7 +7,7 @@ https://qiita.com/official-events/0005a02478acfc50dd13
 「[Claris FileMaker で作った App を JavaScript で拡張したらどうなる？！](https://qiita.com/official-events/0005a02478acfc50dd13)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Claris FileMaker で作った App を JavaScript で拡張したらどうなる？！](https://qiita.com/official-events/0005a02478acfc50dd13)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Claris FileMaker で作った App を JavaScript で拡張したらどうなる？！](https://qiita.com/official-events/0005a02478acfc50dd13)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

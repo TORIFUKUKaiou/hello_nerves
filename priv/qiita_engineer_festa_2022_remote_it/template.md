@@ -7,7 +7,7 @@ https://qiita.com/official-events/8a2ab08f6fa0f093ae39
 「[remote.it を使って○○に接続してみた！](https://qiita.com/official-events/8a2ab08f6fa0f093ae39)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[remote.it を使って○○に接続してみた！](https://qiita.com/official-events/8a2ab08f6fa0f093ae39)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[remote.it を使って○○に接続してみた！](https://qiita.com/official-events/8a2ab08f6fa0f093ae39)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

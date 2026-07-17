@@ -5,7 +5,7 @@ https://qiita.com/official-events/5fdc281997d5754d8ac9
 「[フロントエンドの開発効率を向上するヒントを教え合おう！](https://qiita.com/official-events/5fdc281997d5754d8ac9)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[フロントエンドの開発効率を向上するヒントを教え合おう！](https://qiita.com/official-events/5fdc281997d5754d8ac9)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[フロントエンドの開発効率を向上するヒントを教え合おう！](https://qiita.com/official-events/5fdc281997d5754d8ac9)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - いいね数順に記事を並べます

@@ -7,7 +7,7 @@ https://qiita.com/official-events/8746fa99d4e403fad3d1
 「[買ってよかった技術書を紹介しよう！](https://qiita.com/official-events/8746fa99d4e403fad3d1)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[買ってよかった技術書を紹介しよう！](https://qiita.com/official-events/8746fa99d4e403fad3d1)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[買ってよかった技術書を紹介しよう！](https://qiita.com/official-events/8746fa99d4e403fad3d1)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます

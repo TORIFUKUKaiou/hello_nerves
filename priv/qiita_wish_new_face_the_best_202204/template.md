@@ -4,7 +4,7 @@ https://qiita.com/official-events/3f21c92121aa125807b4
 
 「[新人プログラマ応援 - みんなで新人を育てよう！](https://qiita.com/official-events/3f21c92121aa125807b4)」
 キャンペーンの参加記事です。
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[新人プログラマ応援 - みんなで新人を育てよう！](https://qiita.com/official-events/3f21c92121aa125807b4)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[新人プログラマ応援 - みんなで新人を育てよう！](https://qiita.com/official-events/3f21c92121aa125807b4)」に参加しているとおもわれる記事を収集します。
 [新人プログラマ応援](https://qiita.com/tags/%e6%96%b0%e4%ba%ba%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9e%e5%bf%9c%e6%8f%b4) タグが設定された記事のみを集めています。[^1]
 
 [^1]: [新人プログラマ応援](https://qiita.com/tags/%e6%96%b0%e4%ba%ba%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%9e%e5%bf%9c%e6%8f%b4) タグを付けることは必須ではないようですが、このページではタグが付いている記事のみに絞っています。

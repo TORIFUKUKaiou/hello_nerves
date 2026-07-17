@@ -7,7 +7,7 @@ https://qiita.com/official-events/be9762611b62168d13ce
 「[Twilioを使うためのコツ、Tipsやおもしろ実装など、Twilioのことなら何でも共有しよう！](https://qiita.com/official-events/be9762611b62168d13ce)」
 テーマの応援記事です。
 
-[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Twilioを使うためのコツ、Tipsやおもしろ実装など、Twilioのことなら何でも共有しよう！](https://qiita.com/official-events/be9762611b62168d13ce)」に参加しているとおもわれる記事を収拾します。
+[Qiita API v2](https://qiita.com/api/v2/docs)を利用させていただいて、「[Twilioを使うためのコツ、Tipsやおもしろ実装など、Twilioのことなら何でも共有しよう！](https://qiita.com/official-events/be9762611b62168d13ce)」に参加しているとおもわれる記事を収集します。
 あつまった記事群（データ）にあれこれしてみます。
 
 - LGTM数順に記事を並べます
