@@ -101,7 +101,7 @@ defmodule Qiita.Tenth do
 
     ```elixir:hello.exs
     Mix.install([
-      {:req, "~> 1.0"}
+      {:req, "~> 0.6"}
     ])
 
     "https://qiita.com/api/v2/items?query=tag:Elixir"
