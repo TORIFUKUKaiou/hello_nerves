@@ -5,8 +5,6 @@ defmodule HelloNerves.MixProject do
   @version "0.1.0"
   @all_targets [
     :bbb,
-    :grisp2,
-    :osd32mp1,
     :mangopi_mq_pro,
     :qemu_aarch64,
     :rpi,
@@ -24,7 +22,7 @@ defmodule HelloNerves.MixProject do
       app: @app,
       version: @version,
       elixir: "~> 1.19",
-      archives: [nerves_bootstrap: "~> 1.15"],
+      archives: [nerves_bootstrap: "~> 1.16"],
       listeners: listeners(Mix.target(), Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -51,7 +49,7 @@ defmodule HelloNerves.MixProject do
       {:nerves, "~> 1.13", runtime: false},
       {:shoehorn, "~> 0.9.1"},
       {:ring_logger, "~> 0.11.0"},
-      {:toolshed, "~> 0.4.0"},
+      {:toolshed, "~> 0.5.0"},
 
       # Allow Nerves.Runtime on host to support development, testing and CI.
       # See config/host.exs for usage.
@@ -66,8 +64,6 @@ defmodule HelloNerves.MixProject do
       # version updates, please review their release notes in case
       # changes to your application are needed.
       {:nerves_system_bbb, "~> 2.19", runtime: false, targets: :bbb},
-      {:nerves_system_grisp2, "~> 0.8", runtime: false, targets: :grisp2},
-      {:nerves_system_osd32mp1, "~> 0.15", runtime: false, targets: :osd32mp1},
       {:nerves_system_mangopi_mq_pro, "~> 0.6", runtime: false, targets: :mangopi_mq_pro},
       {:nerves_system_qemu_aarch64, "~> 0.1", runtime: false, targets: :qemu_aarch64},
       {:nerves_system_rpi, "~> 2.0", runtime: false, targets: :rpi},
@@ -98,7 +94,7 @@ defmodule HelloNerves.MixProject do
     [
       overwrite: true,
       # Erlang distribution is not started automatically.
-      # See https://hexdocs.pm/nerves_pack/readme.html#erlang-distribution
+      # See https://nerves-pack.hexdocs.pm/readme.html#erlang-distribution
       cookie: "#{@app}_cookie",
       include_erts: &Nerves.Release.erts/0,
       steps: [&Nerves.Release.init/1, :assemble],
