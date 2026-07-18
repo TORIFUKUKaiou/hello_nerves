@@ -77,7 +77,7 @@ Many external services are configured through environment variables (see `README
 - `mix.exs` — Standard Mix project for Nerves with `@all_targets` and `MIX_TARGET` logic
 - `lib/hello_nerves/application.ex` — OTP supervisor that branches on `Mix.target()`
 - `lib/awesome_nerves/scheduler.ex` — Quantum cron scheduler
-- `lib/qiita/api.ex` — HTTPoison-based Qiita API client
+- `lib/qiita/api.ex` — Req-based Qiita API client
 - `lib/nhk/api.ex` — NHK program listing API client
 - `rootfs_overlay/` — Custom files included in the firmware image (e.g., `etc/iex.exs`)
 

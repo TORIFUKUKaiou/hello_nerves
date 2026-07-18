@@ -4,6 +4,6 @@ defmodule AwesomeNerves.LineNotify do
   @headers [Authorization: "Bearer #{@token}"]
 
   def post(msg) do
-    HTTPoison.post(@url, {:form, [message: msg]}, @headers)
+    Req.post(@url, form: [message: msg], headers: @headers)
   end
 end

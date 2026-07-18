@@ -6,7 +6,7 @@ defmodule Qiita.Api do
     Accept: "Application/json; Charset=utf-8",
     "Content-Type": "application/json"
   ]
-  @options [timeout: 50_000, recv_timeout: 50_000]
+  @options [connect_options: [timeout: 50_000], receive_timeout: 50_000]
   @base_url "https://qiita.com/api/v2"
   @per_page 100
 
@@ -31,7 +31,7 @@ defmodule Qiita.Api do
       }
       |> Jason.encode!()
 
-    HTTPoison.patch!("#{@base_url}/items/#{item_id}", body, @headers)
+    Req.patch!("#{@base_url}/items/#{item_id}", body: body, headers: @headers)
   end
 
   defp do_items(query) do
@@ -43,10 +43,16 @@ defmodule Qiita.Api do
   defp do_items(max_page, query) do
     1..max_page
     |> Enum.reduce([], fn page, acc_list ->
-      "#{@base_url}/items?#{query}&per_page=#{@per_page}&page=#{page}"
-      |> HTTPoison.get!(@headers, @options)
-      |> Map.get(:body)
-      |> Jason.decode()
+      response =
+        Req.get!(
+          "#{@base_url}/items?#{query}&per_page=#{@per_page}&page=#{page}",
+          Keyword.merge([headers: @headers], @options)
+        )
+
+      decoded_body =
+        if is_binary(response.body), do: Jason.decode(response.body), else: {:ok, response.body}
+
+      decoded_body
       |> handle_json_decode()
       |> Kernel.++(acc_list)
     end)
@@ -58,12 +64,15 @@ defmodule Qiita.Api do
   end
 
   defp total_count(query) do
-    "#{@base_url}/items?#{query}&per_page=1"
-    |> HTTPoison.get!(@headers, @options)
-    |> Map.get(:headers)
-    |> Enum.filter(fn {key, _} -> key == "Total-Count" end)
-    |> Enum.at(0)
-    |> elem(1)
+    response =
+      Req.get!(
+        "#{@base_url}/items?#{query}&per_page=1",
+        Keyword.merge([headers: @headers], @options)
+      )
+
+    response
+    |> Req.Response.get_header("total-count")
+    |> List.first()
     |> String.to_integer()
   end
 

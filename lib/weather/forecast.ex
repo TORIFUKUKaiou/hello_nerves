@@ -6,9 +6,8 @@ defmodule Weather.Forecast do
 
     %{"daily" => dailies} =
       onecall(lat, lon)
-      |> HTTPoison.get!()
+      |> Req.get!()
       |> Map.get(:body)
-      |> Jason.decode!()
 
     description =
       dailies |> Enum.at(0) |> Map.get("weather") |> Enum.at(0) |> Map.get("description")
