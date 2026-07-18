@@ -83,7 +83,6 @@ defmodule HelloNerves.MixProject do
       {:pelemay, "~> 0.0.15"},
       {:cpu_info, "~> 0.2.2"},
       {:mix_tasks_upload_hotswap, "~> 0.1.2", only: :dev},
-      {:httpoison, "~> 2.2"},
       {:jason, "~> 1.2"},
       {:number, "~> 1.0.1"},
       {:req, "~> 0.5"}

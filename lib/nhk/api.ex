@@ -2,18 +2,19 @@ defmodule Nhk.Api do
   @apikey Application.compile_env(:hello_nerves, :nhk_api_key)
 
   def get(area, service, date) do
-    case HTTPoison.get(url(area, service, date)) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
-        body
-        |> Jason.decode!()
+    case Req.get(url(area, service, date)) do
+      {:ok, %Req.Response{status: 200, body: body}} ->
+        decoded_body = if is_binary(body), do: Jason.decode!(body), else: body
+
+        decoded_body
         |> Map.get("list")
         |> Map.get(service)
 
-      {:ok, %HTTPoison.Response{status_code: 404}} ->
+      {:ok, %Req.Response{status: 404}} ->
         IO.puts(404)
         []
 
-      {:error, %HTTPoison.Error{reason: reason}} ->
+      {:error, reason} ->
         IO.inspect(reason)
         []
     end
