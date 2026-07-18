@@ -19,7 +19,7 @@ defmodule AwesomeNerves do
   def is_xmas?, do: Timex.now().month == 12
 
   defp _sound_forecast(city, cnt) do
-    content = Weather.Forecast.run(city) |> Azure.TextToSpeech.run!()
+    content = Weather.Forecast.run(city) |> Sakura.TextToSpeech.run!()
 
     {path, play_cmd} =
       if Application.get_env(:hello_nerves, :target) != :host,
