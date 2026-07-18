@@ -6,7 +6,7 @@ defmodule Qiita.Api do
     Accept: "Application/json; Charset=utf-8",
     "Content-Type": "application/json"
   ]
-  @options [timeout: 50_000, recv_timeout: 50_000]
+  @options [connect_options: [timeout: 50_000], receive_timeout: 50_000]
   @base_url "https://qiita.com/api/v2"
   @per_page 100
 
@@ -46,8 +46,7 @@ defmodule Qiita.Api do
       response =
         Req.get!(
           "#{@base_url}/items?#{query}&per_page=#{@per_page}&page=#{page}",
-          headers: @headers,
-          receive_timeout: 50_000
+          Keyword.merge([headers: @headers], @options)
         )
 
       decoded_body =
@@ -68,8 +67,7 @@ defmodule Qiita.Api do
     response =
       Req.get!(
         "#{@base_url}/items?#{query}&per_page=1",
-        headers: @headers,
-        receive_timeout: 50_000
+        Keyword.merge([headers: @headers], @options)
       )
 
     response
