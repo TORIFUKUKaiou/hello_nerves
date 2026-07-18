@@ -26,7 +26,7 @@ To start your Nerves app:
   * `export TWITTER_CONSUMER_SECRET=yyy`
   * `export TWITTER_ACCESS_TOKEN=zzz`
   * `export TWITTER_ACCESS_TOKEN_SECRET=aaa`
-  * `export TEXT_TO_SPEECH_API_KEY=ttt`
+  * `export HELLO_NERVES_SAKURA_AI_ENGINE_TOKEN=your_token`
   * `export HELLO_NERVES_NHK_API_KEY=secret`
   * `export HELLO_NERVES_NHK_AREA=401`
   * `export HELLO_NERVES_NHK_FAVORITE_ACTS="加藤一二三,ベニシア・スタンリー・スミス,半澤鶴子"`

@@ -56,7 +56,7 @@ On real hardware:
 - `AwesomeNerves.Led.Lighter` controls LEDs via `circuits_gpio`
 - `AwesomeNerves.Blinker` handles blinking patterns
 - `AwesomeNerves.Observer` and `SetInterrupter` are GPIO-related observers/interrupters
-- `AwesomeNerves.sound_forecast/2` fetches weather (`Weather.Forecast`) and uses Azure TTS (`Azure.TextToSpeech`) to play audio via `aplay` on the device or `afplay` on macOS host
+- `AwesomeNerves.sound_forecast/2` fetches weather (`Weather.Forecast`) and uses Sakura AI Engine TTS (`Sakura.TextToSpeech`) to play audio via `aplay` on the device or `afplay` on macOS host
 
 ## Environment Variables
 
@@ -66,7 +66,9 @@ Many external services are configured through environment variables (see `README
 - `HELLO_NERVES_QIITA_READ_WRITE_TOKEN`, `HELLO_NERVES_QIITA_ITEM_ID`
 - `HELLO_NERVES_NHK_API_KEY`, `HELLO_NERVES_NHK_AREA`, `HELLO_NERVES_NHK_FAVORITE_ACTS`, `HELLO_NERVES_NHK_FAVORITE_TITLES`
 - `HELLO_NERVES_OPEN_WEATHER_API_KEY`
-- `HELLO_NERVES_AZURE_TEXT_TO_SPEECH_SUBSCRIPTION_KEY`
+- `HELLO_NERVES_SAKURA_AI_ENGINE_TOKEN`
+- `HELLO_NERVES_SAKURA_AI_ENGINE_MODEL` (defaults to `zundamon`)
+- `HELLO_NERVES_SAKURA_AI_ENGINE_VOICE`
 - `HELLO_NERVES_SLACK_INCOMING_WEBHOOK_URL`, `HELLO_NERVES_SLACK_CHANNEL`
 - `HELLO_NERVES_COOKIE` — For remote hotswap via `mix_tasks_upload_hotswap`
 

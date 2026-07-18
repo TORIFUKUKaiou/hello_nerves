@@ -34,8 +34,9 @@ config :hello_nerves,
   slack_incoming_webhook_url: System.get_env("HELLO_NERVES_SLACK_INCOMING_WEBHOOK_URL"),
   slack_channel: System.get_env("HELLO_NERVES_SLACK_CHANNEL"),
   open_weather_api_key: System.get_env("HELLO_NERVES_OPEN_WEATHER_API_KEY"),
-  azure_text_to_speech_subscription_key:
-    System.get_env("HELLO_NERVES_AZURE_TEXT_TO_SPEECH_SUBSCRIPTION_KEY")
+  sakura_ai_engine_token: System.get_env("HELLO_NERVES_SAKURA_AI_ENGINE_TOKEN"),
+  sakura_ai_engine_model: System.get_env("HELLO_NERVES_SAKURA_AI_ENGINE_MODEL", "zundamon"),
+  sakura_ai_engine_voice: System.get_env("HELLO_NERVES_SAKURA_AI_ENGINE_VOICE")
 
 config :hello_nerves, AwesomeNerves.Scheduler,
   jobs: [
