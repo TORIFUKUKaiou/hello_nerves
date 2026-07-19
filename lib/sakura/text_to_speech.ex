@@ -14,7 +14,8 @@ defmodule Sakura.TextToSpeech do
       json: body,
       headers: [authorization: "Bearer #{@token}"],
       pool_timeout: 50000,
-      receive_timeout: 50000
+      receive_timeout: 50000,
+      connect_options: [timeout: 50_000]
     )
     |> Map.get(:body)
   end
