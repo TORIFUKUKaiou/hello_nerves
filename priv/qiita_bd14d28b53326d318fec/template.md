@@ -2,9 +2,10 @@ https://qiita.com/official-events/bd14d28b53326d318fec
 
 # この記事は
 
-「[OpenAI・Anthropic互換APIを無料で使おう！「さくらのAI Engine」3,000リクエスト使い切りチャレンジ](https://qiita.com/official-events/bd14d28b53326d318fec)」
-キャンペーンの応援記事です。
+「[OpenAI・Anthropic互換APIを無料で使おう！「さくらのAI Engine」3,000リクエスト使い切りチャレンジ](https://qiita.com/official-events/bd14d28b53326d318fec)」キャンペーンの応援記事です。
 なおかつ、この記事がキャンペーンへの応募作品です。
+
+**キャンペーンに参加するすべてのみなさま、つまりは全人類を応援します！**
 
 そしてなんとなんと、この記事を自動更新するプログラムを書いてくれたのが、[さくらのAI Engine](https://ai.sakura.ad.jp/sakura-ai/ai-engine/)です！
 
@@ -96,3 +97,5 @@ flowchart TD
 <b><font color="red">$\huge{ありがとうーーーッ！！！}$</font></b>
 
 token消化ではなく、**$\huge{闘魂昇華}$**。無料枠を、闘って、磨いて、使い切りますッ！！！
+
+![ai-back.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/131808/b84b2736-c4a6-4c31-8fa5-ae55387eba08.png)
